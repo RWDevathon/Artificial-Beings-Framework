@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- Reprogramming Dialog -->
+    <ABF_Directives>Directives</ABF_Directives>
+    <ABF_SelectedDirectives>Active directives</ABF_SelectedDirectives>
+    <ABF_SetDroneDirectives>Select directives</ABF_SetDroneDirectives>
+    <ABF_SelectSkills>Select skills</ABF_SelectSkills>
+    <ABF_AddSkillLevel>+</ABF_AddSkillLevel>
+    <ABF_RemoveSkillLevel>-</ABF_RemoveSkillLevel>
+    <ABF_SelectedWorkTypes>Enabled work types</ABF_SelectedWorkTypes>
+    <ABF_Complexity>Complexity</ABF_Complexity>
+    <ABF_ComplexityDesc>How complex this drone's programming is.</ABF_ComplexityDesc>
+    <ABF_ComplexityDirectiveDesc>How much complexity this directive adds to the overall total.</ABF_ComplexityDirectiveDesc>
+    <ABF_ComplexityEffects>Complexity effects</ABF_ComplexityEffects>
+    <ABF_ComplexityEffectsDesc>The current effect the complexity will have on the pawn.</ABF_ComplexityEffectsDesc>
+    <ABF_ComplexityEffectPositive>Efficiency bonus</ABF_ComplexityEffectPositive>
+    <ABF_ComplexityEffectNeutral>Minimal effects</ABF_ComplexityEffectNeutral>
+    <ABF_ComplexityEffectNegative>Efficiency loss</ABF_ComplexityEffectNegative>
+    <ABF_ComplexityLimitExceeded>The {0} complexity limit has been exceeded with {1} total complexity. This will have severe adverse effects!</ABF_ComplexityLimitExceeded>
+    <ABF_BaselineComplexity>Baseline complexity</ABF_BaselineComplexity>
+    <ABF_BaselineComplexityDesc>How much complexity this unit is able to handle without exceeding standard operating limits or without complexity offsetting.</ABF_BaselineComplexityDesc>
+    <ABF_ReprogramDrone>Reprogram {0}.</ABF_ReprogramDrone>
+    <ABF_ReprogramDroneDesc>{0} lacks programming and needs to have it set in order to function.</ABF_ReprogramDroneDesc>
+
+    <!-- Tooltips for the reprogramming dialogs -->
+    <ABF_CantExceedSkillMax>{0} is unable to possess a skill higher than {1}, limited by inherent qualities of the drone type.</ABF_CantExceedSkillMax>
+    <ABF_CantExceedSkillMin>{0} is unable to possess less than the minimum skill level. Skills can only be disabled by disabling all corresponding work types (some of which may be inherent and cost no complexity).</ABF_CantExceedSkillMin>
+    <ABF_HasInherentSkills>{0} has {2} inherent skill points for {1} and can not be programmed with lower skill. Inherent skills have no complexity cost.</ABF_HasInherentSkills>
+    <ABF_WorkTypeComplexityHeaderTooltip>{0} this work type will {1} {2} complexity because:</ABF_WorkTypeComplexityHeaderTooltip>
+    <ABF_SkillComplexityTooltip>{0} this skill will {1} {2} complexity.</ABF_SkillComplexityTooltip>
+    <ABF_Adding>adding</ABF_Adding> <!-- Adding/Removing used in {0} slot -->
+    <ABF_Removing>removing</ABF_Removing>
+    <ABF_Cost>cost</ABF_Cost> <!-- Cost/Refund used in {1} slot -->
+    <ABF_Refund>refund</ABF_Refund>
+    <ABF_WorkTypeComplexityBaseTooltip>{0} has a base complexity of {1}</ABF_WorkTypeComplexityBaseTooltip>
+    <ABF_WorkTypeComplexitySkillsTooltip>{0} enables skills for a complexity of {1}</ABF_WorkTypeComplexitySkillsTooltip>
+    <ABF_WorkTypeComplexitySkillsUnusedTooltip>- Removing a work type refunds all points in skills that would be disabled.</ABF_WorkTypeComplexitySkillsUnusedTooltip>
+
+</LanguageData>

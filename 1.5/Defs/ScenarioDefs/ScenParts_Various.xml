@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ScenPartDef>
+        <defName>ABF_ConfigureStartingDrones</defName>
+        <label>start with drones</label>
+        <scenPartClass>ArtificialBeings.ScenPart_StartingDrones</scenPartClass>
+        <selectionWeight>1</selectionWeight>
+        <summaryPriority>499</summaryPriority>
+        <category>StartingImportant</category>
+    </ScenPartDef>
+
+    <ScenPartDef>
+        <defName>ABF_StartingPawnsPsychic</defName>
+        <label>start with psylink level</label>
+        <scenPartClass>ArtificialBeings.ScenPart_StartingPawnsPsychic</scenPartClass>
+        <selectionWeight>0.2</selectionWeight>
+        <summaryPriority>415</summaryPriority>
+        <maxUses>1</maxUses>
+        <category>StartingImportant</category>
+    </ScenPartDef>
+
+</Defs>

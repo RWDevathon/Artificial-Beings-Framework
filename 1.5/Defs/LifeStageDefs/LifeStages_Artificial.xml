@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <LifeStageDef>
+        <defName>ABF_ArtificialComplete</defName>
+        <label>fully-formed</label>
+        <visible>false</visible>
+        <silhouetteGraphicData>
+          <texPath>Things/Pawn/Humanlike/Silhouettes/Silhouette_HumanAdult</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1</drawSize>
+        </silhouetteGraphicData>
+    </LifeStageDef>
+
+</Defs>

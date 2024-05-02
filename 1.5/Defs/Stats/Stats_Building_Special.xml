@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Artificial Surgery Success Chance Factor -->
+
+	<StatDef>
+		<defName>ABF_ArtificialSurgerySuccessChanceFactor</defName>
+		<label>artificial surgery success chance factor</label>
+		<description>A multiplier to the chance that an operation on an artificial unit will succeed when performed here. Artificial surgery success chances are also affected by many other factors, including the artificer's ability.</description>
+		<workerClass>StatWorker_SurgerySuccessChanceFactor</workerClass>
+		<category>Building</category>
+		<defaultBaseValue>1.00</defaultBaseValue>
+		<minValue>0</minValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<parts>
+			<li Class="StatPart_Glow">
+				<factorFromGlowCurve>
+					<points>
+						<li>(0,0.75)</li>
+						<li>(0.50,1.00)</li>
+					</points>
+				</factorFromGlowCurve>
+				<ignoreIfIncapableOfSight>true</ignoreIfIncapableOfSight>
+				<ignoreIfPrefersDarkness>true</ignoreIfPrefersDarkness>
+			</li>
+			<li Class="StatPart_Outdoors">
+				<factorIndoors>1</factorIndoors>
+				<factorOutdoors>0.85</factorOutdoors>
+			</li>
+			<li Class="StatPart_Quality">
+				<factorAwful>0.90</factorAwful>
+				<factorPoor>0.95</factorPoor>
+				<factorNormal>1</factorNormal>
+				<factorGood>1.05</factorGood>
+				<factorExcellent>1.1</factorExcellent>
+				<factorMasterwork>1.15</factorMasterwork>
+				<factorLegendary>1.3</factorLegendary>
+			</li>
+		</parts>
+		<displayPriorityInCategory>4099</displayPriorityInCategory>
+	</StatDef>
+
+    <!-- Artificial Tend Quality Offset -->
+
+    <StatDef>
+        <defName>ABF_ArtificialTendQualityOffset</defName>
+        <label>artificial tend quality offset</label>
+        <description>Artificial tend quality is offset by this value.</description>
+        <category>Building</category>
+        <defaultBaseValue>0</defaultBaseValue>
+        <minValue>0</minValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <hideAtValue>0</hideAtValue>
+        <displayPriorityInCategory>2000</displayPriorityInCategory>
+    </StatDef>
+
+</Defs>

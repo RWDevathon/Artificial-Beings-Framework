@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>ABF: Artificial Beings Framework</name>
+    <author>Killathon</author>
+    <supportedVersions>
+		<li>1.5</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+            <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+        </li>
+        <li>
+            <packageId>erdelf.HumanoidAlienRaces</packageId>
+            <displayName>Humanoid Alien Races 2.0</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/839005762</steamWorkshopUrl>
+            <downloadUrl>https://github.com/RimWorld-CCL-Reborn/AlienRaces</downloadUrl>
+        </li>
+    </modDependencies>
+    <packageId>Killathon.ArtificialBeings</packageId>
+	<incompatibleWith>
+        <li>Killathon.MechanicalHumanlikesCore</li>
+    </incompatibleWith>
+    <loadAfter>
+        <li>brrainz.harmony</li><!-- Dependency -->
+        <li>erdelf.HumanoidAlienRaces</li><!-- Dependency -->
+        <li>Dubwise.DubsBadHygiene</li><!-- DBH has a destructive PostFix on pawn needs so we need to load after it. -->
+        <li>Dubwise.DubsBadHygiene.Lite</li><!-- DBH has a destructive PostFix on pawn needs so we need to load after it. -->
+    </loadAfter>
+    <description><![CDATA[ABF is an extension to Humanoid Alien Races (HAR) and Harmony to allow for pawns that do not obey normal organic rules.
+This mod itself does very little except pave the way for other mods to have inorganic pawns. Mod settings can configure other races to be considered artificial and use this mod as a baseline to implement further properties.
+
+Version <color=#FFD800>1.0.0</color> with more to come.
+    ]]></description>
+</ModMetaData>

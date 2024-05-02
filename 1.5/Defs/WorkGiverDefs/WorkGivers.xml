@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- ============= Artificer ============= -->
+
+    <WorkGiverDef>
+        <defName>ABF_MechanicTendEmergency</defName>
+        <label>repair patients with urgent needs</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendOtherUrgentMech</giverClass>
+        <workType>ABF_Artificer</workType>
+        <emergency>true</emergency>
+        <verb>repair</verb>
+        <gerund>repairing</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <priorityInType>110</priorityInType>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>ABF_MechanicTend</defName>
+        <label>repair patients</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendOtherMech</giverClass>
+        <workType>ABF_Artificer</workType>
+        <verb>repair</verb>
+        <gerund>repairing</gerund>
+        <priorityInType>100</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <WorkGiverDef Name="ABF_MechanicTendToSelf">
+        <defName>ABF_MechanicTendToSelf</defName>
+        <label>repair self</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendSelfMech</giverClass>
+        <workType>ABF_Artificer</workType>
+        <verb>repair</verb>
+        <gerund>repairing</gerund>
+        <priorityInType>90</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>ABF_MechanicRescue</defName>
+        <label>rescue downed allies to bed</label>
+        <giverClass>WorkGiver_RescueDowned</giverClass>
+        <workType>ABF_Artificer</workType>
+        <verb>rescue</verb>
+        <gerund>rescuing</gerund>
+        <priorityInType>70</priorityInType>
+        <directOrderable>false</directOrderable>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>ABF_DoBillsArtificialOperation</defName>
+        <label>operate on humanlikes</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>ABF_Artificer</workType>
+        <priorityInType>60</priorityInType>
+        <billGiversAllHumanlikes>true</billGiversAllHumanlikes>
+        <billGiversAllHumanlikesCorpses>true</billGiversAllHumanlikesCorpses>
+        <verb>operate on</verb>
+        <gerund>operating on</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>ABF_DoBillsArtificialAnimalOperation</defName>
+        <label>operate on animals</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>ABF_Artificer</workType>
+        <priorityInType>30</priorityInType>
+        <billGiversAllAnimals>true</billGiversAllAnimals>
+        <billGiversAllAnimalsCorpses>true</billGiversAllAnimalsCorpses>
+        <verb>operate on</verb>
+        <gerund>operating on</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>ABF_TakeArtificialToBedToOperate</defName>
+        <label>take patients to bed for operations</label>
+        <giverClass>WorkGiver_TakeToBedToOperate</giverClass>
+        <workType>ABF_Artificer</workType>
+        <priorityInType>20</priorityInType>
+        <verb>take to operate</verb>
+        <gerund>taking to operate</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+</Defs>

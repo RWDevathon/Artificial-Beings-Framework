@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <LetterDef ParentName="CustomChoiceLetterBase">
+        <defName>ABF_ReprogramDroneLetter</defName>
+        <letterClass>ArtificialBeings.ChoiceLetter_ReprogramDrone</letterClass>
+    </LetterDef>
+
+</Defs>
