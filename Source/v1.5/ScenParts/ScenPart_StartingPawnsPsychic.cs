@@ -25,19 +25,19 @@ namespace ArtificialBeings
             listing_Standard.End();
         }
 
-        protected override void ModifyNewPawn(Pawn p)
+        public override void PostMapGenerate(Map map)
         {
-            if (!ABF_Utils.IsArtificialDrone(p) && p.RaceProps.intelligence == Intelligence.Humanlike)
+            if (Find.GameInitData == null || !context.Includes(PawnGenerationContext.PlayerStarter))
             {
-                p.ChangePsylinkLevel(psylinkLevel, false);
+                return;
             }
-        }
-
-        protected override void ModifyHideOffMapStartingPawnPostMapGenerate(Pawn p)
-        {
-            if (!ABF_Utils.IsArtificialDrone(p) && p.RaceProps.intelligence == Intelligence.Humanlike)
+            foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
             {
-                p.ChangePsylinkLevel(psylinkLevel, false);
+                if (startingAndOptionalPawn.RaceProps.Humanlike && !ABF_Utils.IsArtificialDrone(startingAndOptionalPawn))
+                {
+                    ModifyHideOffMapStartingPawnPostMapGenerate(startingAndOptionalPawn);
+                    startingAndOptionalPawn.ChangePsylinkLevel(psylinkLevel, false);
+                }
             }
         }
 

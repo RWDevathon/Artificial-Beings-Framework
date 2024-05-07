@@ -4,9 +4,9 @@
     <!-- ============= Artificer ============= -->
 
     <WorkGiverDef>
-        <defName>ABF_MechanicTendEmergency</defName>
-        <label>repair patients with urgent needs</label>
-        <giverClass>ArtificialBeings.WorkGiver_TendOtherUrgentMech</giverClass>
+        <defName>ABF_ArtificerTendEmergency</defName>
+        <label>tend to patients with urgent needs</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendOtherUrgentArtificial</giverClass>
         <workType>ABF_Artificer</workType>
         <emergency>true</emergency>
         <verb>repair</verb>
@@ -19,9 +19,9 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_MechanicTend</defName>
-        <label>repair patients</label>
-        <giverClass>ArtificialBeings.WorkGiver_TendOtherMech</giverClass>
+        <defName>ABF_ArtificerTend</defName>
+        <label>tend to patients</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendOtherArtificial</giverClass>
         <workType>ABF_Artificer</workType>
         <verb>repair</verb>
         <gerund>repairing</gerund>
@@ -32,10 +32,10 @@
         <prioritizeSustains>true</prioritizeSustains>
     </WorkGiverDef>
 
-    <WorkGiverDef Name="ABF_MechanicTendToSelf">
-        <defName>ABF_MechanicTendToSelf</defName>
-        <label>repair self</label>
-        <giverClass>ArtificialBeings.WorkGiver_TendSelfMech</giverClass>
+    <WorkGiverDef>
+        <defName>ABF_ArtificerTendToSelf</defName>
+        <label>tend to self</label>
+        <giverClass>ArtificialBeings.WorkGiver_TendSelfArtificial</giverClass>
         <workType>ABF_Artificer</workType>
         <verb>repair</verb>
         <gerund>repairing</gerund>
@@ -47,7 +47,7 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_MechanicRescue</defName>
+        <defName>ABF_ArtificerRescue</defName>
         <label>rescue downed allies to bed</label>
         <giverClass>WorkGiver_RescueDowned</giverClass>
         <workType>ABF_Artificer</workType>
@@ -62,7 +62,7 @@
 
     <WorkGiverDef>
         <defName>ABF_DoBillsArtificialOperation</defName>
-        <label>operate on humanlikes</label>
+        <label>operate on artificial humanlikes</label>
         <giverClass>WorkGiver_DoBill</giverClass>
         <workType>ABF_Artificer</workType>
         <priorityInType>60</priorityInType>
@@ -78,7 +78,7 @@
 
     <WorkGiverDef>
         <defName>ABF_DoBillsArtificialAnimalOperation</defName>
-        <label>operate on animals</label>
+        <label>operate on artificial animals</label>
         <giverClass>WorkGiver_DoBill</giverClass>
         <workType>ABF_Artificer</workType>
         <priorityInType>30</priorityInType>

@@ -3,7 +3,7 @@ using Verse;
 
 namespace ArtificialBeings
 {
-    public class WorkGiver_TendOtherUrgentMech : WorkGiver_MechTend
+    public class WorkGiver_TendOtherUrgentArtificial : WorkGiver_TendArtificial
     {
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {

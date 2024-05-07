@@ -1,8 +1,4 @@
-﻿using Verse;
-using HarmonyLib;
-using RimWorld;
-
-namespace ArtificialBeings
+﻿namespace ArtificialBeings
 {
     public class Need_Patch
     {

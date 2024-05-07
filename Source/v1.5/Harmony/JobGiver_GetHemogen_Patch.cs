@@ -6,16 +6,16 @@ namespace ArtificialBeings
 {
     public class JobGiver_GetHemogen_Patch
     {
-        // Artificial units are invalid targets for blood feeding.
+        // Pawns which cannot bleed (because they have no blood or are immune to blood loss at the moment) are invalid for blood feeding.
         [HarmonyPatch(typeof(JobGiver_GetHemogen), "CanFeedOnPrisoner")]
         public class CanFeedOnPrisoner_Patch
         {
             [HarmonyPrefix]
             public static bool Prefix(ref AcceptanceReport __result, Pawn prisoner)
             {
-                if (ABF_Utils.IsArtificial(prisoner))
+                if (!prisoner.health.CanBleed)
                 {
-                    __result = false;
+                    __result = "ABF_TargetHasNoBlood".Translate(prisoner.LabelShortCap);
                     return false;
                 }
                 return true;

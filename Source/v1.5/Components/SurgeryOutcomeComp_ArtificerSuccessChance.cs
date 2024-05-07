@@ -5,7 +5,7 @@ using Verse;
 namespace ArtificialBeings
 {
     // Override AffectQuality to use ABF_ArtificialSurgerySuccessChance instead of SurgerySuccessChance
-    public class SurgeryOutcomeComp_MechanicSuccessChance : SurgeryOutcomeComp_SurgeonSuccessChance
+    public class SurgeryOutcomeComp_ArtificerSuccessChance : SurgeryOutcomeComp_SurgeonSuccessChance
     {
         public override void AffectQuality(RecipeDef recipe, Pawn surgeon, Pawn patient, List<Thing> ingredients, BodyPartRecord part, Bill bill, ref float quality)
         {

@@ -8,45 +8,42 @@ namespace ArtificialBeings
 {
     public class Hediff_Patch
     {
-        [HarmonyPatch]
-        public class BleedRate_Patch
+        // Vanilla has it set so that injuries cannot be tended to if the pawn cannot bleed, for whatever reason. 
+        [HarmonyPatch(typeof(Hediff), nameof(Hediff.TendableNow))]
+        public class TendableNow_Patch
         {
-            [HarmonyTargetMethods]
-            static IEnumerable<MethodBase> TargetProperties()
-            {
-                foreach (System.Type subclass in typeof(Hediff).AllSubclasses())
-                {
-                    if (AccessTools.DeclaredPropertyGetter(subclass, "BleedRate") is MethodInfo method)
-                    {
-                        yield return method;
-                    }
-                }
-            }
-
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
                 List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
-                MethodInfo targetProperty = AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.Dead));
+                int instsToSkip = 0;
+                bool transpilerWillExplodeIfAnotherIsInstFound = false;
 
                 for (int i = 0; i < instructions.Count; i++)
                 {
-                    yield return instructions[i];
-                    if (i < instructions.Count - 1 && instructions[i + 1].Calls(targetProperty))
+                    if (i < instructions.Count - 2 && instructions[i + 2].opcode == OpCodes.Isinst)
                     {
-                        yield return new CodeInstruction(OpCodes.Dup); // Load a copy of the Pawn onto the Stack
+                        if (transpilerWillExplodeIfAnotherIsInstFound)
+                        {
+                            Log.Warning("[ABF] A transpiler has added an extra Isinst call to Hediff.TendableNow. Please provide a list of patches (included in hugslogs) to Killathon in the mod-development channel on the RW server or on the MH discord so he has to realize he needs to make his transpiler better or he can rationalize why the mod that added it is very dumb and is to be scolded. Thank you. - Killathon");
+                        }
+                        else
+                        {
+                            instsToSkip = 9;
+                            transpilerWillExplodeIfAnotherIsInstFound = true;
+                            yield return new CodeInstruction(OpCodes.Brtrue_S, instructions[i + 3].operand);
+                        }
                     }
-                    if (instructions[i].Calls(targetProperty))
+
+                    if (instsToSkip > 0)
                     {
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BleedRate_Patch), nameof(CannotBleed))); // Our function call
+                        instsToSkip--;
+                    }
+                    else
+                    {
+                        yield return instructions[i];
                     }
                 }
-            }
-
-            // Pawns that have any HediffGiver_Bleeding can bleed. We only check our own artificial pawns currently.
-            private static bool CannotBleed(Pawn pawn, bool isDead)
-            {
-                return isDead || (ABF_Utils.IsArtificial(pawn) && !ABF_Utils.cachedBleedingHediffGivers.ContainsKey(pawn.def));
             }
         }
 

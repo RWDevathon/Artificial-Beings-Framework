@@ -19,4 +19,6 @@
     <ABF_RequiredSkillAbsent>the {0} skill is disabled.</ABF_RequiredSkillAbsent>
     <ABF_RequiredSkillSetAbsent>at least one of these skills must be enabled: {0}.</ABF_RequiredSkillSetAbsent>
 
+    <ABF_TargetHasNoBlood>{0} is ineligible because it has no blood.</ABF_TargetHasNoBlood>
+
 </LanguageData>

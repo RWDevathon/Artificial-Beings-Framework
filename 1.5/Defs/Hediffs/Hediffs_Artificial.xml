@@ -56,7 +56,7 @@
             <li>
                 <hungerRateFactor>0.1</hungerRateFactor>
                 <statFactors>
-                    <ABF_MaintenanceRetention MayRequire="Killathon.ArtificialBeings.SynstructsCore">10</ABF_MaintenanceRetention>
+                    <ABF_CoherenceRetention MayRequire="Killathon.ArtificialBeings.SynstructsCore">10</ABF_CoherenceRetention>
                 </statFactors>
                 <capMods>
                     <li>

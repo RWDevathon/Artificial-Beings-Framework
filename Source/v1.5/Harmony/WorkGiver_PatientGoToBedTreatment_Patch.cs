@@ -8,7 +8,7 @@ namespace ArtificialBeings
 {
     public class WorkGiver_PatientGoToBedTreatment_Patch
     {
-        // Artificial units need to check if there is a mechanic available, not if there is a doctor available, when seeking treatment.
+        // Artificial units need to check if there is an artificer available, not if there is a doctor available, when seeking treatment.
         [HarmonyPatch(typeof(WorkGiver_PatientGoToBedTreatment), "AnyAvailableDoctorFor")]
         public class AnyAvailableDoctorFor_Patch
         {
@@ -26,7 +26,7 @@ namespace ArtificialBeings
                     return;
                 }
 
-                // Attempt to locate an available mechanic in the faction.
+                // Attempt to locate an available artificer in the faction.
                 List<Pawn> list = mapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -38,7 +38,7 @@ namespace ArtificialBeings
                     }
                 }
 
-                // If no mechanic was found for a artificial unit, even if there is a doctor available, set the result to false.
+                // If no artificer was found for a artificial unit, even if there is a doctor available, set the result to false.
                 __result = false;
             }
         }

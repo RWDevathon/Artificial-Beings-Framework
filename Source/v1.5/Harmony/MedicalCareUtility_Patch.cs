@@ -4,7 +4,6 @@ using RimWorld;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using Verse.Sound;
 
 namespace ArtificialBeings
 {

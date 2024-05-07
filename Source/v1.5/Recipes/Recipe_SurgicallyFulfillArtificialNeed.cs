@@ -15,7 +15,7 @@ namespace ArtificialBeings
         {
             foreach (Thing ingredient in ingredients)
             {
-                // Fulfill mech needs.
+                // Fulfill artificial needs.
                 Dictionary<NeedDef, float> needFulfillment = ingredient.def.GetModExtension<ABF_NeedFulfillerExtension>().needOffsetRelations;
                 foreach (NeedDef needDef in needFulfillment.Keys)
                 {

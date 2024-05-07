@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using System.Reflection;
 using Verse;
-using UnityEngine;
 using RimWorld;
 using System.Collections.Generic;
 
@@ -76,7 +75,7 @@ namespace ArtificialBeings
                             {
                                 foreach (HediffGiver hediffGiver in hediffGiverSetDef.hediffGivers)
                                 {
-                                    if (hediffGiver is HediffGiver_Leaking mechBleedingGiver)
+                                    if (hediffGiver is HediffGiver_Leaking artificialBleedingGiver)
                                     {
                                         float criticalThreshold = -1;
                                         foreach (HediffStage hediffStage in hediffGiver.hediff.stages)
@@ -95,7 +94,7 @@ namespace ArtificialBeings
                                         {
                                             criticalThreshold = hediffGiver.hediff.maxSeverity;
                                         }
-                                        targetHediffPairs.Add(new KeyValuePair<HediffGiver_Leaking, float>(mechBleedingGiver, criticalThreshold));
+                                        targetHediffPairs.Add(new KeyValuePair<HediffGiver_Leaking, float>(artificialBleedingGiver, criticalThreshold));
                                     }
                                 }
                             }
@@ -109,7 +108,7 @@ namespace ArtificialBeings
                         Dictionary<HediffDef, HediffDef> hediffReplacements = extension.hediffReplacements;
                         if (hediffReplacements != null)
                         {
-                            ABF_Utils.cachedMechHediffReplacements[thingDef] = hediffReplacements;
+                            ABF_Utils.cachedArtificialHediffReplacements[thingDef] = hediffReplacements;
                         }
 
                         // Cache what medicines the unit may use and what medicines the race restricts.

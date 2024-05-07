@@ -6,7 +6,7 @@ using System;
 
 namespace ArtificialBeings
 {
-    public class JobDriver_FulfillMechNeed : JobDriver
+    public class JobDriver_FulfillArtificialNeed : JobDriver
     {
         private bool itemFromInventory;
 
@@ -43,13 +43,13 @@ namespace ArtificialBeings
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOn(() => ConsumableSource.Destroyed);
-            Toil consume = Toils_FulfillMechNeed.ConsumeItem(pawn, ConsumableIndex).FailOn((Toil x) => !ConsumableSource.Spawned && (pawn.carryTracker == null || pawn.carryTracker.CarriedThing != ConsumableSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+            Toil consume = Toils_FulfillArtificialNeed.ConsumeItem(pawn, ConsumableIndex).FailOn((Toil x) => !ConsumableSource.Spawned && (pawn.carryTracker == null || pawn.carryTracker.CarriedThing != ConsumableSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
             foreach (Toil item in PrepareToConsumeToils(consume))
             {
                 yield return item;
             }
             yield return consume;
-            yield return Toils_FulfillMechNeed.FinalizeConsumption(pawn, ConsumableIndex);
+            yield return Toils_FulfillArtificialNeed.FinalizeConsumption(pawn, ConsumableIndex);
         }
 
         private IEnumerable<Toil> PrepareToConsumeToils(Toil consumeToil)
@@ -75,7 +75,7 @@ namespace ArtificialBeings
                 yield return Toils_Goto.GotoThing(ConsumableIndex, PathEndMode.Touch).FailOnDespawnedNullOrForbidden(ConsumableIndex);
                 yield return Toils_Jump.Jump(consumeToil);
                 yield return gotoToPickup;
-                yield return Toils_FulfillMechNeed.PickupConsumable(ConsumableIndex, pawn);
+                yield return Toils_FulfillArtificialNeed.PickupConsumable(ConsumableIndex, pawn);
             }
         }
 
@@ -104,7 +104,7 @@ namespace ArtificialBeings
                         {
                             if (!pawn.Reserve(thing, job, 10, maxAmountToPickup))
                             {
-                                Log.Error(string.Concat("[ABF] Pawn mech consumable reservation for ", pawn, " on job ", this, " failed, because it could not register thing from ", thing, " - amount: ", maxAmountToPickup));
+                                Log.Error(string.Concat("[ABF] Artifical need consumable reservation for ", pawn, " on job ", this, " failed, because it could not register thing from ", thing, " - amount: ", maxAmountToPickup));
                                 pawn.jobs.EndCurrentJob(JobCondition.Errored);
                             }
                             job.count = maxAmountToPickup;

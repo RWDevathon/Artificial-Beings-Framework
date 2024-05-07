@@ -5,7 +5,7 @@ using Verse;
 
 namespace ArtificialBeings
 {
-    public class IngestionOutcomeDoer_OffsetMechNeed : IngestionOutcomeDoer_OffsetNeed
+    public class IngestionOutcomeDoer_OffsetArtificialNeed : IngestionOutcomeDoer_OffsetNeed
     {
         protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {

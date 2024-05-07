@@ -6,7 +6,7 @@ namespace ArtificialBeings
 {
     public class WorkGiver_Tend_Patch
     {
-        // Patch the medical tend WorkGiver to not give doctoring jobs on artificial pawns. WorkGiver_MechTend handles artificial tending.
+        // Patch the medical tend WorkGiver to not give doctoring jobs on artificial pawns. WorkGiver_TendArtificial handles artificial tending.
         [HarmonyPatch(typeof(WorkGiver_Tend), "HasJobOnThing")]
         public class PotentialWorkThingsGlobal_Patch
         {

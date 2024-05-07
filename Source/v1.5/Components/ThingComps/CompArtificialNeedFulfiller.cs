@@ -5,8 +5,8 @@ using Verse.AI;
 
 namespace ArtificialBeings
 {
-    // Simple ThingComp that allows pawns to consume it directly via an order to fulfill a mech need.
-    public class CompMechNeedFulfiller : ThingComp
+    // Simple ThingComp that allows pawns to consume it directly via an order to fulfill an artificial need.
+    public class CompArtificialNeedFulfiller : ThingComp
     {
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {

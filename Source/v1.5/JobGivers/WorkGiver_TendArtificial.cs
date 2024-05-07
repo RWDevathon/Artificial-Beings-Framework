@@ -4,8 +4,8 @@ using Verse;
 
 namespace ArtificialBeings
 {
-    // Create an alternate version of the Tend WorkGiver so that artificial pawns are only targetted by artificers, and the WorkGiver will give the mechanic jobs instead of doctor jobs.
-    public class WorkGiver_MechTend : WorkGiver_Tend
+    // Create an alternate version of the Tend WorkGiver so that artificial pawns are only targetted by artificers, and the WorkGiver will give the artificer jobs instead of doctor jobs.
+    public class WorkGiver_TendArtificial : WorkGiver_Tend
     {
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {

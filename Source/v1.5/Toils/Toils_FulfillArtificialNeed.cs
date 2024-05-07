@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ArtificialBeings
 {
-    public static class Toils_FulfillMechNeed
+    public static class Toils_FulfillArtificialNeed
     {
         public const int MaxPawnReservations = 10;
 
@@ -41,7 +41,7 @@ namespace ArtificialBeings
         // Generate and return the action necessary to consume the item, with a timer for how long it will take and the appropriate failure checks and reservation.
         public static Toil ConsumeItem(Pawn consumer, TargetIndex consumableInd)
         {
-            Toil toil = ToilMaker.MakeToil("ConsumeMechNeedFulfiller");
+            Toil toil = ToilMaker.MakeToil("ConsumeArtificialNeedFulfiller");
             toil.initAction = delegate
             {
                 Pawn actor = toil.actor;
@@ -103,7 +103,7 @@ namespace ArtificialBeings
                     }
                 }
 
-                // Fulfill mech needs.
+                // Fulfill artificial needs.
                 Dictionary<NeedDef, float> needFulfillment = thing.def.GetModExtension<ABF_NeedFulfillerExtension>().needOffsetRelations;
                 foreach (NeedDef needDef in needFulfillment.Keys)
                 {

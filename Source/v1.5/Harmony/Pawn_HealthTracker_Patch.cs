@@ -1,8 +1,6 @@
 ﻿using Verse;
 using HarmonyLib;
 using RimWorld.Planet;
-using RimWorld;
-using System.Linq;
 
 namespace ArtificialBeings
 {

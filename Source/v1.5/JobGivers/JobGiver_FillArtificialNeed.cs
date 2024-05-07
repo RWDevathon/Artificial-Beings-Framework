@@ -6,7 +6,7 @@ using Verse.AI;
 
 namespace ArtificialBeings
 {
-    public class JobGiver_GetMechNeed : ThinkNode_JobGiver
+    public class JobGiver_FillArtificialNeed : ThinkNode_JobGiver
     {
         public override float GetPriority(Pawn pawn)
         {

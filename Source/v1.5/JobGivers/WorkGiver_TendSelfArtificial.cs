@@ -4,8 +4,8 @@ using Verse.AI;
 
 namespace ArtificialBeings
 {
-    // Alternate WorkGiver for TendSelfMech to use the appropriate artificial stats.
-    public class WorkGiver_TendSelfMech : WorkGiver_MechTend
+    // Alternate WorkGiver for TendSelfArtificial to use the appropriate artificial stats.
+    public class WorkGiver_TendSelfArtificial : WorkGiver_TendArtificial
     {
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.Undefined);
 

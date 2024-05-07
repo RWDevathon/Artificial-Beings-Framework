@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace ArtificialBeings
 {
-    public class JobGiver_SelfTendMech : ThinkNode_JobGiver
+    public class JobGiver_SelfTendArtificial : ThinkNode_JobGiver
     {
         protected override Job TryGiveJob(Pawn pawn)
         {
