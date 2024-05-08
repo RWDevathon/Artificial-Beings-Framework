@@ -41,7 +41,7 @@ namespace ArtificialBeings
 
             private static bool Invulnerable(bool previouslyInvulnerable, Pawn pawn)
             {
-                return previouslyInvulnerable && pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.vulnerableToEMP != true;
+                return previouslyInvulnerable && !ABF_Utils.cachedVulnerableToEMP.Contains(pawn.def);
             }
         }
     }

@@ -69,6 +69,12 @@ namespace ArtificialBeings
                         List<HediffGiverSetDef> hediffGiverSetDefs = thingDef.race.hediffGiverSets;
                         List<KeyValuePair<HediffGiver_Leaking, float>> targetHediffPairs = new List<KeyValuePair<HediffGiver_Leaking, float>>();
 
+                        // Cache if this race is vulnerable to EMP attacks.
+                        if (extension.vulnerableToEMP)
+                        {
+                            ABF_Utils.cachedVulnerableToEMP.Add(thingDef);
+                        }
+
                         if (hediffGiverSetDefs != null)
                         {
                             foreach (HediffGiverSetDef hediffGiverSetDef in hediffGiverSetDefs)

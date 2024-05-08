@@ -61,7 +61,6 @@ namespace ArtificialBeings
             }
             else
             {
-                Log.Warning("Pawn " + pawn + " has added themselves to the cache with state " + state);
                 cachedPawnStates[pawn.thingIDNumber] = state;
             }
         }
@@ -767,6 +766,9 @@ namespace ArtificialBeings
 
         // Cached dictionary matching artificial NeedDefs to the ingestible items which can satisfy that need, cached at startup.
         public static Dictionary<NeedDef, List<ThingDef>> cachedArtificialNeedFulfillments = new Dictionary<NeedDef, List<ThingDef>>();
+
+        // Cached list of races that are vulnerable to EMP attacks. Cached at startup.
+        public static List<ThingDef> cachedVulnerableToEMP = new List<ThingDef>();
 
         // Cached Hediffs and the severity it is considered critical for a particular pawn that are handled by HediffGiver_Bleeding so they may be appropriately checked, cached at startup.
         public static Dictionary<ThingDef, List<KeyValuePair<HediffGiver_Leaking, float>>> cachedBleedingHediffGivers = new Dictionary<ThingDef, List<KeyValuePair<HediffGiver_Leaking, float>>>();

@@ -54,7 +54,6 @@ namespace ArtificialBeings
                     // TODO: Clean up relations. Murder. If something doesn't want it to be murder, clean it before getting here.
                 }
 
-                Log.Warning("State was " + state + " and is now " + value);
                 ABF_Utils.UpdateStateFor(Pawn, value);
 
                 // Switching states usually requires setting up some pawn data.
