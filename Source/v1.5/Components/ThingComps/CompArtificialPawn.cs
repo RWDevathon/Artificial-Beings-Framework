@@ -51,18 +51,19 @@ namespace ArtificialBeings
                 // If changing away from the sapient state, clean up relations data. Other data will be cleaned on state switch.
                 else if (state == ABF_ArtificialState.Sapient)
                 {
-                    // TODO: Clean up relations. Murder. If something doesn't want it to be murder, clean it before getting here.
+                    Pawn.relations.ClearAllRelations();
                 }
 
                 ABF_Utils.UpdateStateFor(Pawn, value);
 
                 // Switching states usually requires setting up some pawn data.
-                if (value == ABF_ArtificialState.Drone || value == ABF_ArtificialState.Reprogrammable)
+                if (value == ABF_ArtificialState.Drone)
                 {
                     ABF_Utils.ReconfigureDrone(Pawn);
                 }
-                if (value == ABF_ArtificialState.Reprogrammable)
+                else if (value == ABF_ArtificialState.Reprogrammable)
                 {
+                    ABF_Utils.ReconfigureDrone(Pawn);
                     ABF_Utils.Deprogram(Pawn);
                     if (complexityHediff == null)
                     {
