@@ -40,14 +40,14 @@ namespace ArtificialBeings
                         yield return new CodeInstruction(OpCodes.Ldarg_0); // Load "This" - AKA. the class this validator is in
                         yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo); // Load the patient Pawn from the class
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FindBestMedicine_Patch), nameof(ValidMedicine))); // Our function call
-                        yield return new CodeInstruction(OpCodes.Brtrue, label);
+                        yield return new CodeInstruction(OpCodes.Brfalse, label);
                     }
                 }
             }
 
             private static bool ValidMedicine(Thing medicine, Pawn pawn)
             {
-                return ABF_Utils.IsMedicineValid(medicine.def, pawn.def);
+                return ABF_Utils.cachedRaceMedicines.TryGetValue(pawn.def, null)?.Contains(medicine.def) ?? false;
             }
         }
     }

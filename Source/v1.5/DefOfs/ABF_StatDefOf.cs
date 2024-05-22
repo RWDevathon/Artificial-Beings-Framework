@@ -29,5 +29,8 @@ namespace ArtificialBeings
 
         [MayRequireSynstructsCore]
         public static StatDef ABF_ChargingSpeed;
+
+        [MayRequireSynstructsCore]
+        public static StatDef ABF_NutritionalIntakeEfficiency;
     }
 }

@@ -45,12 +45,6 @@ namespace ArtificialBeings
         // Bool for whether drones can have traits.
         public bool dronesCanHaveTraits = false;
 
-        // Controls for what backstory the drones of this race will be set to. If the bool is true, this mod will trust the PawnKindDefs to provide correct backstories.
-        // These settings are irrelevant to pawns that are not in the drone or reprogrammable drone states.
-        public bool letPawnKindHandleDroneBackstories = false;
-        public BackstoryDef droneChildhoodBackstoryDef;
-        public BackstoryDef droneAdulthoodBackstoryDef;
-
         /* Reprogrammable specific */
 
         // List of DirectiveDefs that all members of this race will have at all times.
@@ -78,11 +72,6 @@ namespace ArtificialBeings
             if (!canBeSapient && !canBeDrone && !canBeReprogrammable)
             {
                 yield return "[ABF] A race has the ABF_ArtificialPawnExtension with no legal pawn states! This extension should be removed from the race if it isn't meant to be artificial.";
-            }
-
-            if ((canBeDrone || canBeReprogrammable) && !letPawnKindHandleDroneBackstories && (droneChildhoodBackstoryDef == null || droneAdulthoodBackstoryDef == null))
-            {
-                yield return "[ABF] A race which can include drones does not allow drone backstories to be given by pawn kinds, and did not specify what the backstories should be for them!";
             }
 
             if (blacklistedNeeds.NotNullAndContains(NeedDefOf.Food) || blacklistedDroneNeeds.NotNullAndContains(NeedDefOf.Food) || blacklistedSapientNeeds.NotNullAndContains(NeedDefOf.Food))

@@ -6,7 +6,7 @@ namespace ArtificialBeings
 {
     public class InteractionUtility_Patch
     {
-        // Artificial drones don't start social interactions unless they are programmed to do so.
+        // Artificial drones don't start social interactions unless they have social capabilities.
         [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
         public class CanInitiateInteraction_Patch
         {
@@ -42,7 +42,7 @@ namespace ArtificialBeings
             }
         }
 
-        // Artificial drones don't receive social interactions.
+        // Drones don't receive social interactions.
         [HarmonyPatch(typeof(InteractionUtility), "CanReceiveInteraction")]
         public class CanReceiveInteraction_Patch
         {

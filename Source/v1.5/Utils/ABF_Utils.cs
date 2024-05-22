@@ -4,12 +4,15 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using UnityEngine;
+using Verse.Noise;
 
 namespace ArtificialBeings
 {
     public static class ABF_Utils
     {
         /* === GENERAL UTILITIES === */
+
+        private const float complexityStepPerLevel = 0.5f;
 
         public static bool IsArtificial(Pawn pawn)
         {
@@ -68,8 +71,7 @@ namespace ArtificialBeings
         // TODO: This should not exist long-term.
         internal static void LogStates()
         {
-            Log.Warning("Count: " + cachedPawnStates.Count);
-            Log.Error("Keys: " +  cachedPawnStates.Keys);
+            Log.Warning("There are " + cachedPawnStates.Count + " artificial pawns cached.");
             foreach (var thingID in cachedPawnStates.Keys)
             {
                 Log.Warning("Pawn " + thingID + " has state " + cachedPawnStates[thingID]);
@@ -161,26 +163,15 @@ namespace ArtificialBeings
                     pawn.Name = new NameTriple(name.First, name.Last, name.Last);
                 }
 
-                // If pawn kind backstories should be overwritten, then try to take it from the mod extension.
-                if (pawnExtension?.letPawnKindHandleDroneBackstories == false)
+                // Drone skill levels start at their baseline level for true drones and at 0 for reprogrammable drones. The inherentSkills is then added/subtracted to that baseline.
+                // Since both true drones and reprogrammable drones are incapable of learning, their passions and xp does not matter. It should be set to 0 for simplicity.
+                int baselineSkill = IsProgrammableDrone(pawn) ? 0 : (pawnExtension?.droneSkillLevel ?? 4);
+                
+                foreach(SkillRecord skillRecord in pawn.skills.skills)
                 {
-                    pawn.story.Childhood = pawnExtension.droneChildhoodBackstoryDef;
-                    pawn.story.Adulthood = pawnExtension.droneAdulthoodBackstoryDef;
-                    pawn.workSettings.Notify_DisabledWorkTypesChanged();
-                    pawn.skills.Notify_SkillDisablesChanged();
-                }
-
-                if (!IsProgrammableDrone(pawn))
-                {
-                    // Drones have a set skill, which is taken from their mod extension if it exists. If not, it defaults to 8 (which is the default value for the extension).
-                    // Since drones are incapable of learning, their passions and xp does not matter. Set it to 0 for consistency's sake.
-                    int skillLevel = pawnExtension?.droneSkillLevel ?? 8;
-                    foreach (SkillRecord skillRecord in pawn.skills.skills)
-                    {
-                        skillRecord.passion = 0;
-                        skillRecord.Level = skillLevel;
-                        skillRecord.xpSinceLastLevel = 0;
-                    }
+                    skillRecord.passion = 0;
+                    skillRecord.xpSinceLastLevel = 0;
+                    skillRecord.Level = baselineSkill + pawnExtension?.inherentSkills?.TryGetValue(skillRecord.def, 0) ?? 0;
                 }
             }
             // Animal-intelligence drones need to handle their training and a few other details.
@@ -260,7 +251,7 @@ namespace ArtificialBeings
             {
                 Log.Warning("[ABF] A programmable drone, " + pawn.LabelShortCap + ", had a lower skill level than their inherent skills. Complexity calculations may be incorrect.");
             }
-            return 0.5f * offsetSkillLevel;
+            return complexityStepPerLevel * offsetSkillLevel;
         }
 
         // Given a pawn and skill, calculate the maximum level the pawn may have in the skill.
@@ -281,8 +272,7 @@ namespace ArtificialBeings
             ABF_ArtificialPawnExtension reprogramExtension = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>();
 
             // WorkTypes
-            reprogramComp.enabledWorkTypes.RemoveAll(workType => !reprogramExtension.inherentWorkTypes.NotNullAndContains(workType));
-            pawn.Notify_DisabledWorkTypesChanged();
+            reprogramComp.InitializeEnabledWorkTypes();
             reprogramComp.UpdateComplexity("Work Types", 0);
 
             // Skills
@@ -411,7 +401,7 @@ namespace ArtificialBeings
                     while (skillLevel < skillFloor)
                     {
                         skillComplexityUsage += skillComplexityCost;
-                        skillComplexityCost += 0.5f;
+                        skillComplexityCost += complexityStepPerLevel;
                         skillLevel++;
                     }
                     requiredSkillComplexity += skillComplexityUsage;
@@ -474,7 +464,7 @@ namespace ArtificialBeings
                 discretionaryComplexity = pawnKindExtension.discretionaryComplexity.RandomInRange;
             }
 
-            if (discretionaryComplexity < 0.5f)
+            if (discretionaryComplexity < complexityStepPerLevel)
             {
                 return;
             }
@@ -572,7 +562,7 @@ namespace ArtificialBeings
             }
 
             // If all discretionary complexity was used by directives, stop here.
-            if (discretionaryComplexity < 0.5f)
+            if (discretionaryComplexity < complexityStepPerLevel)
             {
                 return;
             }
@@ -618,7 +608,7 @@ namespace ArtificialBeings
             }
 
             // If all discretionary complexity was used by work types, stop here.
-            if (discretionaryComplexity < 0.5f)
+            if (discretionaryComplexity < complexityStepPerLevel)
             {
                 return;
             }
@@ -651,7 +641,7 @@ namespace ArtificialBeings
                         randomSkill.Key.Level++;
                         requiredSkillComplexity += randomSkill.Value.skillComplexityCost;
                         discretionaryComplexity -= randomSkill.Value.skillComplexityCost;
-                        randomSkill.Value.skillComplexityCost += 0.5f;
+                        randomSkill.Value.skillComplexityCost += complexityStepPerLevel;
                     }
                 }
                 pawnComp.UpdateComplexity("Skills", Mathf.Max(0, Mathf.CeilToInt(requiredSkillComplexity + pawnComp.GetComplexityFromSource("Skills"))));

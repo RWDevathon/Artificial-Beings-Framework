@@ -6,14 +6,11 @@ namespace ArtificialBeings
 {
     public class Recipe_ReprogramDrone : Recipe_Surgery
     {
-        // Always available for drones.
+        // Always available for foreign drones and all reprogrammable drones.
         public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
         {
-            if (thing is Pawn pawn && ABF_Utils.IsArtificial(pawn) && !ABF_Utils.IsArtificialSapient(pawn))
-            {
-                return true;
-            }
-            return false;
+            Pawn pawn = thing as Pawn;
+            return ABF_Utils.IsProgrammableDrone(pawn) || (ABF_Utils.IsArtificialDrone(pawn) && pawn.Faction != Faction.OfPlayer);
         }
 
         // Reprogram the drone.

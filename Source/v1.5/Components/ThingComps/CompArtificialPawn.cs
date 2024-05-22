@@ -64,28 +64,22 @@ namespace ArtificialBeings
                 else if (value == ABF_ArtificialState.Reprogrammable)
                 {
                     ABF_Utils.ReconfigureDrone(Pawn);
+                    complexitySources = new Dictionary<string, int>();
+                    directives = new List<Directive>();
+                    directiveDefs = new List<DirectiveDef>();
                     ABF_Utils.Deprogram(Pawn);
+                    RecalculateComplexity();
+
                     if (complexityHediff == null)
                     {
                         complexityHediff = (Hediff_Complexity)HediffMaker.MakeHediff(ABF_HediffDefOf.ABF_ComplexityRelation, Pawn);
                         Pawn.health.AddHediff(complexityHediff);
                     }
                     complexityHediff.UpdateHediffStage();
-                    InitializeEnabledWorkTypes();
-                    complexitySources = new Dictionary<string, int>();
-                    directives = new List<Directive>();
-                    directiveDefs = new List<DirectiveDef>();
-                    SetDirectives(Pawn.def.GetModExtension<ABF_ArtificialPawnExtension>().inherentDirectives);
-
-                    // If a player pawn is set to the reprogrammable state, they should start "blank."
-                    if (Pawn.Faction == Faction.OfPlayerSilentFail)
-                    {
-                        Pawn.health.AddHediff(ABF_HediffDefOf.ABF_Disabled);
-                    }
                 }
 
-                // Switching away from the blank state removes the disabled hediff.
-                if (state == ABF_ArtificialState.Blank)
+                // Switching away from the blank state removes the disabled hediff, unless they are reprogrammable. Reprogrammable drones need to be programmed first.
+                if (state == ABF_ArtificialState.Blank && value != ABF_ArtificialState.Reprogrammable)
                 {
                     Hediff hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled);
                     if (hediff != null)
@@ -216,15 +210,18 @@ namespace ArtificialBeings
         {
             if (DebugSettings.ShowDevGizmos && Pawn.RaceProps.intelligence == Intelligence.Humanlike)
             {
-                Command_Action makeBlank = new Command_Action
+                if (State != ABF_ArtificialState.Blank)
                 {
-                    defaultLabel = "DEV: Force Blank",
-                    action = delegate
+                    Command_Action makeBlank = new Command_Action
                     {
-                        State = ABF_ArtificialState.Blank;
-                    }
-                };
-                yield return makeBlank;
+                        defaultLabel = "DEV: Force Blank",
+                        action = delegate
+                        {
+                            State = ABF_ArtificialState.Blank;
+                        }
+                    };
+                    yield return makeBlank;
+                }
                 if (State == ABF_ArtificialState.Blank)
                 {
                     Command_Action makeSapient = new Command_Action
@@ -297,7 +294,7 @@ namespace ArtificialBeings
             {
                 Command_Action logState = new Command_Action
                 {
-                    defaultLabel = "DEV: Log Pawn State",
+                    defaultLabel = "DEV: Log Pawn States",
                     action = delegate
                     {
                         ABF_Utils.LogStates();
@@ -344,30 +341,25 @@ namespace ArtificialBeings
         {
             if (Pawn.kindDef.GetModExtension<ABF_ArtificialPawnKindExtension>() is ABF_ArtificialPawnKindExtension pawnKindExtension)
             {
-                Log.Warning("pawnkind state: " + pawnKindExtension.pawnState);
                 State = pawnKindExtension.pawnState;
             }
             else if (Pawn.def.GetModExtension<ABF_ArtificialPawnExtension>() is ABF_ArtificialPawnExtension pawnExtension)
             {
                 if (pawnExtension.canBeSapient)
                 {
-                    Log.Warning("sapient");
                     State = ABF_ArtificialState.Sapient;
                 }
                 else if (pawnExtension.canBeReprogrammable)
                 {
-                    Log.Warning("reprogrammable");
                     State = ABF_ArtificialState.Reprogrammable;
                 }
                 else
                 {
-                    Log.Warning("drone");
                     State = ABF_ArtificialState.Drone;
                 }
             }
             else
             {
-                Log.Warning("sapient");
                 State = ABF_ArtificialState.Sapient;
             }
         }
@@ -424,6 +416,7 @@ namespace ArtificialBeings
                     enabledWorkTypes.Add(workTypeDef);
                 }
             }
+            Pawn.Notify_DisabledWorkTypesChanged();
         }
 
         // Take a source as the key value and an int as the value to update, and recalculate complexity.

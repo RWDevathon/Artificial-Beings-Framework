@@ -5,7 +5,7 @@
 
 	<ABF_ExclusionTagConflict>{0} and {1} are mutually exclusive.</ABF_ExclusionTagConflict>
     <ABF_ExclusiveToRace>{1}'s race does not allow this.</ABF_ExclusiveToRace>
-    <ABF_ComplexityRequirementInsufficient>it requires at least {1} maximum complexity but {2} has only {3}.</ABF_ComplexityRequirementInsufficient>
+    <ABF_ComplexityRequirementInsufficient>it requires at least {0} maximum complexity but {1} has only {2}.</ABF_ComplexityRequirementInsufficient>
     <ABF_IsInherentWorkType>it is an inherent work type of {0}. Inherent work types have no complexity cost.</ABF_IsInherentWorkType>
 
     <ABF_ForbiddenSkillPresent>the {0} skill is enabled.</ABF_ForbiddenSkillPresent>

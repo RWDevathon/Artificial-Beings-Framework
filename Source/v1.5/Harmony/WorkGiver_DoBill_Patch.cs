@@ -16,10 +16,9 @@ namespace ArtificialBeings
             [HarmonyPostfix]
             public static void Listener(Pawn pawn, Thing billGiver, ref List<Thing> relevantThings, Predicate<Thing> baseValidator, Map map)
             {
-                // If all medicines may be used for any operation, then no reason to remove any medicines from any operation.
                 if (billGiver is Pawn patient)
                 {
-                    relevantThings.RemoveAll(thing => !ABF_Utils.IsMedicineValid(thing.def, patient.def));
+                    relevantThings.RemoveAll(thing => ABF_Utils.cachedRaceMedicines.TryGetValue(patient.def, null)?.Contains(thing.def) != true);
                 }
             }
         }

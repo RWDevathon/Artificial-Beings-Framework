@@ -44,14 +44,14 @@ namespace ArtificialBeings
                 }
 
                 // Sapient blacklisted needs.
-                if (ABF_Utils.IsArtificialSapient(___pawn) && (pawnExtension.blacklistedSapientNeeds?.Contains(nd) ?? false))
+                if ((ABF_Utils.IsArtificialSapient(___pawn) || ABF_Utils.PawnStateFor(___pawn) == ABF_ArtificialState.Blank) && (pawnExtension.blacklistedSapientNeeds?.Contains(nd) ?? false))
                 {
                     __result = false;
                     return;
                 }
 
                 // Drone blacklisted needs.
-                if (ABF_Utils.IsArtificialDrone(___pawn) && (pawnExtension.blacklistedDroneNeeds?.Contains(nd) ?? false))
+                if ((ABF_Utils.IsArtificialDrone(___pawn) || ABF_Utils.PawnStateFor(___pawn) == ABF_ArtificialState.Blank) && (pawnExtension.blacklistedDroneNeeds?.Contains(nd) ?? false))
                 {
                     __result = false;
                     return;

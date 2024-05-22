@@ -8,11 +8,8 @@ namespace ArtificialBeings
 {
     public class ArtificialBeings : Mod
     {
-        public static ArtificialBeings ModSingleton { get; private set; }
-
         public ArtificialBeings(ModContentPack content) : base(content)
         {
-            ModSingleton = this;
             new Harmony("ArtificialBeings").PatchAll(Assembly.GetExecutingAssembly());
         }
     }
