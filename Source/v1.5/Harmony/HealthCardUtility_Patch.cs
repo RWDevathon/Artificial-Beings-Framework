@@ -123,7 +123,12 @@ namespace ArtificialBeings
             {
                 if (ABF_Utils.IsArtificial(pawn))
                 {
-                    List<KeyValuePair<HediffGiver_Leaking, float>> bleedingHediffGivers = ABF_Utils.cachedBleedingHediffGivers[pawn.def];
+                    List<KeyValuePair<HediffGiver_Leaking, float>> bleedingHediffGivers = ABF_Utils.cachedBleedingHediffGivers.TryGetValue(pawn.def);
+                    // If there are no cached bleeding hediff givers for the artificial race, then it cannot bleed and we should show nothing.
+                    if (bleedingHediffGivers == null)
+                    {
+                        return true;
+                    }
                     StringBuilder summaryText = new StringBuilder();
                     int lines = 0;
 
