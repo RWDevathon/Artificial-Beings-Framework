@@ -262,7 +262,6 @@
     <Compile Include="Harmony\Precept_Ritual_Patch.cs" />
     <Compile Include="Harmony\Pawn_StyleTracker_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_GroinOrChestUncovered_Patch.cs" />
-    <Compile Include="Harmony\ThoughtWorker_Precept_HasNoProsthetic_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_IdeoDiversity_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_IdeoDiversity_Uniform_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_GroinUncovered_Patch.cs" />
@@ -286,7 +285,6 @@
     <Compile Include="Harmony\Corpse_Patch.cs" />
     <Compile Include="Harmony\HealthAIUtility_Patch.cs" />
     <Compile Include="Harmony\HediffSet_Patch.cs" />
-    <Compile Include="Harmony\HediffUtility_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_DiseaseAnimal_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_DiseaseHuman_Patch.cs" />
     <Compile Include="Harmony\MedicalCareUtility_Patch.cs" />
