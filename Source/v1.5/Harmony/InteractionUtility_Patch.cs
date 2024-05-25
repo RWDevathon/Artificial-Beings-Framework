@@ -15,7 +15,7 @@ namespace ArtificialBeings
             {
                 if (ABF_Utils.IsArtificialDrone(pawn))
                 {
-                    if (pawn.skills is Pawn_SkillTracker skills && (!skills.GetSkill(SkillDefOf.Social).TotallyDisabled || !skills.GetSkill(SkillDefOf.Animals).TotallyDisabled))
+                    if (pawn.RaceProps.intelligence == Intelligence.Animal || (pawn.skills is Pawn_SkillTracker skills && (!skills.GetSkill(SkillDefOf.Social).TotallyDisabled || !skills.GetSkill(SkillDefOf.Animals).TotallyDisabled)))
                     {
                         return true;
                     }
@@ -33,7 +33,7 @@ namespace ArtificialBeings
             [HarmonyPrefix]
             public static bool Prefix(Pawn p, ref bool __result)
             {
-                if (ABF_Utils.IsArtificialDrone(p))
+                if (ABF_Utils.IsArtificialDrone(p) && p.RaceProps.intelligence > Intelligence.Animal)
                 {
                     __result = false;
                     return false;
@@ -49,7 +49,7 @@ namespace ArtificialBeings
             [HarmonyPrefix]
             public static bool Prefix(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
             {
-                if (ABF_Utils.IsArtificialDrone(pawn))
+                if (ABF_Utils.IsArtificialDrone(pawn) && pawn.RaceProps.intelligence > Intelligence.Animal)
                 {
                     __result = false;
                     return false;
