@@ -17,8 +17,9 @@ namespace ArtificialBeings
             public static bool Listener(Rect rect, Pawn pawn)
             {
                 List<ThingDef> legalMedicines = new List<ThingDef>();
-                if (!ABF_Utils.cachedRaceMedicines.TryGetValue(pawn.def, out legalMedicines))
+                if (!ABF_Utils.cachedRaceMedicines.TryGetValue(pawn.def, out legalMedicines) && !ABF_Utils.cachedRaceMedicines.TryGetValue(ThingDefOf.Human, out legalMedicines))
                 {
+                    Log.ErrorOnce("[ABF] race " + pawn.def + " has no cached medicines and there are no defaults to use! A third-party mod has seriously altered how races are set up. " + pawn.LabelShort + " and the matching race will not be able to use any medicines!", 948123);
                     return true;
                 }
                 List<int> iconIndices = ABF_Utils.GetCategoryMarkerIndices(legalMedicines);
@@ -51,9 +52,10 @@ namespace ArtificialBeings
             private static IEnumerable<Widgets.DropdownMenuElement<MedicalCareCategory>> MedicalCareSelectButton_GenerateMenu(Pawn p)
             {
                 List<ThingDef> legalMedicines = new List<ThingDef>();
-                if (!ABF_Utils.cachedRaceMedicines.TryGetValue(p.def, out legalMedicines))
+                if (!ABF_Utils.cachedRaceMedicines.TryGetValue(p.def, out legalMedicines) && !ABF_Utils.cachedRaceMedicines.TryGetValue(ThingDefOf.Human, out legalMedicines))
                 {
-                    legalMedicines = ABF_Utils.cachedRaceMedicines[ThingDefOf.Human];
+                    Log.ErrorOnce("[ABF] race " + p.def + " has no cached medicines and there are no defaults to use! A third-party mod has seriously altered how races are set up. " + p.LabelShort + " and the matching race will not be able to use any medicines!", 948123);
+                    yield break;
                 }
                 List<int> targetIndices = ABF_Utils.GetCategoryMarkerIndices(legalMedicines);
 

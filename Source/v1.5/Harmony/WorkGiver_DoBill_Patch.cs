@@ -18,7 +18,7 @@ namespace ArtificialBeings
             {
                 if (billGiver is Pawn patient)
                 {
-                    relevantThings.RemoveAll(thing => ABF_Utils.cachedRaceMedicines.TryGetValue(patient.def, null)?.Contains(thing.def) != true);
+                    relevantThings.RemoveAll(thing => ABF_Utils.cachedRaceMedicines.TryGetValue(patient.def, null)?.Contains(thing.def) ?? ABF_Utils.cachedRaceMedicines.TryGetValue(ThingDefOf.Human, null)?.Contains(thing.def) ?? true);
                 }
             }
         }

@@ -47,7 +47,7 @@ namespace ArtificialBeings
 
             private static bool ValidMedicine(Thing medicine, Pawn pawn)
             {
-                return ABF_Utils.cachedRaceMedicines.TryGetValue(pawn.def, null)?.Contains(medicine.def) ?? false;
+                return ABF_Utils.cachedRaceMedicines.TryGetValue(pawn.def, null)?.Contains(medicine.def) ?? ABF_Utils.cachedRaceMedicines.TryGetValue(ThingDefOf.Human, null)?.Contains(medicine.def) ?? false;
             }
         }
     }
