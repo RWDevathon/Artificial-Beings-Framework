@@ -20,6 +20,8 @@
     <ABF_ComplexityLimitExceeded>The {0} complexity limit has been exceeded with {1} total complexity. This will have severe adverse effects!</ABF_ComplexityLimitExceeded>
     <ABF_BaselineComplexity>Baseline complexity</ABF_BaselineComplexity>
     <ABF_BaselineComplexityDesc>How much complexity this unit is able to handle without exceeding standard operating limits or without complexity offsetting.</ABF_BaselineComplexityDesc>
+    <ABF_DirectiveSlots>Directive slots</ABF_DirectiveSlots>
+    <ABF_DirectiveSlotsDesc>Number of non-inherent directives this unit is able to handle.</ABF_DirectiveSlotsDesc>
     <ABF_ReprogramDrone>Reprogram {0}.</ABF_ReprogramDrone>
     <ABF_ReprogramDroneDesc>{0} lacks programming and needs to have it set in order to function.</ABF_ReprogramDroneDesc>
 

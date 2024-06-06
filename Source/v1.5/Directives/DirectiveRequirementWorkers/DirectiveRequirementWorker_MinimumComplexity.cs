@@ -18,7 +18,7 @@ namespace ArtificialBeings
             int pawnMaxComplexity = pawn.GetComp<CompArtificialPawn>().MaxComplexity;
             if (pawnMaxComplexity < complexityRequirement)
             {
-                return "ABF_ComplexityRequirementInsufficient".Translate(def.LabelCap, complexityRequirement, pawn.LabelShortCap, pawnMaxComplexity);
+                return "ABF_ComplexityRequirementInsufficient".Translate(complexityRequirement, pawn.LabelShortCap, pawnMaxComplexity);
             }
             return true;
         }

@@ -3,6 +3,7 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 using Verse.Sound;
 
 namespace ArtificialBeings
@@ -12,6 +13,8 @@ namespace ArtificialBeings
         private Pawn pawn;
 
         private CompArtificialPawn programComp;
+
+        private ABF_ArtificialPawnExtension programmableDroneExtension;
 
         private int directiveComplexity;
 
@@ -72,7 +75,7 @@ namespace ArtificialBeings
             programComp = pawn.GetComp<CompArtificialPawn>();
             int activeDirectiveComplexity = programComp.GetComplexityFromSource("Active Directives");
             directiveComplexity = activeDirectiveComplexity;
-            ABF_ArtificialPawnExtension programmableDroneExtension = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>();
+            programmableDroneExtension = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>();
             maxDirectives = programmableDroneExtension?.maxDirectives ?? 3;
             inherentDirectiveCount = programmableDroneExtension?.inherentDirectives?.Count ?? 0;
             foreach (DirectiveDef directiveDef in pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.inherentDirectives)
@@ -97,6 +100,14 @@ namespace ArtificialBeings
             {
                 Accept();
             }
+
+            string directiveSlotText = "ABF_DirectiveSlots".Translate() + ": " + (selectedDirectives.Count - inherentDirectiveCount) + " / " + programmableDroneExtension.maxDirectives;
+            Vector2 textSize = Text.CalcSize(directiveSlotText);
+            Rect summaryRect = new Rect(rect.xMax - ButSize.x - Margin - textSize.x, rect.yMax - ButSize.y, textSize.x, ButSize.y);
+            Text.Anchor = TextAnchor.MiddleRight;
+            Widgets.Label(summaryRect, directiveSlotText);
+            Text.Anchor = TextAnchor.UpperLeft;
+            TooltipHandler.TipRegion(summaryRect, "ABF_DirectiveSlotsDesc".Translate());
         }
 
         // UI Section containing all possible directives
@@ -428,7 +439,7 @@ namespace ArtificialBeings
         {
             foreach (DirectiveDef selectedDirective in selectedDirectives)
             {
-                if (!selectedDirective.requirementWorkers.NullOrEmpty())
+                if (programmableDroneExtension?.inherentDirectives?.Contains(selectedDirective) != true && !selectedDirective.requirementWorkers.NullOrEmpty())
                 {
                     foreach (DirectiveRequirementWorker requirementWorker in selectedDirective.requirementWorkers)
                     {
