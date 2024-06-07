@@ -14,7 +14,7 @@ namespace ArtificialBeings
             {
                 ApplyHediffTarget(target.Pawn);
             }
-            if (Props.hediffDefSelf != null)
+            if (Props.hediffDefSelf != null && target.Pawn != null && target.Pawn == parent.pawn)
             {
                 ApplyHediffSelf(parent.pawn);
             }
@@ -24,7 +24,7 @@ namespace ArtificialBeings
         {
             if (Props.hediffDefSelf != null)
             {
-                Hediff hediffSelf = HediffMaker.MakeHediff(Props.hediffDefSelf, pawn);
+                Hediff hediffSelf = pawn.health.GetOrAddHediff(Props.hediffDefSelf);
                 HediffComp_Disappears hediffComp_Disappears = hediffSelf.TryGetComp<HediffComp_Disappears>();
                 if (hediffComp_Disappears != null)
                 {
@@ -34,7 +34,6 @@ namespace ArtificialBeings
                 {
                     hediffSelf.Severity = Props.severitySelf;
                 }
-                pawn.health.AddHediff(hediffSelf);
             }
         }
 
