@@ -12,9 +12,9 @@ namespace ArtificialBeings
         }
 
         [MayRequireMartialSynstructs]
-        public static PawnKindDef ABF_Synstruct_Jellyman_Crash;
+        public static PawnKindDef ABF_PawnKind_Synstruct_Jellyman_QuestCrash;
 
         [MayRequireMartialSynstructs]
-        public static PawnKindDef ABF_Synstruct_Juggernaut_Crash;
+        public static PawnKindDef ABF_PawnKind_Synstruct_Juggernaut_Calldown;
     }
 }

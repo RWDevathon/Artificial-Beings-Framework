@@ -18,7 +18,7 @@ namespace ArtificialBeings
         public static ThingDef ABF_BedsideChargerFacility;
 
         [MayRequireMartialSynstructs]
-        public static ThingDef ABF_JuggernautDescentBeam;
+        public static ThingDef ABF_Thing_Synstruct_Juggernaut_DescentBeam;
 
         [MayRequireMechcloudChemwalkers]
         public static ThingDef ABF_MechcloudInscribedChemwalkerShell;
