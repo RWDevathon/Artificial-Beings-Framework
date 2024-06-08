@@ -72,7 +72,7 @@ namespace ArtificialBeings
 
                     if (complexityHediff == null)
                     {
-                        complexityHediff = (Hediff_Complexity)HediffMaker.MakeHediff(ABF_HediffDefOf.ABF_ComplexityRelation, Pawn);
+                        complexityHediff = (Hediff_Complexity)HediffMaker.MakeHediff(ABF_HediffDefOf.ABF_Hediff_Artificial_ComplexityRelation, Pawn);
                         Pawn.health.AddHediff(complexityHediff);
                     }
                     complexityHediff.UpdateHediffStage();
@@ -81,7 +81,7 @@ namespace ArtificialBeings
                 // Switching away from the blank state removes the disabled hediff, unless they are reprogrammable. Reprogrammable drones need to be programmed first.
                 if (state == ABF_ArtificialState.Blank && value != ABF_ArtificialState.Reprogrammable)
                 {
-                    Hediff hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled);
+                    Hediff hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled);
                     if (hediff != null)
                     {
                         Pawn.health.RemoveHediff(hediff);
@@ -142,7 +142,7 @@ namespace ArtificialBeings
                 if (cachedBaselineComplexity == -1)
                 {
                     // Cache the baseline complexity stat from the pawn's statBases. Do this exactly once as it does not change without reloading the game.
-                    StatDef baselineComplexityStat = ABF_StatDefOf.ABF_ComplexityLimit;
+                    StatDef baselineComplexityStat = ABF_StatDefOf.ABF_Stat_Artificial_ComplexityLimit;
                     cachedBaselineComplexity = (int)baselineComplexityStat.defaultBaseValue;
                     foreach (StatModifier statMod in Pawn.def.statBases)
                     {
@@ -275,13 +275,13 @@ namespace ArtificialBeings
                     {
                         Find.WindowStack.Add(new Dialog_ReprogramDrone(Pawn));
                         // If the unit had the no programming hediff, remove that hediff.
-                        Hediff hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled);
+                        Hediff hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled);
                         if (hediff != null)
                         {
                             Pawn.health.RemoveHediff(hediff);
                         }
                         // Reprogrammable drones do not need to restart after programming is complete.
-                        hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Incapacitated);
+                        hediff = Pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Incapacitated);
                         if (hediff != null)
                         {
                             Pawn.health.RemoveHediff(hediff);
@@ -461,7 +461,7 @@ namespace ArtificialBeings
                 sum += complexity;
             }
             cachedComplexity = Math.Max(0, sum);
-            cachedMaxComplexity = (int)Pawn.GetStatValue(ABF_StatDefOf.ABF_ComplexityLimit);
+            cachedMaxComplexity = (int)Pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_ComplexityLimit);
         }
     }
 }

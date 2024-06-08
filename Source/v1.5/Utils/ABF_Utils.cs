@@ -166,7 +166,7 @@ namespace ArtificialBeings
                 // Drone skill levels start at their baseline level for true drones and at 0 for reprogrammable drones. The inherentSkills is then added/subtracted to that baseline.
                 // Since both true drones and reprogrammable drones are incapable of learning, their passions and xp does not matter. It should be set to 0 for simplicity.
                 int baselineSkill = IsProgrammableDrone(pawn) ? 0 : (pawnExtension?.droneSkillLevel ?? 4);
-                
+
                 foreach(SkillRecord skillRecord in pawn.skills.skills)
                 {
                     skillRecord.passion = 0;
@@ -257,7 +257,7 @@ namespace ArtificialBeings
         // Given a pawn and skill, calculate the maximum level the pawn may have in the skill.
         public static float SkillLimitFor(Pawn pawn, SkillDef skill)
         {
-            return pawn.GetStatValue(ABF_StatDefOf.ABF_SkillLimit) + pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.inherentSkills?.GetWithFallback(skill, 0) ?? 0;
+            return pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_SkillLimit) + pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.inherentSkills?.GetWithFallback(skill, 0) ?? 0;
         }
 
         public static void Deprogram(Pawn pawn)

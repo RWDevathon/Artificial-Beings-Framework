@@ -17,7 +17,7 @@ namespace ArtificialBeings
         {
             skillComplexityCost = ABF_Utils.SkillComplexityCostFor(skillRecord.Pawn, skillRecord.def);
             skillFloor = skillRecord.Pawn.def.GetModExtension<ABF_ArtificialPawnExtension>().inherentSkills.GetWithFallback(skillRecord.def, SkillRecord.MinLevel);
-            skillCeiling = (int)skillRecord.Pawn.GetStatValue(ABF_StatDefOf.ABF_SkillLimit) + skillFloor;
+            skillCeiling = (int)skillRecord.Pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_SkillLimit) + skillFloor;
         }
 
     }

@@ -2,7 +2,7 @@
 <Defs>
 
     <LetterDef ParentName="CustomChoiceLetterBase">
-        <defName>ABF_ReprogramDroneLetter</defName>
+        <defName>ABF_Letter_Artificial_ReprogramDrone</defName>
         <letterClass>ArtificialBeings.ChoiceLetter_ReprogramDrone</letterClass>
     </LetterDef>
 

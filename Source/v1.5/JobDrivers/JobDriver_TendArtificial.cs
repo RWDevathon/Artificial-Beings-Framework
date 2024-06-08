@@ -64,7 +64,7 @@ namespace ArtificialBeings
             }
 
             yield return gotoToil;
-            int ticks = (int)(1f / pawn.GetStatValue(ABF_StatDefOf.ABF_ArtificialTendSpeed) * 600f);
+            int ticks = (int)(1f / pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_TendSpeed) * 600f);
             Toil waitToil;
             if (!job.draftedTend)
             {

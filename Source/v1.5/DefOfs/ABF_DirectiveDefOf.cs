@@ -11,15 +11,15 @@ namespace ArtificialBeings
         }
 
         [MayRequireSynstructsCore]
-        public static DirectiveDef ABF_DirectiveArtisan;
+        public static DirectiveDef ABF_Directive_Synstruct_Artisan;
 
         [MayRequireSynstructsCore]
-        public static DirectiveDef ABF_DirectiveMartyrdom;
+        public static DirectiveDef ABF_Directive_Synstruct_Martyr;
 
         [MayRequireSynstructsCore]
-        public static DirectiveDef ABF_DirectiveBerserker;
+        public static DirectiveDef ABF_Directive_Synstruct_Berserker;
 
         [MayRequireSynstructsCore]
-        public static DirectiveDef ABF_DirectiveAmicability;
+        public static DirectiveDef ABF_Directive_Synstruct_Friend;
     }
 }

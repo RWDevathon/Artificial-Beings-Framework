@@ -11,9 +11,9 @@ namespace ArtificialBeings
         }
 
         [MayRequireSynstructsCore]
-        public static ThoughtDef ABF_PersonalityShiftAllowed;
+        public static ThoughtDef ABF_Thought_Synstruct_PersonalityShiftAllowed;
 
         [MayRequireSynstructsCore]
-        public static ThoughtDef ABF_PersonalityShiftDenied;
+        public static ThoughtDef ABF_Thought_Synstruct_PersonalityShiftDenied;
     }
 }

@@ -84,7 +84,7 @@ namespace ArtificialBeings
                     // ABF_Utils.ReconfigureDrone(pawn);
                     if (ABF_Utils.IsProgrammableDrone(pawn))
                     {
-                        ChoiceLetter_ReprogramDrone choiceLetter = (ChoiceLetter_ReprogramDrone)LetterMaker.MakeLetter(ABF_LetterDefOf.ABF_ReprogramDroneLetter);
+                        ChoiceLetter_ReprogramDrone choiceLetter = (ChoiceLetter_ReprogramDrone)LetterMaker.MakeLetter(ABF_LetterDefOf.ABF_Letter_Artificial_ReprogramDrone);
                         choiceLetter.subject = pawn;
                         choiceLetter.Label = "ABF_ReprogramDrone".Translate(pawn.LabelShortCap);
                         choiceLetter.Text = "ABF_ReprogramDroneDesc".Translate(pawn.LabelShortCap);

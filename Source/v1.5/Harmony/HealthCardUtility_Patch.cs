@@ -51,7 +51,7 @@ namespace ArtificialBeings
                 {
                     return notDoctor;
                 }
-                else if (pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_Artificer))
+                else if (pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer))
                 {
                     pawn.playerSettings.selfTend = false;
                 }
@@ -66,7 +66,7 @@ namespace ArtificialBeings
                 {
                     return isDoctor;
                 }
-                else if (pawn.workSettings.GetPriority(ABF_WorkTypeDefOf.ABF_Artificer) == 0)
+                else if (pawn.workSettings.GetPriority(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer) == 0)
                 {
                     Messages.Message("ABF_MessageSelfRepairUnsatisfied".Translate(pawn.LabelShort, pawn), MessageTypeDefOf.CautionInput, historical: false);
                 }

@@ -3,7 +3,7 @@
 
     <!-- Baseline Complexity Capacity -->
     <StatDef>
-        <defName>ABF_ComplexityLimit</defName>
+        <defName>ABF_Stat_Artificial_ComplexityLimit</defName>
         <label>complexity capacity</label>
         <description>How much complexity this unit is able to handle without exceeding standard operating limits or without complexity offsetting.</description>
         <workerClass>ArtificialBeings.StatWorker_MaximumComplexity</workerClass>
@@ -14,7 +14,7 @@
 
     <!-- Baseline Skill Capacity -->
     <StatDef>
-        <defName>ABF_SkillLimit</defName>
+        <defName>ABF_Stat_Artificial_SkillLimit</defName>
         <label>skill capacity</label>
         <description>The maximum skill level this unit may have in any particular field, offset by inherent skills.</description>
         <workerClass>ArtificialBeings.StatWorker_MaximumComplexity</workerClass>

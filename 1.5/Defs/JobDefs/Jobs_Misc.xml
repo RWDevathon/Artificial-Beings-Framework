@@ -2,14 +2,14 @@
 <Defs>
 
     <JobDef>
-        <defName>ABF_FulfillArtificialNeed</defName>
+        <defName>ABF_Job_Artificial_FulfillNeed</defName>
         <driverClass>ArtificialBeings.JobDriver_FulfillArtificialNeed</driverClass>
         <reportString>Replenishing need.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 
     <JobDef>
-        <defName>ABF_TendArtificial</defName>
+        <defName>ABF_Job_Artificial_Tend</defName>
         <driverClass>ArtificialBeings.JobDriver_TendArtificial</driverClass>
         <reportString>tending to TargetA.</reportString>
         <casualInterruptible>false</casualInterruptible>

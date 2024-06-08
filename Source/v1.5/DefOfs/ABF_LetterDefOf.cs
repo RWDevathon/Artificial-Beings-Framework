@@ -11,12 +11,12 @@ namespace ArtificialBeings
             DefOfHelper.EnsureInitializedInCtor(typeof(ABF_LetterDefOf));
         }
 
-        public static LetterDef ABF_ReprogramDroneLetter;
+        public static LetterDef ABF_Letter_Artificial_ReprogramDrone;
 
         [MayRequireSynstructsCore]
-        public static LetterDef ABF_PersonalityShiftLetter;
+        public static LetterDef ABF_Letter_Synstruct_PersonalityShift;
 
         [MayRequireSynstructsCore]
-        public static LetterDef ABF_PersonalityShiftRequestLetter;
+        public static LetterDef ABF_Letter_Synstruct_PersonalityShiftRequest;
     }
 }

@@ -71,7 +71,7 @@ namespace ArtificialBeings
             base.PostMake();
             programmingComp = pawn.GetComp<CompArtificialPawn>();
 
-            StatDef coherenceStat = ABF_StatDefOf.ABF_CoherenceRetention;
+            StatDef coherenceStat = ABF_StatDefOf.ABF_Stat_Synstruct_CoherenceRetention;
             if (coherenceStat != null)
             {
                 maintenanceExists = true;

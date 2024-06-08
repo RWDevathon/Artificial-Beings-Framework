@@ -11,6 +11,6 @@ namespace ArtificialBeings
             DefOfHelper.EnsureInitializedInCtor(typeof(ABF_WorkTypeDefOf));
         }
 
-        public static WorkTypeDef ABF_Artificer;
+        public static WorkTypeDef ABF_WorkType_Artificial_Artificer;
     }
 }

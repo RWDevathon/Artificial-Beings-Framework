@@ -2,7 +2,7 @@
 <Defs>
 
     <WorkTypeDef>
-        <defName>ABF_Artificer</defName>
+        <defName>ABF_WorkType_Artificial_Artificer</defName>
         <labelShort>artificer</labelShort>
         <pawnLabel>Artificer</pawnLabel>
         <gerundLabel>tending to</gerundLabel>

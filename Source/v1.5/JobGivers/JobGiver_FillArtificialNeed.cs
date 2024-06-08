@@ -39,7 +39,7 @@ namespace ArtificialBeings
                 {
                     ABF_NeedFulfillerExtension needFulfiller = item.def.GetModExtension<ABF_NeedFulfillerExtension>();
                     int desiredCount = Mathf.Max(1, Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / needFulfiller.needOffsetRelations[needDef]));
-                    Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_FulfillArtificialNeed, item);
+                    Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, item);
                     job.count = Mathf.Min(item.stackCount, desiredCount);
                     return job;
                 }

@@ -2,7 +2,7 @@
 <Defs>
 
     <LifeStageDef>
-        <defName>ABF_ArtificialComplete</defName>
+        <defName>ABF_LifeStage_Artificial_Complete</defName>
         <label>fully-formed</label>
         <visible>false</visible>
         <silhouetteGraphicData>

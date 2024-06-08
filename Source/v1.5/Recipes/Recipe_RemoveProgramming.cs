@@ -11,13 +11,13 @@ namespace ArtificialBeings
         {
             return thing is Pawn pawn
                 && ABF_Utils.IsProgrammableDrone(pawn)
-                && pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled) == null;
+                && pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled) == null;
         }
 
         // This operation resets the drone back to being "blank" and having no programming.
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            pawn.health.AddHediff(ABF_HediffDefOf.ABF_Disabled);
+            pawn.health.AddHediff(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled);
             ABF_Utils.Deprogram(pawn);
         }
     }

@@ -2,7 +2,7 @@
 <Defs>
 
     <HediffDef>
-        <defName>ABF_Terminated</defName>
+        <defName>ABF_Hediff_Artificial_Terminated</defName>
         <label>terminated</label>
         <description>Operability terminated.</description>
         <initialSeverity>0</initialSeverity>
@@ -12,7 +12,7 @@
     </HediffDef>
 
     <HediffDef>
-        <defName>ABF_Incapacitated</defName>
+        <defName>ABF_Hediff_Artificial_Incapacitated</defName>
         <label>incapacitated</label>
         <description>Unit is temporarily incapacitated.</description>
         <hediffClass>HediffWithComps</hediffClass>
@@ -40,7 +40,7 @@
     </HediffDef>
 
     <HediffDef>
-        <defName>ABF_Disabled</defName>
+        <defName>ABF_Hediff_Artificial_Disabled</defName>
         <label>disabled</label>
         <description>Unit is currently entirely disabled, and is inert.</description>
         <hediffClass>Hediff</hediffClass>
@@ -69,7 +69,7 @@
     </HediffDef>
 
     <HediffDef>
-        <defName>ABF_ComplexityRelation</defName>
+        <defName>ABF_Hediff_Artificial_ComplexityRelation</defName>
         <label>complexity strain</label>
         <description>This unit is experiencing side-effects of their current level of programming relative to their maximum complexity handling capacity. If the drone is under their baseline capacity, they will receive minor boosts.</description>
         <hediffClass>ArtificialBeings.Hediff_Complexity</hediffClass>

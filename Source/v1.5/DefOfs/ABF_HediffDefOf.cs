@@ -10,38 +10,35 @@ namespace ArtificialBeings
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(ABF_HediffDefOf));
         }
-        public static HediffDef ABF_Incapacitated;
+        public static HediffDef ABF_Hediff_Artificial_Incapacitated;
 
-        public static HediffDef ABF_Disabled;
+        public static HediffDef ABF_Hediff_Artificial_Disabled;
 
-        public static HediffDef ABF_ComplexityRelation;
-
-        [MayRequireSynstructsCore]
-        public static HediffDef ABF_StasisPill;
+        public static HediffDef ABF_Hediff_Artificial_ComplexityRelation;
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_RemainingCharge;
+        public static HediffDef ABF_Hediff_Synstruct_RemainingCharge;
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_AutomodulatedVoiceSynthesizer;
+        public static HediffDef ABF_Hediff_Synstruct_Utility_InduciveVocalizer;
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_CoerciveVoiceSynthesizer;
+        public static HediffDef ABF_Hediff_Synstruct_Utility_CoerciveVocalizer;
 
         // Coherence Part failures
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_RustedPart;
+        public static HediffDef ABF_Hediff_Synstruct_Coherence_RustedPart;
 
         // Coherence effects
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_CoherenceCritical;
+        public static HediffDef ABF_Hediff_Synstruct_Coherence_CriticalStage;
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_CoherencePoor;
+        public static HediffDef ABF_Hediff_Synstruct_Coherence_PoorStage;
 
         [MayRequireSynstructsCore]
-        public static HediffDef ABF_CoherenceSatisfactory;
+        public static HediffDef ABF_Hediff_Synstruct_Coherence_SatisfactoryStage;
     }
 }

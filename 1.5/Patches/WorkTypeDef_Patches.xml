@@ -33,7 +33,7 @@
 
     <!-- Highly complex work types with skills. -->
     <Operation Class="PatchOperationAddModExtension">
-        <xpath>Defs/WorkTypeDef[defName="Doctor" or defName="ABF_Artificer"]</xpath>
+        <xpath>Defs/WorkTypeDef[defName="Doctor" or defName="ABF_WorkType_Artificial_Artificer"]</xpath>
         <value>
             <li Class="ArtificialBeings.ABF_WorkTypeExtension">
                 <baseComplexity>6</baseComplexity>

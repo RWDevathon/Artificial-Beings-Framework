@@ -31,7 +31,7 @@ namespace ArtificialBeings
                 for (int i = 0; i < list.Count; i++)
                 {
                     Pawn target = list[i];
-                    if (target != pawn && (target.RaceProps.Humanlike || target.IsColonyMechPlayerControlled) && !target.Downed && target.Awake() && !target.InBed() && !target.InMentalState && !target.IsPrisoner && target.workSettings != null && target.workSettings.EverWork && target.workSettings.WorkIsActive(ABF_WorkTypeDefOf.ABF_Artificer) && target.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && target.CanReach(pawn, PathEndMode.Touch, Danger.Deadly))
+                    if (target != pawn && (target.RaceProps.Humanlike || target.IsColonyMechPlayerControlled) && !target.Downed && target.Awake() && !target.InBed() && !target.InMentalState && !target.IsPrisoner && target.workSettings != null && target.workSettings.EverWork && target.workSettings.WorkIsActive(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer) && target.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && target.CanReach(pawn, PathEndMode.Touch, Danger.Deadly))
                     {
                         __result = true;
                         return;

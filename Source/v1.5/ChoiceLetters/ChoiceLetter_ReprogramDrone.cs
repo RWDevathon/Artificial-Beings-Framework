@@ -25,7 +25,7 @@ namespace ArtificialBeings
                         Find.WindowStack.Add(new Dialog_ReprogramDrone(subject));
                         Find.LetterStack.RemoveLetter(this);
                         // If the unit had the no programming hediff, remove that hediff.
-                        Hediff hediff = subject.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled);
+                        Hediff hediff = subject.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled);
                         if (hediff != null)
                         {
                             subject.health.RemoveHediff(hediff);

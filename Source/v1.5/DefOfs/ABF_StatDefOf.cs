@@ -10,27 +10,27 @@ namespace ArtificialBeings
             DefOfHelper.EnsureInitializedInCtor(typeof(ABF_StatDefOf));
         }
 
-        public static StatDef ABF_ArtificialSurgerySuccessChance;
+        public static StatDef ABF_Stat_Artificial_SurgerySuccessChance;
 
-        public static StatDef ABF_ArtificialTendQuality;
+        public static StatDef ABF_Stat_Artificial_TendQuality;
 
-        public static StatDef ABF_ArtificialTendSpeed;
+        public static StatDef ABF_Stat_Artificial_TendSpeed;
 
-        public static StatDef ABF_ArtificialTendQualityOffset;
+        public static StatDef ABF_Stat_Artificial_TendQualityOffset;
 
-        public static StatDef ABF_ArtificialSurgerySuccessChanceFactor;
+        public static StatDef ABF_Stat_Artificial_SurgerySuccessChanceFactor;
 
-        public static StatDef ABF_ComplexityLimit;
+        public static StatDef ABF_Stat_Artificial_ComplexityLimit;
 
-        public static StatDef ABF_SkillLimit;
-
-        [MayRequireSynstructsCore]
-        public static StatDef ABF_CoherenceRetention;
+        public static StatDef ABF_Stat_Artificial_SkillLimit;
 
         [MayRequireSynstructsCore]
-        public static StatDef ABF_ChargingSpeed;
+        public static StatDef ABF_Stat_Synstruct_CoherenceRetention;
 
         [MayRequireSynstructsCore]
-        public static StatDef ABF_NutritionalIntakeEfficiency;
+        public static StatDef ABF_Stat_Synstruct_ChargingSpeed;
+
+        [MayRequireSynstructsCore]
+        public static StatDef ABF_Stat_Synstruct_NutritionalIntakeEfficiency;
     }
 }

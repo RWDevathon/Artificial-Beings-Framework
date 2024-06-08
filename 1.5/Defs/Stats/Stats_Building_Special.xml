@@ -4,7 +4,7 @@
     <!-- Artificial Surgery Success Chance Factor -->
 
 	<StatDef>
-		<defName>ABF_ArtificialSurgerySuccessChanceFactor</defName>
+		<defName>ABF_Stat_Artificial_SurgerySuccessChanceFactor</defName>
 		<label>artificial surgery success chance factor</label>
 		<description>A multiplier to the chance that an operation on an artificial unit will succeed when performed here. Artificial surgery success chances are also affected by many other factors, including the artificer's ability.</description>
 		<workerClass>StatWorker_SurgerySuccessChanceFactor</workerClass>
@@ -43,7 +43,7 @@
     <!-- Artificial Tend Quality Offset -->
 
     <StatDef>
-        <defName>ABF_ArtificialTendQualityOffset</defName>
+        <defName>ABF_Stat_Artificial_TendQualityOffset</defName>
         <label>artificial tend quality offset</label>
         <description>Artificial tend quality is offset by this value.</description>
         <category>Building</category>

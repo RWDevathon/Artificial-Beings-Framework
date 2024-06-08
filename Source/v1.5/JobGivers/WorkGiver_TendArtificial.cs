@@ -9,7 +9,7 @@ namespace ArtificialBeings
     {
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (!(t is Pawn target) || !ABF_Utils.IsArtificial(target) || pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_Artificer) || !GoodLayingStatusForTend(target, pawn) || !HealthAIUtility.ShouldBeTendedNowByPlayer(target) || !pawn.CanReserve(target, 1, -1, null, forced) || (target.InAggroMentalState && !target.health.hediffSet.HasHediff(HediffDefOf.Scaria)))
+            if (!(t is Pawn target) || !ABF_Utils.IsArtificial(target) || pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer) || !GoodLayingStatusForTend(target, pawn) || !HealthAIUtility.ShouldBeTendedNowByPlayer(target) || !pawn.CanReserve(target, 1, -1, null, forced) || (target.InAggroMentalState && !target.health.hediffSet.HasHediff(HediffDefOf.Scaria)))
             {
                 return false;
             }
@@ -23,13 +23,13 @@ namespace ArtificialBeings
             Thing thing = HealthAIUtility.FindBestMedicine(pawn, target);
             if (thing != null && thing.SpawnedParentOrMe != thing)
             {
-                return JobMaker.MakeJob(ABF_JobDefOf.ABF_TendArtificial, target, thing, thing.SpawnedParentOrMe);
+                return JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_Tend, target, thing, thing.SpawnedParentOrMe);
             }
             if (thing != null)
             {
-                return JobMaker.MakeJob(ABF_JobDefOf.ABF_TendArtificial, target, thing);
+                return JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_Tend, target, thing);
             }
-            return JobMaker.MakeJob(ABF_JobDefOf.ABF_TendArtificial, target);
+            return JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_Tend, target);
         }
     }
 }

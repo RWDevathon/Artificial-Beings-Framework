@@ -3,7 +3,7 @@
 
     <!-- Artificial Surgery Success Chance -->
 	<StatDef>
-		<defName>ABF_ArtificialSurgerySuccessChance</defName>
+		<defName>ABF_Stat_Artificial_SurgerySuccessChance</defName>
 		<label>artificial surgery success chance</label>
 		<description>The base chance that a character will succeed when performing an operation on artificial units. The actual success chance is also affected by factors like facilities, room cleanliness, medicine used, the difficulty of the operation, and inspirations.</description>
 		<category>PawnWork</category>
@@ -56,7 +56,7 @@
     <!-- Artificial Surgery Operation Speed -->
 
     <StatDef>
-        <defName>ABF_ArtificialOperationSpeed</defName>
+        <defName>ABF_Stat_Artificial_OperationSpeed</defName>
         <label>artificial operation speed</label>
         <description>The speed at which the character performs artificial operations.</description>
         <category>PawnWork</category>
@@ -87,7 +87,7 @@
     <!-- Artificial Tend Quality -->
 
     <StatDef>
-        <defName>ABF_ArtificialTendQuality</defName>
+        <defName>ABF_Stat_Artificial_TendQuality</defName>
         <label>artificial tend quality</label>
         <description>The base quality of tending given when repairing integrity damage.\n\nThe actual tend quality will also be affected by factors like medicine used, facilities, luck, and so on.</description>
         <category>PawnWork</category>
@@ -128,7 +128,7 @@
     <!-- Artificial tend speed -->
 
     <StatDef>
-        <defName>ABF_ArtificialTendSpeed</defName>
+        <defName>ABF_Stat_Artificial_TendSpeed</defName>
         <label>artificial tend speed</label>
         <description>Speed at which the character tends to integrity damage.</description>
         <category>PawnWork</category>

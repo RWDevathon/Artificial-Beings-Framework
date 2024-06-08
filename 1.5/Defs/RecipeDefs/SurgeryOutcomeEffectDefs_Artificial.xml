@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <SurgeryOutcomeEffectDef Name="ABF_ArtificialSurgeryOutcomeBase">
-        <defName>ABF_ArtificialSurgeryOutcomeBase</defName>
+    <SurgeryOutcomeEffectDef Name="ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase">
+        <defName>ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase</defName>
         <outcomes>
             <li Class="SurgeryOutcomeSuccess" />
             <li Class="SurgeryOutcome_Death">
@@ -46,10 +46,10 @@
         </outcomes>
         <comps>
             <li Class="ArtificialBeings.SurgeryOutcomeComp_OperatorSuccessChance">
-                <statDef>ABF_ArtificialSurgerySuccessChance</statDef>
+                <statDef>ABF_Stat_Artificial_SurgerySuccessChance</statDef>
             </li>
             <li Class="ArtificialBeings.SurgeryOutcomeComp_LocationAndRoomQuality">
-                <statDef>ABF_ArtificialSurgerySuccessChanceFactor</statDef>
+                <statDef>ABF_Stat_Artificial_SurgerySuccessChanceFactor</statDef>
             </li>
             <li Class="SurgeryOutcomeComp_MedicineQuality">
                 <curve>
@@ -62,14 +62,14 @@
             </li>
             <li Class="SurgeryOutcomeComp_RecipeSuccessChance"/>
             <li Class="SurgeryOutcomeComp_Inspired">
-                <inspirationDef>ABF_Inspired_Artificer</inspirationDef>
+                <inspirationDef>ABF_Inspiration_Artificial_Artificer</inspirationDef>
                 <factor>2</factor>
             </li>
         </comps>
     </SurgeryOutcomeEffectDef>
 
-    <SurgeryOutcomeEffectDef ParentName="ABF_ArtificialSurgeryOutcomeBase">
-        <defName>ABF_ArtificialSurgeryMinorRefund</defName>
+    <SurgeryOutcomeEffectDef ParentName="ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase">
+        <defName>ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund</defName>
         <outcomes Inherit="False">
         <li Class="SurgeryOutcomeSuccess" />
         <li Class="ArtificialBeings.SurgeryOutcome_FailureRefund"> <!-- This will not consume the non-medicinal parts! -->

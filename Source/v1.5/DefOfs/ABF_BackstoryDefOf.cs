@@ -11,9 +11,9 @@ namespace ArtificialBeings
         }
 
         [MayRequireSynstructsCore]
-        public static BackstoryDef ABF_Synstruct_Childhood_Blank;
+        public static BackstoryDef ABF_Backstory_Synstruct_Childhood_Blank;
 
         [MayRequireSynstructsCore]
-        public static BackstoryDef ABF_Synstruct_Adulthood_Blank;
+        public static BackstoryDef ABF_Backstory_Synstruct_Adulthood_Blank;
     }
 }

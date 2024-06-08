@@ -4,10 +4,10 @@
     <!-- ============= Artificer ============= -->
 
     <WorkGiverDef>
-        <defName>ABF_ArtificerTendEmergency</defName>
+        <defName>ABF_WorkGiver_Artificial_ArtificerTendEmergency</defName>
         <label>tend to patients with urgent needs</label>
         <giverClass>ArtificialBeings.WorkGiver_TendOtherUrgentArtificial</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <emergency>true</emergency>
         <verb>repair</verb>
         <gerund>repairing</gerund>
@@ -19,10 +19,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_ArtificerTend</defName>
+        <defName>ABF_WorkGiver_Artificial_ArtificerTend</defName>
         <label>tend to patients</label>
         <giverClass>ArtificialBeings.WorkGiver_TendOtherArtificial</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <verb>repair</verb>
         <gerund>repairing</gerund>
         <priorityInType>100</priorityInType>
@@ -33,10 +33,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_ArtificerTendToSelf</defName>
+        <defName>ABF_WorkGiver_Artificial_ArtificerTendToSelf</defName>
         <label>tend to self</label>
         <giverClass>ArtificialBeings.WorkGiver_TendSelfArtificial</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <verb>repair</verb>
         <gerund>repairing</gerund>
         <priorityInType>90</priorityInType>
@@ -47,10 +47,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_ArtificerRescue</defName>
+        <defName>ABF_WorkGiver_Artificial_ArtificerRescue</defName>
         <label>rescue downed allies to bed</label>
         <giverClass>WorkGiver_RescueDowned</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <verb>rescue</verb>
         <gerund>rescuing</gerund>
         <priorityInType>70</priorityInType>
@@ -61,10 +61,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_DoBillsArtificialOperation</defName>
+        <defName>ABF_WorkGiver_Artificial_OperateOnHumanlikes</defName>
         <label>operate on artificial humanlikes</label>
         <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <priorityInType>60</priorityInType>
         <billGiversAllHumanlikes>true</billGiversAllHumanlikes>
         <billGiversAllHumanlikesCorpses>true</billGiversAllHumanlikesCorpses>
@@ -77,10 +77,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_DoBillsArtificialAnimalOperation</defName>
+        <defName>ABF_WorkGiver_Artificial_OperateOnAnimals</defName>
         <label>operate on artificial animals</label>
         <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <priorityInType>30</priorityInType>
         <billGiversAllAnimals>true</billGiversAllAnimals>
         <billGiversAllAnimalsCorpses>true</billGiversAllAnimalsCorpses>
@@ -93,10 +93,10 @@
     </WorkGiverDef>
 
     <WorkGiverDef>
-        <defName>ABF_TakeArtificialToBedToOperate</defName>
+        <defName>ABF_WorkGiver_Artificial_TakePatientToOperate</defName>
         <label>take patients to bed for operations</label>
         <giverClass>WorkGiver_TakeToBedToOperate</giverClass>
-        <workType>ABF_Artificer</workType>
+        <workType>ABF_WorkType_Artificial_Artificer</workType>
         <priorityInType>20</priorityInType>
         <verb>take to operate</verb>
         <gerund>taking to operate</gerund>

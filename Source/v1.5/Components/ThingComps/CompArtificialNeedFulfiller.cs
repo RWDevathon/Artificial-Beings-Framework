@@ -19,7 +19,7 @@ namespace ArtificialBeings
 
             // Force consuming one of this item.
             yield return new FloatMenuOption("ABF_ForceConsumption".Translate(parent.LabelNoCount), delegate () {
-                Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_FulfillArtificialNeed, parent);
+                Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, parent);
                 job.count = 1;
                 selPawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds);
             });
@@ -29,7 +29,7 @@ namespace ArtificialBeings
             {
                 Dialog_Slider selectorWindow = new Dialog_Slider("ABF_ConsumeCount".Translate(parent.LabelNoCount, parent), 1, parent.stackCount, delegate (int count)
                 {
-                    Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_FulfillArtificialNeed, parent);
+                    Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, parent);
                     job.count = count;
                     selPawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds);
                 });

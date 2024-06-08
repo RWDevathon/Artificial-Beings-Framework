@@ -22,7 +22,7 @@ namespace ArtificialBeings
                     bool hasArtificer = false;
                     foreach (Pawn colonist in map.mapPawns.FreeColonists)
                     {
-                        if ((colonist.Spawned || colonist.BrieflyDespawned()) && !colonist.Downed && colonist.workSettings != null && colonist.workSettings.WorkIsActive(ABF_WorkTypeDefOf.ABF_Artificer))
+                        if ((colonist.Spawned || colonist.BrieflyDespawned()) && !colonist.Downed && colonist.workSettings != null && colonist.workSettings.WorkIsActive(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer))
                         {
                             hasArtificer = true;
                             break;

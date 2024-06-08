@@ -13,12 +13,12 @@ namespace ArtificialBeings
                 return null;
             }
 
-            if (pawn.IsColonist && pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_Artificer))
+            if (pawn.IsColonist && pawn.WorkTypeIsDisabled(ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer))
             {
                 return null;
             }
 
-            Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_TendArtificial, pawn);
+            Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_Tend, pawn);
             job.endAfterTendedOnce = true;
             return job;
         }

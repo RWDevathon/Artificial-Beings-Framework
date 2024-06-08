@@ -38,7 +38,7 @@ namespace ArtificialBeings
                 {
                     __result = null;
                 }
-                else if (__instance.def.workType == ABF_WorkTypeDefOf.ABF_Artificer && thing is Pawn unit && !ABF_Utils.IsArtificial(unit))
+                else if (__instance.def.workType == ABF_WorkTypeDefOf.ABF_WorkType_Artificial_Artificer && thing is Pawn unit && !ABF_Utils.IsArtificial(unit))
                 {
                     __result = null;
                 }

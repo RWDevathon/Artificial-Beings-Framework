@@ -24,7 +24,7 @@ namespace ArtificialBeings
                 float tendQuality;
                 if (doctor != null)
                 {
-                    tendQuality = doctor.GetStatValue(ABF_StatDefOf.ABF_ArtificialTendQuality, true);
+                    tendQuality = doctor.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_TendQuality, true);
                 }
                 else
                 {
@@ -34,7 +34,7 @@ namespace ArtificialBeings
                 Building_Bed building_Bed = patient?.CurrentBed();
                 if (building_Bed != null)
                 {
-                    tendQuality += building_Bed.GetStatValue(ABF_StatDefOf.ABF_ArtificialTendQualityOffset, true);
+                    tendQuality += building_Bed.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_TendQualityOffset, true);
                 }
                 if (doctor == patient && doctor != null)
                 {

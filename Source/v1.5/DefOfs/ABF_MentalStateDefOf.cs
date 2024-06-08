@@ -12,6 +12,6 @@ namespace ArtificialBeings
         }
 
         [MayRequireSynstructsCore]
-        public static MentalStateDef ABF_MentalState_Exterminator;
+        public static MentalStateDef ABF_MentalState_Synstruct_Exterminator;
     }
 }

@@ -44,13 +44,13 @@ namespace ArtificialBeings
             {
                 Find.WindowStack.Add(new Dialog_ReprogramDrone(pawn));
                 // If the unit had the no programming hediff, remove that hediff.
-                Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Disabled);
+                Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Disabled);
                 if (hediff != null)
                 {
                     pawn.health.RemoveHediff(hediff);
                 }
                 // Reprogrammable drones do not need to restart after programming is complete.
-                hediff = pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Incapacitated);
+                hediff = pawn.health.hediffSet.GetFirstHediffOfDef(ABF_HediffDefOf.ABF_Hediff_Artificial_Incapacitated);
                 if (hediff != null)
                 {
                     pawn.health.RemoveHediff(hediff);

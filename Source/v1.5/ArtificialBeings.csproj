@@ -187,7 +187,6 @@
     <Compile Include="DefOfs\ABF_HediffDefOf.cs" />
     <Compile Include="DefOfs\ABF_LetterDefOf.cs" />
     <Compile Include="DefOfs\ABF_BackstoryDefOf.cs" />
-    <Compile Include="DefOfs\ABF_TraitDefOf.cs" />
     <Compile Include="DefOfs\ABF_ThoughtDefOf.cs" />
     <Compile Include="DefOfs\ABF_ThingDefOf.cs" />
     <Compile Include="DefOfs\ABF_WorkTypeDefOf.cs" />
@@ -222,7 +221,6 @@
     <Compile Include="Harmony\Pawn_StoryTracker_Patch.cs" />
     <Compile Include="Harmony\Need_Food_Patch.cs" />
     <Compile Include="Harmony\PawnGroupMakerUtility_Patch.cs" />
-    <Compile Include="Harmony\QualityUtility_Patch.cs" />
     <Compile Include="Harmony\StatWorker_Patch.cs" />
     <Compile Include="Harmony\HediffMaker_Patch.cs" />
     <Compile Include="Harmony\StorytellerUtilityPopulation_Patch.cs" />
