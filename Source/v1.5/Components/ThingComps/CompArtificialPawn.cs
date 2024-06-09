@@ -77,6 +77,15 @@ namespace ArtificialBeings
                     }
                     complexityHediff.UpdateHediffStage();
                 }
+                else if (value == ABF_ArtificialState.Blank)
+                {
+                    foreach (SkillRecord skillRecord in Pawn.skills.skills)
+                    {
+                        skillRecord.passion = 0;
+                        skillRecord.xpSinceLastLevel = 0;
+                        skillRecord.Level = 0;
+                    }
+                }
 
                 // Switching away from the blank state removes the disabled hediff, unless they are reprogrammable. Reprogrammable drones need to be programmed first.
                 if (state == ABF_ArtificialState.Blank && value != ABF_ArtificialState.Reprogrammable)
