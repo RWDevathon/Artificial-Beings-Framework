@@ -25,6 +25,30 @@ namespace ArtificialBeings
                     return;
                 }
 
+                // Check to see if the pawn is allowed to enter the state that is being requested. If not, log an error and do nothing.
+                ABF_ArtificialPawnExtension pawnExt = Pawn.def.GetModExtension<ABF_ArtificialPawnExtension>();
+                if (pawnExt == null)
+                {
+                    Log.Error($"[ABF] {Pawn.LabelShortCap}'s race of {Pawn.def.defName} is missing an artificial def mod extension! It should not have a CompArtificialPawn or try to change state.");
+                    return;
+                }
+
+                if (!pawnExt.canBeSapient && value == ABF_ArtificialState.Sapient)
+                {
+                    Log.Warning($"[ABF] {Pawn.LabelShortCap} attempted to change state to Sapient but it is disabled by its race.");
+                    return;
+                }
+                if (!pawnExt.canBeReprogrammable && value == ABF_ArtificialState.Reprogrammable)
+                {
+                    Log.Warning($"[ABF] {Pawn.LabelShortCap} attempted to change state to Reprogrammable but it is disabled by its race.");
+                    return;
+                }
+                if (!pawnExt.canBeDrone && value == ABF_ArtificialState.Drone)
+                {
+                    Log.Warning($"[ABF] {Pawn.LabelShortCap} attempted to change state to Drone but it is disabled by its race.");
+                    return;
+                }
+
                 // If changing away from the reprogrammable state, clean up the pawn data.
                 if (state == ABF_ArtificialState.Reprogrammable)
                 {

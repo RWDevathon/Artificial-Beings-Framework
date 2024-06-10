@@ -87,7 +87,7 @@ namespace ArtificialBeings
 
             if (cachedRestrictedMedicines.Contains(medicine) || (pawnExtension?.onlyUseRaceRestrictedMedicine ?? false))
             {
-                result = pawnExtension?.whiteMedicineList.Contains(medicine) ?? false;
+                result = pawnExtension?.whiteMedicineList?.Contains(medicine) ?? false;
             }
 
             return result && !(pawnExtension?.blackMedicineList?.Contains(medicine) ?? false);
