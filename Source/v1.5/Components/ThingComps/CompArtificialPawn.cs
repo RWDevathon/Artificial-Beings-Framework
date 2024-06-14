@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace ArtificialBeings
@@ -77,6 +78,11 @@ namespace ArtificialBeings
                 {
                     Pawn.relations.ClearAllRelations();
                 }
+                // If changing away from the blank state, give the pawn a name.
+                else if (state == ABF_ArtificialState.Blank)
+                {
+                    Pawn.Name = PawnBioAndNameGenerator.GeneratePawnName(Pawn, NameStyle.Full, null, false, null);
+                }
 
                 ABF_Utils.UpdateStateFor(Pawn, value);
 
@@ -103,11 +109,31 @@ namespace ArtificialBeings
                 }
                 else if (value == ABF_ArtificialState.Blank)
                 {
-                    foreach (SkillRecord skillRecord in Pawn.skills.skills)
+                    // Only do these things for humanlikes blanks, not animals.
+                    if (Pawn.RaceProps.intelligence == Intelligence.Humanlike)
                     {
-                        skillRecord.passion = 0;
-                        skillRecord.xpSinceLastLevel = 0;
-                        skillRecord.Level = 0;
+                        // Blanks do not have traits.
+                        foreach (Trait trait in Pawn.story.traits.allTraits.ToList())
+                        {
+                            Pawn.story.traits.RemoveTrait(trait);
+                        }
+
+                        // Blanks do not have ideos.
+                        Pawn.ideo = null;
+
+                        // Blanks should obviously have a blank name, if they use full names.
+                        if (Pawn.Name is NameTriple)
+                        {
+                            Pawn.Name = new NameTriple("", "ABF_BlankPawnName".Translate(), "");
+                        }
+
+                        // Blanks have no skills nor passions.
+                        foreach (SkillRecord skillRecord in Pawn.skills.skills)
+                        {
+                            skillRecord.passion = 0;
+                            skillRecord.xpSinceLastLevel = 0;
+                            skillRecord.Level = 0;
+                        }
                     }
                 }
 

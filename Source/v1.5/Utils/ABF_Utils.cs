@@ -24,7 +24,6 @@ namespace ArtificialBeings
             return PawnStateFor(pawn) == ABF_ArtificialState.Sapient;
         }
 
-        // TEMP NOTE: ANIMALS ARE DRONES, AND THIS IS OKAY. IF YOU ADD NEW CHECKS, ENSURE YOU ACCOUNT FOR INTELLIGENCE IF ANIMALS CAN BE INVOLVED.
         public static bool IsArtificialDrone(Pawn pawn)
         {
             return PawnStateFor(pawn) == ABF_ArtificialState.Drone || PawnStateFor(pawn) == ABF_ArtificialState.Reprogrammable;
