@@ -40,7 +40,7 @@ namespace ArtificialBeings
         /* Drone specific */
 
         // Int for the stat levels of this race when set as a non-reprogrammable drone. This does nothing if the race is not considered drones.
-        public int droneSkillLevel = 8;
+        public int droneSkillLevel = 4;
 
         // Bool for whether drones can have traits.
         public bool dronesCanHaveTraits = false;
