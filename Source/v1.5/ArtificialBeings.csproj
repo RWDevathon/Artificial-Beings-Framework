@@ -176,6 +176,7 @@
     <Compile Include="Alerts\Alert_NeedArtificer.cs" />
     <Compile Include="ChoiceLetters\ChoiceLetter_ReprogramDrone.cs" />
     <Compile Include="Compatibility\ZombielandSupport.cs" />
+    <Compile Include="Components\ABF_MapComponent.cs" />
     <Compile Include="Components\AbilityComps\CompProperties_AbilityGiveHediffsUserTarget.cs" />
     <Compile Include="Components\AbilityComps\CompAbilityEffect_GiveHediffsUserTarget.cs" />
     <Compile Include="Components\ThingComps\CompArtificialNeedFulfiller.cs" />
@@ -243,6 +244,8 @@
     <Compile Include="Harmony\CompUseEffect_InstallImplantMechlink_Patch.cs" />
     <Compile Include="Harmony\RitualRoleAssignments_Patch.cs" />
     <Compile Include="Harmony\HealthCardUtility_Patch.cs" />
+    <Compile Include="Harmony\ThoughtWorker_Recluse_Patch.cs" />
+    <Compile Include="Harmony\Thought_Situational_Recluse_Patch.cs" />
     <Compile Include="Harmony\Trigger_PawnExperiencingDangerousTemperatures_Patch.cs" />
     <Compile Include="Harmony\GasUtility_Patch.cs" />
     <Compile Include="Harmony\PrisonBreakUtility_Patch.cs" />
