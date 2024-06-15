@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using System;
 using System.Linq;
-using System.Reflection;
 
 namespace ArtificialBeings
 {

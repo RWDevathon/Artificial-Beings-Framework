@@ -4,7 +4,6 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using UnityEngine;
-using Verse.Noise;
 
 namespace ArtificialBeings
 {
@@ -17,6 +16,11 @@ namespace ArtificialBeings
         public static bool IsArtificial(Pawn pawn)
         {
             return PawnStateFor(pawn) != ABF_ArtificialState.Unknown;
+        }
+
+        public static bool IsArtificialBlank(Pawn pawn)
+        {
+            return PawnStateFor(pawn) == ABF_ArtificialState.Blank;
         }
 
         public static bool IsArtificialSapient(Pawn pawn)
