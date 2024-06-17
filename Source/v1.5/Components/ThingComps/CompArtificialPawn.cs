@@ -6,11 +6,19 @@ using Verse;
 
 namespace ArtificialBeings
 {
-    [StaticConstructorOnStartup]
     public class CompArtificialPawn : ThingComp
     {
         /* ALL ARTIFICIAL PAWNS */
         private ABF_ArtificialState state = ABF_ArtificialState.Unknown;
+
+        private Dictionary<ABF_ArtificialState, string> cachedStateTranslations = new Dictionary<ABF_ArtificialState, string>() 
+        {
+            { ABF_ArtificialState.Unknown, "ABF_UnknownPawnState".Translate() },
+            { ABF_ArtificialState.Blank, "ABF_BlankPawnState".Translate() },
+            { ABF_ArtificialState.Drone, "ABF_DronePawnState".Translate() },
+            { ABF_ArtificialState.Reprogrammable, "ABF_ReprogrammablePawnState".Translate() },
+            { ABF_ArtificialState.Sapient, "ABF_SapientPawnState".Translate() },
+        };
 
         public ABF_ArtificialState State
         {
@@ -263,6 +271,11 @@ namespace ArtificialBeings
                     directive.PostDespawn(null);
                 }
             }
+        }
+
+        public override string CompInspectStringExtra()
+        {
+            return "ABF_CurrentPawnState".Translate(cachedStateTranslations[state]);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
