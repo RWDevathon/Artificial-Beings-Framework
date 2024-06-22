@@ -9,6 +9,7 @@ namespace ArtificialBeings
     public class PawnGenerator_Patch
     {
         // The CompArtificialPawn needs to be properly initialized, and cannot use PostPostMake as the PawnKindDef isn't set yet there.
+        // Pawn generation will occasionally give humanlikes the sterilized or IUD implanted hediff if Biotech is active, and should not apply to artificial beings.
         [HarmonyPatch(typeof(PawnGenerator), "GeneratePawn")]
         [HarmonyPatch(new Type[] { typeof(PawnGenerationRequest) }, new ArgumentType[] { ArgumentType.Normal })]
         public class GeneratePawn_Patch
@@ -19,6 +20,19 @@ namespace ArtificialBeings
                 if (__result.GetComp<CompArtificialPawn>() is CompArtificialPawn comp)
                 {
                     comp.InitializeState();
+                }
+                if (ModsConfig.BiotechActive)
+                {
+                    Hediff hediff = __result.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Sterilized);
+                    if (hediff != null)
+                    {
+                        __result.health.RemoveHediff(hediff);
+                    }
+                    hediff = __result.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.ImplantedIUD);
+                    if (hediff != null)
+                    {
+                        __result.health.RemoveHediff(hediff);
+                    }
                 }
             }
         }
