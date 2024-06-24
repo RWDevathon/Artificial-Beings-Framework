@@ -243,12 +243,6 @@ namespace ArtificialBeings
             }
         }
 
-        public override void PostDestroy(DestroyMode mode, Map previousMap)
-        {
-            base.PostDestroy(mode, previousMap);
-            State = ABF_ArtificialState.Unknown;
-        }
-
         public override void PostDeSpawn(Map map)
         {
             base.PostDeSpawn(map);
