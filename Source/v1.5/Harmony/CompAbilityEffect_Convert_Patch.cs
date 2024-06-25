@@ -11,9 +11,9 @@ namespace ArtificialBeings
         public class Valid_Patch
         {
             [HarmonyPostfix]
-            public static void Listener(LocalTargetInfo target, ref bool __result)
+            public static bool Listener(bool __result, LocalTargetInfo target)
             {
-                __result = __result && !ABF_Utils.IsArtificialDrone(target.Pawn);
+                return __result && !ABF_Utils.IsArtificialDrone(target.Pawn);
             }
         }
     }

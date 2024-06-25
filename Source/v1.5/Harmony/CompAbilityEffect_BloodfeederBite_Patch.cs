@@ -11,22 +11,22 @@ namespace ArtificialBeings
         public class Valid_Patch
         {
             [HarmonyPostfix]
-            public static void Listener(ref bool __result, LocalTargetInfo target, bool throwMessages)
+            public static bool Listener(bool __result, LocalTargetInfo target, bool throwMessages)
             {
                 if (!__result)
                 {
-                    return;
+                    return __result;
                 }
 
                 if (!target.Pawn.health.CanBleed)
                 {
-                    __result = false;
                     if (throwMessages)
                     {
                         Messages.Message("ABF_TargetHasNoBlood".Translate(target.Pawn.LabelShortCap), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
                     }
+                    return false;
                 }
-                __result = __result && !ABF_Utils.IsArtificial(target.Pawn);
+                return __result && !ABF_Utils.IsArtificial(target.Pawn);
             }
         }
     }

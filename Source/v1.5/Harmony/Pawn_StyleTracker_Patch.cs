@@ -11,9 +11,9 @@ namespace ArtificialBeings
         public class get_CanDesireLookChange_Patch
         {
             [HarmonyPostfix]
-            public static void Listener(Pawn ___pawn, ref bool __result)
+            public static bool Listener(bool __result, Pawn ___pawn)
             {
-                __result = __result && !ABF_Utils.IsConsideredNonHumanlike(___pawn);
+                return __result && !ABF_Utils.IsConsideredNonHumanlike(___pawn);
             }
         }
     }

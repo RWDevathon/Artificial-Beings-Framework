@@ -11,9 +11,9 @@ namespace ArtificialBeings
         public class CanParticipateInPrisonBreak_Patch
         {
             [HarmonyPostfix]
-            public static void Listener( ref bool __result, Pawn pawn)
+            public static bool Listener(bool __result, Pawn pawn)
             {
-                __result = __result && !ABF_Utils.IsConsideredNonHumanlike(pawn);
+                return __result && !ABF_Utils.IsConsideredNonHumanlike(pawn);
             }
         }
     }
