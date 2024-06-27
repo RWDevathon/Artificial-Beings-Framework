@@ -313,6 +313,7 @@
     <Compile Include="Recipes\Recipe_RestorePart.cs" />
     <Compile Include="StatParts\StatPart_DroneNullified.cs" />
     <Compile Include="StatWorkers\StatWorker_MaximumComplexity.cs" />
+    <Compile Include="StockGenerators\StockGenerator_Colonists.cs" />
     <Compile Include="Surgeries\SurgeryOutcomeComp_LocationAndRoomQuality.cs" />
     <Compile Include="Surgeries\SurgeryOutcomeComp_OperatorSuccessChance.cs" />
     <Compile Include="Surgeries\SurgeryOutcome_FailureRefund.cs" />
