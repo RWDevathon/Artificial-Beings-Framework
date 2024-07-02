@@ -500,15 +500,12 @@ namespace ArtificialBeings
                 {
                     complexitySources[source] = value;
                 }
-                RecalculateComplexity();
-                complexityHediff?.UpdateHediffStage();
             }
             else if (value != 0)
             {
                 complexitySources.Add(source, value);
-                RecalculateComplexity();
-                complexityHediff?.UpdateHediffStage();
             }
+            RecalculateComplexity();
         }
 
         // Given a string source, return the int value associated with that key string in complexitySources.
@@ -528,6 +525,7 @@ namespace ArtificialBeings
             }
             cachedComplexity = Math.Max(0, sum);
             cachedMaxComplexity = (int)Pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_ComplexityLimit);
+            complexityHediff?.UpdateHediffStage();
         }
     }
 }

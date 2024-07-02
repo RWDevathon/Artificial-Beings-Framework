@@ -33,15 +33,14 @@ namespace ArtificialBeings
             if (hardwareComplexity != null)
             {
                 hardwareComplexity.Severity += 1f;
-                pawn.GetComp<CompArtificialPawn>()?.RecalculateComplexity();
             }
             else
             {
                 hardwareComplexity = HediffMaker.MakeHediff(recipe.addsHediff, pawn);
                 hardwareComplexity.Severity = 1f;
                 pawn.health.AddHediff(hardwareComplexity);
-                pawn.GetComp<CompArtificialPawn>()?.RecalculateComplexity();
             }
+            pawn.GetComp<CompArtificialPawn>()?.RecalculateComplexity();
         }
     }
 }
