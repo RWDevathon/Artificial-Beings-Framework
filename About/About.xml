@@ -20,9 +20,6 @@
         </li>
     </modDependencies>
     <packageId>Killathon.ArtificialBeings</packageId>
-	<incompatibleWith>
-        <li>Killathon.MechanicalHumanlikesCore</li>
-    </incompatibleWith>
     <loadAfter>
         <li>brrainz.harmony</li><!-- Dependency -->
         <li>erdelf.HumanoidAlienRaces</li><!-- Dependency -->
