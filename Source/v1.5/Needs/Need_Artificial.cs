@@ -5,13 +5,9 @@ namespace ArtificialBeings
 {
     public class Need_Artificial : Need
     {
-        private int ticksAtZero = 0;
-
         private float maxLevel = 1f;
 
         private ABF_ArtificialNeedExtension needExtension;
-
-        public int TicksAtZero => ticksAtZero;
 
         public float AmountDesired => MaxLevel - CurLevel;
 
@@ -62,21 +58,20 @@ namespace ArtificialBeings
 
             CurLevelPercentage -= 150 * PercentageFallRatePerTick;
 
+            Hediff needHediff = pawn.health.hediffSet.GetFirstHediffOfDef(NeedExtension.hediffToApplyOnEmpty);
             if (CurLevel <= 0.001)
             {
-                ticksAtZero += 150;
-                if (NeedExtension.hediffToApplyOnEmpty != null)
+                if (needHediff == null)
                 {
-                    HealthUtility.AdjustSeverity(pawn, NeedExtension.hediffToApplyOnEmpty, 150 * (NeedExtension.hediffRisePerDay / 60000));
+                    needHediff = HediffMaker.MakeHediff(NeedExtension.hediffToApplyOnEmpty, pawn);
+                    needHediff.Severity = 0f;
+                    pawn.health.AddHediff(needHediff);
                 }
+                needHediff.Severity += 150 * (NeedExtension.hediffRisePerDay / 60000);
             }
-            else
+            else if (needHediff != null)
             {
-                ticksAtZero = 0;
-                if (NeedExtension.hediffToApplyOnEmpty != null)
-                {
-                    HealthUtility.AdjustSeverity(pawn, NeedExtension.hediffToApplyOnEmpty, -150 * (NeedExtension.hediffFallPerDay / 60000));
-                }
+                needHediff.Severity -= 150 * (NeedExtension.hediffFallPerDay / 60000);
             }
         }
 
@@ -95,7 +90,6 @@ namespace ArtificialBeings
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref ticksAtZero, "ABF_ticksAtZero", 0);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 maxLevel = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.artificialNeeds.TryGetValue(def, 1f) ?? 1f;
