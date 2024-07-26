@@ -187,7 +187,6 @@ namespace ArtificialBeings
 
                                 SkillRecord skillRecord = pawn.skills.GetSkill(oldEnabledSkillDef);
                                 DroneSkillContext skillContext = skillContexts[skillRecord];
-                                int inherentSkill = skillContext.skillFloor;
                                 while (skillRecord.Level > skillContext.skillFloor)
                                 {
                                     proposedSkillComplexity -= skillContext.skillComplexityCost;
@@ -206,6 +205,7 @@ namespace ArtificialBeings
                     }
                     pawn.Notify_DisabledWorkTypesChanged();
                     programComp.UpdateComplexity("Work Types", proposedWorkTypeComplexity);
+                    programComp.UpdateComplexity("Skills", Mathf.Max(0, Mathf.CeilToInt(proposedSkillComplexity)));
                 });
             }
             if (needToScroll)
