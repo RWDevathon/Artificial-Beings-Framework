@@ -5,8 +5,4 @@
 	<ABF_ReprogramSuccess>Drone Reprogrammed</ABF_ReprogramSuccess>
 	<ABF_ReprogramSuccessDesc>{0} has been reprogrammed. After rebooting, it will recognize the colony as its controller.</ABF_ReprogramSuccessDesc>
 
-    <!-- Maintenance -->
-    <ABF_MaintenanceEffectOccurredLetter>{PAWN_labelShort} has had a maintenance related effect occur:\n\n  {1}.</ABF_MaintenanceEffectOccurredLetter>
-    <ABF_MaintenanceEffectOccurredLetterLabel>{PAWN_labelShort}: {1}</ABF_MaintenanceEffectOccurredLetterLabel>
-
 </LanguageData>
