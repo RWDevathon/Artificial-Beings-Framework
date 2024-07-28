@@ -3,14 +3,14 @@
 
   <!-- Artificial Surgery Success Chance Factor -->
 
-  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>artificial surgery success chance factor</ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>
-  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>A multiplier to the chance that an operation on an artificial unit will succeed when performed here. Artificial surgery success chances are also affected by many other factors, including the artificer's ability.</ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>шанс успеха операции</ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>Базовая вероятность того, что пешка успешно завершит тех. операцию. \n\nНа успех также влияют кровать и помещение, в котором проводится операция, используемые ремкомплекты, сложность самой операции и воодушевление ремесленника.\n\nВне зависимости от этого показателя всегда сохраняется небольшой риск совершить ошибки.</ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>
 
 
   <!-- Artificial Tend Quality Offset -->
 
-  <ABF_Stat_Artificial_TendQualityOffset.label>artificial tend quality offset</ABF_Stat_Artificial_TendQualityOffset.label>
-  <ABF_Stat_Artificial_TendQualityOffset.description>Artificial tend quality is offset by this value.</ABF_Stat_Artificial_TendQualityOffset.description>
+  <ABF_Stat_Artificial_TendQualityOffset.label>качество ремонта</ABF_Stat_Artificial_TendQualityOffset.label>
+  <ABF_Stat_Artificial_TendQualityOffset.description>Базовое качество, с которым персонаж чинит повреждения и исправляет поломки.</ABF_Stat_Artificial_TendQualityOffset.description>
 
 
 </LanguageData>

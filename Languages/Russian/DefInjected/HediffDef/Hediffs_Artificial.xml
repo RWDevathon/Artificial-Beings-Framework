@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ABF_Hediff_Artificial_Terminated.label>terminated</ABF_Hediff_Artificial_Terminated.label>
-  <ABF_Hediff_Artificial_Terminated.description>Operability terminated.</ABF_Hediff_Artificial_Terminated.description>
+  <ABF_Hediff_Artificial_Terminated.label>прервано</ABF_Hediff_Artificial_Terminated.label>
+  <ABF_Hediff_Artificial_Terminated.description>Эксплуатация прервана.</ABF_Hediff_Artificial_Terminated.description>
 
-  <ABF_Hediff_Artificial_Incapacitated.label>incapacitated</ABF_Hediff_Artificial_Incapacitated.label>
-  <ABF_Hediff_Artificial_Incapacitated.description>Unit is temporarily incapacitated.</ABF_Hediff_Artificial_Incapacitated.description>
+  <ABF_Hediff_Artificial_Incapacitated.label>сражен(а)</ABF_Hediff_Artificial_Incapacitated.label>
+  <ABF_Hediff_Artificial_Incapacitated.description>Юнит временно выведен из строя.</ABF_Hediff_Artificial_Incapacitated.description>
 
-  <ABF_Hediff_Artificial_Disabled.label>disabled</ABF_Hediff_Artificial_Disabled.label>
-  <ABF_Hediff_Artificial_Disabled.description>Unit is currently entirely disabled, and is inert.</ABF_Hediff_Artificial_Disabled.description>
+  <ABF_Hediff_Artificial_Disabled.label>выключен</ABF_Hediff_Artificial_Disabled.label>
+  <ABF_Hediff_Artificial_Disabled.description>В настоящее время, юнит полностью выведен из строя и является инертным.</ABF_Hediff_Artificial_Disabled.description>
 
-  <ABF_Hediff_Artificial_ComplexityRelation.label>complexity strain</ABF_Hediff_Artificial_ComplexityRelation.label>
-  <ABF_Hediff_Artificial_ComplexityRelation.description>This unit is experiencing side-effects of their current level of programming relative to their maximum complexity handling capacity. If the drone is under their baseline capacity, they will receive minor boosts.</ABF_Hediff_Artificial_ComplexityRelation.description>
+  <ABF_Hediff_Artificial_ComplexityRelation.label>деформация сложности</ABF_Hediff_Artificial_ComplexityRelation.label>
+  <ABF_Hediff_Artificial_ComplexityRelation.description>Данный юнит испытывает побочные эффекты, связанные с текущим уровнем программирования относительно его максимальной сложности. Если мощность дрона ниже базовой, то он получает незначительную прибавку.</ABF_Hediff_Artificial_ComplexityRelation.description>
 
 
 </LanguageData>

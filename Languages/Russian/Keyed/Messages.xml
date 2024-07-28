@@ -2,14 +2,14 @@
 <LanguageData>
 
   <!-- Miscellaneous -->
-  <ABF_MessageSelfRepairUnsatisfied>To self-repair, {1_labelShort} must also be assigned to Artificer work.</ABF_MessageSelfRepairUnsatisfied>
-  <ABF_DroneCaptured>{0} is a drone, and can not be interacted with by wardens. Use operations to recruit or execute.</ABF_DroneCaptured>
-  <ABF_InsufficientIntelligence>Insufficient intelligence.</ABF_InsufficientIntelligence>
+  <ABF_MessageSelfRepairUnsatisfied>Для само-ремонта, {1_labelShort}, должен быть назначен ремесленником.</ABF_MessageSelfRepairUnsatisfied>
+  <ABF_DroneCaptured>{0} дрон, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</ABF_DroneCaptured>
+  <ABF_InsufficientIntelligence>Недостаток интеллекта.</ABF_InsufficientIntelligence>
 
   <!-- Programming -->
-  <ABF_InvalidFor>{0} is invalid on {1} because {2}</ABF_InvalidFor>
-  <ABF_MaxDirectivesExceeded>There are {0} non-inherent directives selected but {1} may only have {2}</ABF_MaxDirectivesExceeded>
-  <ABF_InvalidDirectivesRemoved>One or more directives became invalid and were removed.</ABF_InvalidDirectivesRemoved>
-  <ABF_CantRemoveInherentDirectives>{0} can't be removed as it is an inherent directive of {1}</ABF_CantRemoveInherentDirectives>
+  <ABF_InvalidFor>{0} недопустимо на {1}, так как {2}</ABF_InvalidFor>
+  <ABF_MaxDirectivesExceeded>Выбрано {0} несвязных директив, но {1} может иметь только {2}</ABF_MaxDirectivesExceeded>
+  <ABF_InvalidDirectivesRemoved>Одна или более директив, стали недоступными и были удалены.</ABF_InvalidDirectivesRemoved>
+  <ABF_CantRemoveInherentDirectives>{0} не может быть удалена, так как она является врождённой директивой {1}</ABF_CantRemoveInherentDirectives>
 
 </LanguageData>

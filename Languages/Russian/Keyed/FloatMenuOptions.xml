@@ -2,8 +2,8 @@
 <LanguageData>
 
   <!-- Fulfilling Artificial Needs -->
-  <ABF_ForceConsumption>Consume {0}</ABF_ForceConsumption>
-  <ABF_ForceConsumptionMultiple>Consume multiple of {0}</ABF_ForceConsumptionMultiple>
-  <ABF_ConsumeCount>Consume {1_labelShort} x{{0}}</ABF_ConsumeCount>
+  <ABF_ForceConsumption>Потребление {0}</ABF_ForceConsumption>
+  <ABF_ForceConsumptionMultiple>Потребление кратно {0}</ABF_ForceConsumptionMultiple>
+  <ABF_ConsumeCount>Потребление {1_labelShort} x{{0}}</ABF_ConsumeCount>
 
 </LanguageData>

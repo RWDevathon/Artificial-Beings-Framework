@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ABF_ScenPart_StartWithDrones>Start with {0}.</ABF_ScenPart_StartWithDrones>
-  <ABF_ScenPart_StartingPawnsPsychic>Start with level {0} psylink on sapient pawns.</ABF_ScenPart_StartingPawnsPsychic>
+  <ABF_ScenPart_StartWithDrones>Начните с {0}.</ABF_ScenPart_StartWithDrones>
+  <ABF_ScenPart_StartingPawnsPsychic>Начните с уровня пси-связи {0}, на синтоидных пешках.</ABF_ScenPart_StartingPawnsPsychic>
 
 </LanguageData>

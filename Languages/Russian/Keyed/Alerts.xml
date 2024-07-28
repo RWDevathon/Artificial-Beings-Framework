@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ABF_NeedArtificer>Need artificer</ABF_NeedArtificer>
-  <ABF_NeedArtificerDesc>These artificial beings need to be tended to, but you have no healthy colonists assigned as an artificer.\n\n{0}\nAssign a healthy colonist to the Artificer work type. Not all artificial beings can recover from sustained damage by themselves, and even those that can will benefit from the assistance of an artificer.</ABF_NeedArtificerDesc>
+  <ABF_NeedArtificer>Требуется ремесленник</ABF_NeedArtificer>
+  <ABF_NeedArtificerDesc>За этими искусственными существами нужно ухаживать, но у вас нет здоровых колонистов, которые были бы назначены ремесленниками.\n\n{0}\nВо вкладке «Работа» выберите здорового поселенца и поставьте галочку в колонке «Ремесленник» напротив его имени. Не все искусственные существа могут самостоятельно оправиться от полученных повреждений, и даже тем, кто может это сделать, будет полезна помощь ремесленника.</ABF_NeedArtificerDesc>
 
 </LanguageData>

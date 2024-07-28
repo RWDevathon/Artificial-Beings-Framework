@@ -15,7 +15,7 @@
     <ABF_MaintenanceEffectDesc>Average maintenance is a measure of how well maintained this unit's core memory and internal systems have been over time, and changes based on the maintenance level of the pawn. High levels will improve mood, while low levels will degrade both mood and health. It rises if maintenance is above 70% and falls if below 30%, and otherwise slowly returns to a baseline.\n\nNote: maintenance is a personal, deeply introspective activity, and therefore can largely not be done by others for a pawn except in emergency situations with a part pack.</ABF_MaintenanceEffectDesc> -->
 
   <!-- Pawn Type Restriction -->
-  <ABF_RestrictPawnType>Restrictions</ABF_RestrictPawnType>
-  <ABF_RestrictPawnTypeDescription>Open the pawn type restrictions to set controls over what type of pawn can use this.</ABF_RestrictPawnTypeDescription>
+  <ABF_RestrictPawnType>Ограничения</ABF_RestrictPawnType>
+  <ABF_RestrictPawnTypeDescription>Ограничения контроля над тем, какой тип поселенца может использовать этот предмет.</ABF_RestrictPawnTypeDescription>
 
 </LanguageData>

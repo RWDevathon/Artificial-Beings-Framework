@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ABF_Inspiration_Artificial_Artificer.label>inspired artificer</ABF_Inspiration_Artificial_Artificer.label>
-  <ABF_Inspiration_Artificial_Artificer.beginLetter>The next time [PAWN_pronoun] performs an artificial operation, [PAWN_possessive] chance of success will be doubled.\n\nThe inspiration will end after 8 days, or when the operation is performed.</ABF_Inspiration_Artificial_Artificer.beginLetter>
-  <ABF_Inspiration_Artificial_Artificer.endMessage>{0} is no longer inspired (inspired artificer).</ABF_Inspiration_Artificial_Artificer.endMessage>
-  <ABF_Inspiration_Artificial_Artificer.baseInspectLine>Inspired: Inspired artificer</ABF_Inspiration_Artificial_Artificer.baseInspectLine>
+  <ABF_Inspiration_Artificial_Artificer.label>вдохновлённый ремесленник</ABF_Inspiration_Artificial_Artificer.label>
+  <ABF_Inspiration_Artificial_Artificer.beginLetter>В следующий раз, когда [PAWN_pronoun] будет проводить тех. операцию, шанс на успех [PAWN_possessive] увеличится вдвое.\n\nВдохновение закончится через 8 дней или когда будет проведена операция.</ABF_Inspiration_Artificial_Artificer.beginLetter>
+  <ABF_Inspiration_Artificial_Artificer.endMessage>{0} больше не является вдохновлённым (вдохновлённый ремесленник).</ABF_Inspiration_Artificial_Artificer.endMessage>
+  <ABF_Inspiration_Artificial_Artificer.baseInspectLine>Вдохновение: Вдохновлённый ремесленник</ABF_Inspiration_Artificial_Artificer.baseInspectLine>
 
 
 </LanguageData>
