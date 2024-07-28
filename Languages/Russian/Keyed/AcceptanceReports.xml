@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_CantInteractWithWorkType>{0} can't be changed because: </ABF_CantInteractWithWorkType>
+
+  <ABF_ExclusionTagConflict>{0} and {1} are mutually exclusive.</ABF_ExclusionTagConflict>
+  <ABF_ExclusiveToRace>{1}'s race does not allow this.</ABF_ExclusiveToRace>
+  <ABF_ComplexityRequirementInsufficient>it requires at least {0} maximum complexity but {1} has only {2}.</ABF_ComplexityRequirementInsufficient>
+  <ABF_IsInherentWorkType>it is an inherent work type of {0}. Inherent work types have no complexity cost.</ABF_IsInherentWorkType>
+
+  <ABF_ForbiddenSkillPresent>the {0} skill is enabled.</ABF_ForbiddenSkillPresent>
+  <ABF_ForbiddenWorkTagsPresent>the {0} tags must be disabled.</ABF_ForbiddenWorkTagsPresent>
+  <ABF_ForbiddenWorkTypePresent>the {0} work type is enabled.</ABF_ForbiddenWorkTypePresent>
+  <ABF_IsForbiddenWorkType>it is a forbidden work type for a {0}. {1} will never be able to do this.</ABF_IsForbiddenWorkType>
+
+  <ABF_RequiredWorkTypeAbsent>the {0} work type is disabled.</ABF_RequiredWorkTypeAbsent>
+  <ABF_RequiredWorkTypeSetAbsent>at least one of these work types must be enabled: {0}.</ABF_RequiredWorkTypeSetAbsent>\
+  <ABF_RequiredWorkTagAbsent>the {0} tags must be enabled.</ABF_RequiredWorkTagAbsent>
+  <ABF_RequiredSkillAbsent>the {0} skill is disabled.</ABF_RequiredSkillAbsent>
+  <ABF_RequiredSkillSetAbsent>at least one of these skills must be enabled: {0}.</ABF_RequiredSkillSetAbsent>
+
+  <ABF_TargetHasNoBlood>{0} is ineligible because it has no blood.</ABF_TargetHasNoBlood>
+
+</LanguageData>

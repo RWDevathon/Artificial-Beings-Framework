@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Artificial Surgery Success Chance Factor -->
+
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>artificial surgery success chance factor</ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>A multiplier to the chance that an operation on an artificial unit will succeed when performed here. Artificial surgery success chances are also affected by many other factors, including the artificer's ability.</ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>
+
+
+  <!-- Artificial Tend Quality Offset -->
+
+  <ABF_Stat_Artificial_TendQualityOffset.label>artificial tend quality offset</ABF_Stat_Artificial_TendQualityOffset.label>
+  <ABF_Stat_Artificial_TendQualityOffset.description>Artificial tend quality is offset by this value.</ABF_Stat_Artificial_TendQualityOffset.description>
+
+
+</LanguageData>

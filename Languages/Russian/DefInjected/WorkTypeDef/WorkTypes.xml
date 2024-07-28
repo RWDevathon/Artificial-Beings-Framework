@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_WorkType_Artificial_Artificer.label>artificer</ABF_WorkType_Artificial_Artificer.label>
+  <ABF_WorkType_Artificial_Artificer.description>Tend to damaged artificial beings, handle operations, and rescue incapacitated beings. Artificers will care for both colonists and prisoners.</ABF_WorkType_Artificial_Artificer.description>
+  <ABF_WorkType_Artificial_Artificer.labelShort>artificer</ABF_WorkType_Artificial_Artificer.labelShort>
+  <ABF_WorkType_Artificial_Artificer.pawnLabel>Artificer</ABF_WorkType_Artificial_Artificer.pawnLabel>
+  <ABF_WorkType_Artificial_Artificer.gerundLabel>tending to</ABF_WorkType_Artificial_Artificer.gerundLabel>
+  <ABF_WorkType_Artificial_Artificer.verb>Tend to</ABF_WorkType_Artificial_Artificer.verb>
+
+
+</LanguageData>

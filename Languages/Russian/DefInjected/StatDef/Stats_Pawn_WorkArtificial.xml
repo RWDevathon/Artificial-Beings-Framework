@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Artificial Surgery Success Chance -->
+
+  <ABF_Stat_Artificial_SurgerySuccessChance.label>artificial surgery success chance</ABF_Stat_Artificial_SurgerySuccessChance.label>
+  <ABF_Stat_Artificial_SurgerySuccessChance.description>The base chance that a character will succeed when performing an operation on artificial units. The actual success chance is also affected by factors like facilities, room cleanliness, medicine used, the difficulty of the operation, and inspirations.</ABF_Stat_Artificial_SurgerySuccessChance.description>
+
+
+  <!-- Artificial Surgery Operation Speed -->
+
+  <ABF_Stat_Artificial_OperationSpeed.label>artificial operation speed</ABF_Stat_Artificial_OperationSpeed.label>
+  <ABF_Stat_Artificial_OperationSpeed.description>The speed at which the character performs artificial operations.</ABF_Stat_Artificial_OperationSpeed.description>
+
+
+  <!-- Artificial Tend Quality -->
+
+  <ABF_Stat_Artificial_TendQuality.label>artificial tend quality</ABF_Stat_Artificial_TendQuality.label>
+  <ABF_Stat_Artificial_TendQuality.description>The base quality of tending given when repairing integrity damage.\n\nThe actual tend quality will also be affected by factors like medicine used, facilities, luck, and so on.</ABF_Stat_Artificial_TendQuality.description>
+
+
+  <!-- Artificial tend speed -->
+
+  <ABF_Stat_Artificial_TendSpeed.label>artificial tend speed</ABF_Stat_Artificial_TendSpeed.label>
+  <ABF_Stat_Artificial_TendSpeed.description>Speed at which the character tends to integrity damage.</ABF_Stat_Artificial_TendSpeed.description>
+
+
+</LanguageData>

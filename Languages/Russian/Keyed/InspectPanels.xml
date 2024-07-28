@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_CurrentPawnState>State: {0}</ABF_CurrentPawnState>
+  <ABF_UnknownPawnState>Unknown</ABF_UnknownPawnState>
+  <ABF_BlankPawnState>Blank</ABF_BlankPawnState>
+  <ABF_DronePawnState>Drone</ABF_DronePawnState>
+  <ABF_ReprogrammablePawnState>Reprogrammable</ABF_ReprogrammablePawnState>
+  <ABF_SapientPawnState>Sapient</ABF_SapientPawnState>
+
+</LanguageData>

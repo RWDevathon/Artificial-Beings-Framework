@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Needs -->
+  <ABF_EnergyNeed>Energy</ABF_EnergyNeed>
+  <ABF_EnergyNeedDesc>Energy is the amount of retained charge in the unit. If it is hits zero, the unit will enter an inefficient low-power mode. If charge is not restored, hardware will eventually critically malfunction, and the unit will cease functioning.</ABF_EnergyNeedDesc>
+
+  <!-- Health Tab -->
+  <ABF_HoursToFailure>critical in {0}</ABF_HoursToFailure>
+  <ABF_CriticalReached>critical threshold reached</ABF_CriticalReached>
+
+  <!-- Programming -->
+  <ABF_IncapableOfTooltipProgramming>Caused by programming</ABF_IncapableOfTooltipProgramming>
+  <ABF_DirectiveDefHeader>When active, these effects apply:</ABF_DirectiveDefHeader>
+  <ABF_DirectiveDefAbilities>This directive gives the following abilities: {0}</ABF_DirectiveDefAbilities>
+  <ABF_DirectiveDefHediff>This directive is associated with the {0} hediff</ABF_DirectiveDefHediff>
+  <ABF_DirectiveDefStatOffsetHeader>Stat offsets:</ABF_DirectiveDefStatOffsetHeader>
+  <ABF_DirectiveDefStatFactorHeader>Stat factors:</ABF_DirectiveDefStatFactorHeader>
+  <ABF_DirectiveDefStatIndent>- {0}: {1}</ABF_DirectiveDefStatIndent>
+  <ABF_DirectiveDefEnergyConsumptionFactor>Energy Consumption: {0}</ABF_DirectiveDefEnergyConsumptionFactor>
+  <ABF_StatsReport_Directives>Directives</ABF_StatsReport_Directives>
+
+</LanguageData>

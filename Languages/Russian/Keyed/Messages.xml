@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Miscellaneous -->
+  <ABF_MessageSelfRepairUnsatisfied>To self-repair, {1_labelShort} must also be assigned to Artificer work.</ABF_MessageSelfRepairUnsatisfied>
+  <ABF_DroneCaptured>{0} is a drone, and can not be interacted with by wardens. Use operations to recruit or execute.</ABF_DroneCaptured>
+  <ABF_InsufficientIntelligence>Insufficient intelligence.</ABF_InsufficientIntelligence>
+
+  <!-- Programming -->
+  <ABF_InvalidFor>{0} is invalid on {1} because {2}</ABF_InvalidFor>
+  <ABF_MaxDirectivesExceeded>There are {0} non-inherent directives selected but {1} may only have {2}</ABF_MaxDirectivesExceeded>
+  <ABF_InvalidDirectivesRemoved>One or more directives became invalid and were removed.</ABF_InvalidDirectivesRemoved>
+  <ABF_CantRemoveInherentDirectives>{0} can't be removed as it is an inherent directive of {1}</ABF_CantRemoveInherentDirectives>
+
+</LanguageData>

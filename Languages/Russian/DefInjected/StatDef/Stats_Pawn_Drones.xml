@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Baseline Complexity Capacity -->
+
+  <ABF_Stat_Artificial_ComplexityLimit.label>complexity capacity</ABF_Stat_Artificial_ComplexityLimit.label>
+  <ABF_Stat_Artificial_ComplexityLimit.description>How much complexity this unit is able to handle without exceeding standard operating limits or without complexity offsetting.</ABF_Stat_Artificial_ComplexityLimit.description>
+
+
+  <!-- Baseline Skill Capacity -->
+
+  <ABF_Stat_Artificial_SkillLimit.label>skill capacity</ABF_Stat_Artificial_SkillLimit.label>
+  <ABF_Stat_Artificial_SkillLimit.description>The maximum skill level this unit may have in any particular field, offset by inherent skills.</ABF_Stat_Artificial_SkillLimit.description>
+
+
+</LanguageData>
