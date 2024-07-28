@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Reprogramming Dialog -->
+  <ABF_Directives>Директивы</ABF_Directives>
+  <ABF_SelectedDirectives>Активные директивы</ABF_SelectedDirectives>
+  <ABF_SetDroneDirectives>Выбрать директивы</ABF_SetDroneDirectives>
+  <ABF_SelectSkills>Выбрать навыки</ABF_SelectSkills>
+  <ABF_AddSkillLevel>+</ABF_AddSkillLevel>
+  <ABF_RemoveSkillLevel>-</ABF_RemoveSkillLevel>
+  <ABF_SelectedWorkTypes>Включённые типы работ</ABF_SelectedWorkTypes>
+  <ABF_Complexity>Сложность</ABF_Complexity>
+  <ABF_ComplexityDesc>Насколько сложным является программирование дрона.</ABF_ComplexityDesc>
+  <ABF_ComplexityDirectiveDesc>Сколько сложности добавляет эта директива в общем.</ABF_ComplexityDirectiveDesc>
+  <ABF_ComplexityEffects>Эффекты сложности</ABF_ComplexityEffects>
+  <ABF_ComplexityEffectsDesc>Эффект, который сложность наложит на пешку.</ABF_ComplexityEffectsDesc>
+  <ABF_ComplexityEffectPositive>Бонус эффективности</ABF_ComplexityEffectPositive>
+  <ABF_ComplexityEffectNeutral>Минимальные эффекты</ABF_ComplexityEffectNeutral>
+  <ABF_ComplexityEffectNegative>Снижение эффективности</ABF_ComplexityEffectNegative>
+  <ABF_ComplexityLimitExceeded>Превышен лимит сложности {0} при общей сложности {1}. Это приведёт к серьёзным негативным последствиям!</ABF_ComplexityLimitExceeded>
+  <ABF_BaselineComplexity>Базовая сложность</ABF_BaselineComplexity>
+  <ABF_BaselineComplexityDesc>С каким уровнем сложности может справиться юнит, не выходя за стандартные пределы или не компенсируя сложность.</ABF_BaselineComplexityDesc>
+  <ABF_DirectiveSlots>Слоты директив</ABF_DirectiveSlots>
+  <ABF_DirectiveSlotsDesc>Количество несвязных директив, которые может обрабатывать данный юнит.</ABF_DirectiveSlotsDesc>
+  <ABF_ReprogramDrone>Перепрограммировать {0}.</ABF_ReprogramDrone>
+  <ABF_ReprogramDroneDesc>{0} не хватает программы. Для того чтобы функционировать, её нужно установить.</ABF_ReprogramDroneDesc>
+
+  <!-- Tooltips for the reprogramming dialogs -->
+  <ABF_CantExceedSkillMax>{0} не может обладать навыком выше {1}, ограничиваясь качествами, присущими данному типу дрона.</ABF_CantExceedSkillMax>
+  <ABF_CantExceedSkillMin>{0} не может иметь меньше минимального уровня навыка. Отключение навыков возможно только при отключении всех соответствующих видов работ (некоторые из которых могут быть врождёнными и не иметь сложности).</ABF_CantExceedSkillMin>
+  <ABF_HasInherentSkills>{0} имеет {2} врождённых {1} очков навыков и не может быть запрограммирован на более низкий уровень навыка. Врождённые навыки не имеют сложности.</ABF_HasInherentSkills>
+  <ABF_WorkTypeComplexityHeaderTooltip>{0} этот тип работы будет {1} {2} сложным, потому что:</ABF_WorkTypeComplexityHeaderTooltip>
+  <ABF_SkillComplexityTooltip>{0} этот навык будет {1} {2} сложнее.</ABF_SkillComplexityTooltip>
+  <ABF_Adding>добавление</ABF_Adding>  <!-- Adding/Removing used in {0} slot -->
+  <ABF_Removing>удаление</ABF_Removing>
+  <ABF_Cost>стоимость</ABF_Cost>  <!-- Cost/Refund used in {1} slot -->
+  <ABF_Refund>возврат</ABF_Refund>
+  <ABF_WorkTypeComplexityBaseTooltip>{0} имеет базовую сложность {1}</ABF_WorkTypeComplexityBaseTooltip>
+  <ABF_WorkTypeComplexitySkillsTooltip>{0} позволяет получить навыки сложности {1}</ABF_WorkTypeComplexitySkillsTooltip>
+  <ABF_WorkTypeComplexitySkillsUnusedTooltip>— При удалении типа работы возвращаются все очки навыков, которые были бы отключены.</ABF_WorkTypeComplexitySkillsUnusedTooltip>
+
+</LanguageData>

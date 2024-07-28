@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Needs -->
+  <ABF_EnergyNeed>Энергия</ABF_EnergyNeed>
+  <ABF_EnergyNeedDesc>Энергия — это количество сохранённого заряда. Если заряд аккумулятора равен нулю, юнит перейдёт в неэффективный режим пониженного энергопотребления. Если заряд не будет восстановлен, аппаратное обеспечение в конечном итоге даст критический сбой, и юнит перестанет функционировать.</ABF_EnergyNeedDesc>
+
+  <!-- Health Tab -->
+  <ABF_HoursToFailure>критично в {0}</ABF_HoursToFailure>
+  <ABF_CriticalReached>критический порог достигнут</ABF_CriticalReached>
+
+  <!-- Programming -->
+  <ABF_IncapableOfTooltipProgramming>Вызвано программированием</ABF_IncapableOfTooltipProgramming>
+  <ABF_DirectiveDefHeader>В активном состоянии применяются:</ABF_DirectiveDefHeader>
+  <ABF_DirectiveDefAbilities>Эта директива предоставляет такие возможности: {0}</ABF_DirectiveDefAbilities>
+  <ABF_DirectiveDefHediff>Директива связана с {0}</ABF_DirectiveDefHediff>
+  <ABF_DirectiveDefStatOffsetHeader>Stat offsets:</ABF_DirectiveDefStatOffsetHeader>
+  <ABF_DirectiveDefStatFactorHeader>Stat factors:</ABF_DirectiveDefStatFactorHeader>
+  <ABF_DirectiveDefStatIndent>— {0}: {1}</ABF_DirectiveDefStatIndent>
+  <ABF_DirectiveDefEnergyConsumptionFactor>Энергопотребление: {0}</ABF_DirectiveDefEnergyConsumptionFactor>
+  <ABF_StatsReport_Directives>Директивы</ABF_StatsReport_Directives>
+
+</LanguageData>

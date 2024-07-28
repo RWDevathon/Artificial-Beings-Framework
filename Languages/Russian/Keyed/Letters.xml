@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- General -->
+  <ABF_ReprogramSuccess>Дрон перепрограммирован</ABF_ReprogramSuccess>
+  <ABF_ReprogramSuccessDesc>{0} был успешно перепрограммирован. После перезагрузки он распознает поселение как своё.</ABF_ReprogramSuccessDesc>
+
+  <!-- Maintenance -->
+  <ABF_MaintenanceEffectOccurredLetter>У {PAWN_labelShort} возник эффект от стабильности:\n\n {1}.</ABF_MaintenanceEffectOccurredLetter>
+  <ABF_MaintenanceEffectOccurredLetterLabel>{PAWN_labelShort}: {1}</ABF_MaintenanceEffectOccurredLetterLabel>
+
+</LanguageData>

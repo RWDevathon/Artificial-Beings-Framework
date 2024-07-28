@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Fulfilling Artificial Needs -->
+  <ABF_ForceConsumption>Потребление {0}</ABF_ForceConsumption>
+  <ABF_ForceConsumptionMultiple>Потребление кратно {0}</ABF_ForceConsumptionMultiple>
+  <ABF_ConsumeCount>Потребление {1_labelShort} x{{0}}</ABF_ConsumeCount>
+
+</LanguageData>

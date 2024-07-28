@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_Inspiration_Artificial_Artificer.label>вдохновлённый ремесленник</ABF_Inspiration_Artificial_Artificer.label>
+  <ABF_Inspiration_Artificial_Artificer.beginLetter>В следующий раз, когда [PAWN_pronoun] будет проводить тех. операцию, шанс на успех [PAWN_possessive] увеличится вдвое.\n\nВдохновение закончится через 8 дней или когда будет проведена операция.</ABF_Inspiration_Artificial_Artificer.beginLetter>
+  <ABF_Inspiration_Artificial_Artificer.endMessage>{0} больше не является вдохновлённым (вдохновлённый ремесленник).</ABF_Inspiration_Artificial_Artificer.endMessage>
+  <ABF_Inspiration_Artificial_Artificer.baseInspectLine>Вдохновение: Вдохновлённый ремесленник</ABF_Inspiration_Artificial_Artificer.baseInspectLine>
+
+
+</LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_CurrentPawnState>State: {0}</ABF_CurrentPawnState>
+  <ABF_UnknownPawnState>Неизвестно</ABF_UnknownPawnState>
+  <ABF_BlankPawnState>Заготовка</ABF_BlankPawnState>
+  <ABF_DronePawnState>Дрон</ABF_DronePawnState>
+  <ABF_ReprogrammablePawnState>Перепрограммируемый</ABF_ReprogrammablePawnState>
+  <ABF_SapientPawnState>Синтоид</ABF_SapientPawnState>
+
+</LanguageData>

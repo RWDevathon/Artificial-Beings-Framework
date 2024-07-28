@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Miscellaneous -->
+  <ABF_MessageSelfRepairUnsatisfied>Для само-ремонта, {1_labelShort}, должен быть назначен ремесленником.</ABF_MessageSelfRepairUnsatisfied>
+  <ABF_DroneCaptured>{0} дрон, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</ABF_DroneCaptured>
+  <ABF_InsufficientIntelligence>Недостаток интеллекта.</ABF_InsufficientIntelligence>
+
+  <!-- Programming -->
+  <ABF_InvalidFor>{0} недопустимо на {1}, так как {2}</ABF_InvalidFor>
+  <ABF_MaxDirectivesExceeded>Выбрано {0} несвязных директив, но {1} может иметь только {2}</ABF_MaxDirectivesExceeded>
+  <ABF_InvalidDirectivesRemoved>Одна или более директив, стали недоступными и были удалены.</ABF_InvalidDirectivesRemoved>
+  <ABF_CantRemoveInherentDirectives>{0} не может быть удалена, так как она является врождённой директивой {1}</ABF_CantRemoveInherentDirectives>
+
+</LanguageData>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Artificial Surgery Success Chance -->
+
+  <ABF_Stat_Artificial_SurgerySuccessChance.label>шанс успеха операции</ABF_Stat_Artificial_SurgerySuccessChance.label>
+  <ABF_Stat_Artificial_SurgerySuccessChance.description>Базовая вероятность того, что персонаж успешно завершит тех. операцию. \n\nНа успех также влияют кровать и помещение, в котором проводится операция, используемые ремкомплекты, сложность самой операции и воодушевление ремесленника.</ABF_Stat_Artificial_SurgerySuccessChance.description>
+
+
+  <!-- Artificial Surgery Operation Speed -->
+
+  <ABF_Stat_Artificial_OperationSpeed.label>скорость проведения операций</ABF_Stat_Artificial_OperationSpeed.label>
+  <ABF_Stat_Artificial_OperationSpeed.description>Скорость, с которой персонаж проводит тех. операции.</ABF_Stat_Artificial_OperationSpeed.description>
+
+
+  <!-- Artificial Tend Quality -->
+
+  <ABF_Stat_Artificial_TendQuality.label>качество ремонта</ABF_Stat_Artificial_TendQuality.label>
+  <ABF_Stat_Artificial_TendQuality.description>Базовое качество, с которым персонаж чинит повреждения и исправляет поломки.\n\nФактическое качество ремонта зависит от кровати и помещения, в котором проводится операция, используемых ремкомплектов, удачи и других факторов.</ABF_Stat_Artificial_TendQuality.description>
+
+
+  <!-- Artificial tend speed -->
+
+  <ABF_Stat_Artificial_TendSpeed.label>скорость проведения операций</ABF_Stat_Artificial_TendSpeed.label>
+  <ABF_Stat_Artificial_TendSpeed.description>Скорость, с которой персонаж чинит повреждения и исправляет поломки.</ABF_Stat_Artificial_TendSpeed.description>
+
+
+</LanguageData>

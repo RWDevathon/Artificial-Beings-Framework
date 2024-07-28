@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_WorkType_Artificial_Artificer.label>ремесленник</ABF_WorkType_Artificial_Artificer.label>
+  <ABF_WorkType_Artificial_Artificer.description>Ухаживайте за повреждёнными искусственными существами, проводите операции и спасайте недееспособных существ. Ремесленники будут заботиться как о колонистах, так и о заключённых.</ABF_WorkType_Artificial_Artificer.description>
+  <ABF_WorkType_Artificial_Artificer.labelShort>ремесленник</ABF_WorkType_Artificial_Artificer.labelShort>
+  <ABF_WorkType_Artificial_Artificer.pawnLabel>Ремесленник</ABF_WorkType_Artificial_Artificer.pawnLabel>
+  <ABF_WorkType_Artificial_Artificer.gerundLabel>ремонтировать</ABF_WorkType_Artificial_Artificer.gerundLabel>
+  <ABF_WorkType_Artificial_Artificer.verb>Ремонтирует</ABF_WorkType_Artificial_Artificer.verb>
+
+
+</LanguageData>

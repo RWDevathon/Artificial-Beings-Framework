@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.1.letterLabel>Операция на {0} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.1.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.1.letterText>{SURGEON_labelShort} {PAWN_gender ? допустил : допустила} фатальную ошибку во время операции над {PATIENT_labelShort} из-за особых проблем: {RECIPE_label}.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.1.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.2.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.2.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.2.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} катастрофу во время операции над {PATIENT_labelShort} ({RECIPE_label}), но {PAWN_gender ? сумел : сумела} восстановить ключевые части.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.2.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.3.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.3.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.3.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} катастрофическую неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}).</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.3.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.4.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.4.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.4.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} незначительную неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}), но {PAWN_gender ? сумел : сумела} восстановить основные части.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.4.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.5.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.5.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.5.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} незначительную неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}).</ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase.outcomes.5.letterText>
+
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.1.letterLabel>Операция на {0} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.1.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.1.letterText>{SURGEON_labelShort} {PAWN_gender ? допустил : допустила} фатальную ошибку во время операции над {PATIENT_labelShort} из-за особых проблем: {RECIPE_label}.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.1.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.2.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.2.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.2.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} катастрофу во время операции над {PATIENT_labelShort} ({RECIPE_label}), но {PAWN_gender ? сумел : сумела} восстановить ключевые части.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.2.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.3.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.3.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.3.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} катастрофическую неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}).</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.3.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.4.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.4.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.4.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} незначительную неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}), но {PAWN_gender ? сумел : сумела} восстановить основные части.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.4.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.5.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.5.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.5.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} незначительную неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}).</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.5.letterText>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.7.letterLabel>Операция на {PATIENT_labelShort} провалилась</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.7.letterLabel>
+  <ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.7.letterText>{SURGEON_labelShort} {PAWN_gender ? потерпел : потерпела} незначительную неудачу во время операции над {PATIENT_labelShort} ({RECIPE_label}), но {PAWN_gender ? сумел : сумела} восстановить основные части.</ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund.outcomes.7.letterText>
+
+
+</LanguageData>

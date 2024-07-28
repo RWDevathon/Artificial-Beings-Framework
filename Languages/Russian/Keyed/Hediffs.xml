@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ABF_LowComplexityHediffLabel>Низкое</ABF_LowComplexityHediffLabel>
+  <ABF_NormalComplexityHediffLabel>Умеренное</ABF_NormalComplexityHediffLabel>
+  <ABF_HighComplexityHediffLabel>Высокое</ABF_HighComplexityHediffLabel>
+
+</LanguageData>

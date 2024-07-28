@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Artificer -->
+
+  <ABF_WorkGiver_Artificial_ArtificerTendEmergency.label>провести неотложную починку</ABF_WorkGiver_Artificial_ArtificerTendEmergency.label>
+  <ABF_WorkGiver_Artificial_ArtificerTendEmergency.verb>починить</ABF_WorkGiver_Artificial_ArtificerTendEmergency.verb>
+  <ABF_WorkGiver_Artificial_ArtificerTendEmergency.gerund>починить</ABF_WorkGiver_Artificial_ArtificerTendEmergency.gerund>
+
+  <ABF_WorkGiver_Artificial_ArtificerTend.label>ремонтирует пациента</ABF_WorkGiver_Artificial_ArtificerTend.label>
+  <ABF_WorkGiver_Artificial_ArtificerTend.verb>починить</ABF_WorkGiver_Artificial_ArtificerTend.verb>
+  <ABF_WorkGiver_Artificial_ArtificerTend.gerund>починить</ABF_WorkGiver_Artificial_ArtificerTend.gerund>
+
+  <ABF_WorkGiver_Artificial_ArtificerTendToSelf.label>ремонтирует себя</ABF_WorkGiver_Artificial_ArtificerTendToSelf.label>
+  <ABF_WorkGiver_Artificial_ArtificerTendToSelf.verb>починить</ABF_WorkGiver_Artificial_ArtificerTendToSelf.verb>
+  <ABF_WorkGiver_Artificial_ArtificerTendToSelf.gerund>починить</ABF_WorkGiver_Artificial_ArtificerTendToSelf.gerund>
+
+  <ABF_WorkGiver_Artificial_ArtificerRescue.label>спасать сражённых союзников</ABF_WorkGiver_Artificial_ArtificerRescue.label>
+  <ABF_WorkGiver_Artificial_ArtificerRescue.verb>спасти</ABF_WorkGiver_Artificial_ArtificerRescue.verb>
+  <ABF_WorkGiver_Artificial_ArtificerRescue.gerund>спасение</ABF_WorkGiver_Artificial_ArtificerRescue.gerund>
+
+  <ABF_WorkGiver_Artificial_OperateOnHumanlikes.label>проводить тех. процедуру человекоподобным</ABF_WorkGiver_Artificial_OperateOnHumanlikes.label>
+  <ABF_WorkGiver_Artificial_OperateOnHumanlikes.verb>проводить медпроцедуру</ABF_WorkGiver_Artificial_OperateOnHumanlikes.verb>
+  <ABF_WorkGiver_Artificial_OperateOnHumanlikes.gerund>проводит медпроцедуру</ABF_WorkGiver_Artificial_OperateOnHumanlikes.gerund>
+
+  <ABF_WorkGiver_Artificial_OperateOnAnimals.label>проводить тех. процедуру животным</ABF_WorkGiver_Artificial_OperateOnAnimals.label>
+  <ABF_WorkGiver_Artificial_OperateOnAnimals.verb>проводить медпроцедуру</ABF_WorkGiver_Artificial_OperateOnAnimals.verb>
+  <ABF_WorkGiver_Artificial_OperateOnAnimals.gerund>проводит медпроцедуру</ABF_WorkGiver_Artificial_OperateOnAnimals.gerund>
+
+  <ABF_WorkGiver_Artificial_TakePatientToOperate.label>относить пациентов на кровать для операции</ABF_WorkGiver_Artificial_TakePatientToOperate.label>
+  <ABF_WorkGiver_Artificial_TakePatientToOperate.verb>нести на операцию</ABF_WorkGiver_Artificial_TakePatientToOperate.verb>
+  <ABF_WorkGiver_Artificial_TakePatientToOperate.gerund>отнести на операцию</ABF_WorkGiver_Artificial_TakePatientToOperate.gerund>
+
+
+</LanguageData>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Artificial Surgery Success Chance Factor -->
+
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>шанс успеха операции</ABF_Stat_Artificial_SurgerySuccessChanceFactor.label>
+  <ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>Базовая вероятность того, что пешка успешно завершит тех. операцию. \n\nНа успех также влияют кровать и помещение, в котором проводится операция, используемые ремкомплекты, сложность самой операции и воодушевление ремесленника.\n\nВне зависимости от этого показателя всегда сохраняется небольшой риск совершить ошибки.</ABF_Stat_Artificial_SurgerySuccessChanceFactor.description>
+
+
+  <!-- Artificial Tend Quality Offset -->
+
+  <ABF_Stat_Artificial_TendQualityOffset.label>качество ремонта</ABF_Stat_Artificial_TendQualityOffset.label>
+  <ABF_Stat_Artificial_TendQualityOffset.description>Базовое качество, с которым персонаж чинит повреждения и исправляет поломки.</ABF_Stat_Artificial_TendQualityOffset.description>
+
+
+</LanguageData>
