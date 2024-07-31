@@ -108,7 +108,7 @@ namespace ArtificialBeings
                         }
 
                         // If the pawn replaces some normal hediffs with new ones, then cache them.
-                        Dictionary<HediffDef, HediffDef> hediffReplacements = extension.hediffReplacements;
+                        List<HediffReplacementRecord> hediffReplacements = extension.hediffReplacements;
                         if (hediffReplacements != null)
                         {
                             ABF_Utils.cachedArtificialHediffReplacements[thingDef] = hediffReplacements;

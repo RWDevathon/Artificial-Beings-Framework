@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Xml;
 using Verse;
 
 namespace ArtificialBeings
@@ -29,7 +30,7 @@ namespace ArtificialBeings
         public Dictionary<NeedDef, float> artificialNeeds = new Dictionary<NeedDef, float>();
 
         // Dictionary of artificial-specific hediff replacements for this race. The Keys are HediffDefs that should be replaced, with the Value being the Hediff to replace with.
-        public Dictionary<HediffDef, HediffDef> hediffReplacements = new Dictionary<HediffDef, HediffDef>();
+        public List<HediffReplacementRecord> hediffReplacements = new List<HediffReplacementRecord>();
 
         // Controls for what medicines the individuals of this race will be able to use for tending injuries.
         public List<ThingDef> medicineList = new List<ThingDef>();
@@ -86,6 +87,19 @@ namespace ArtificialBeings
                     yield return "[ABF] A race was set to have reprogrammable drones configured with a workType that was both inherent and forbidden.";
                 }
             }
+        }
+    }
+
+    public class HediffReplacementRecord
+    {
+        public HediffDef toBeReplaced;
+
+        public HediffDef toReplace;
+
+        public void LoadDataFromXmlCustom(XmlNode xmlRoot)
+        {
+            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toBeReplaced", xmlRoot);
+            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toBeReplaced", xmlRoot.FirstChild.Value);
         }
     }
 }

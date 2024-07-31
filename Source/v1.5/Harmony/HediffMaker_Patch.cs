@@ -13,9 +13,16 @@ namespace ArtificialBeings
             [HarmonyPrefix]
             public static bool Prefix(ref HediffDef def, Pawn pawn)
             {
-                if (ABF_Utils.cachedArtificialHediffReplacements.TryGetValue(pawn.def, out Dictionary<HediffDef, HediffDef> replacementDictionary) && replacementDictionary.TryGetValue(def, out HediffDef replacementDef))
+                if (ABF_Utils.cachedArtificialHediffReplacements.TryGetValue(pawn.def, out List<HediffReplacementRecord> replacementRecords))
                 {
-                    def = replacementDef;
+                    foreach (HediffReplacementRecord record in replacementRecords)
+                    {
+                        if (record.toBeReplaced == def)
+                        {
+                            def = record.toReplace;
+                            break;
+                        }
+                    }
                 }
                 return true;
 

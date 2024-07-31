@@ -749,7 +749,7 @@ namespace ArtificialBeings
         internal static Dictionary<int, ABF_ArtificialState> cachedPawnStates = new Dictionary<int, ABF_ArtificialState>();
 
         // Cached dictionary matching artificial races to a dictionary of organic hediffs to be replaced by artificial equivalents.
-        public static Dictionary<ThingDef, Dictionary<HediffDef, HediffDef>> cachedArtificialHediffReplacements = new Dictionary<ThingDef, Dictionary<HediffDef, HediffDef>>();
+        public static Dictionary<ThingDef, List<HediffReplacementRecord>> cachedArtificialHediffReplacements = new Dictionary<ThingDef, List<HediffReplacementRecord>>();
 
         // Cached HashSet of medicines that are restricted to particular races. Cached at startup.
         public static HashSet<ThingDef> cachedRestrictedMedicines = new HashSet<ThingDef>();
