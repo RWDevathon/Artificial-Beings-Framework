@@ -190,6 +190,7 @@
     <Compile Include="DefOfs\ABF_BackstoryDefOf.cs" />
     <Compile Include="DefOfs\ABF_ThoughtDefOf.cs" />
     <Compile Include="DefOfs\ABF_ThingDefOf.cs" />
+    <Compile Include="DefOfs\ABF_TraitDefOf.cs" />
     <Compile Include="DefOfs\ABF_WorkTypeDefOf.cs" />
     <Compile Include="DefOfs\ABF_MentalStateDefOf.cs" />
     <Compile Include="DefOfs\ABF_PawnKindDefOf.cs" />

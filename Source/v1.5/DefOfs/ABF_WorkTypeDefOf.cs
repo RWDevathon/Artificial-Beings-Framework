@@ -12,5 +12,8 @@ namespace ArtificialBeings
         }
 
         public static WorkTypeDef ABF_WorkType_Artificial_Artificer;
+
+        // Used in first-party submods
+        public static WorkTypeDef Cooking;
     }
 }
