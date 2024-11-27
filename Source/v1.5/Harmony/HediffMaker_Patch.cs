@@ -17,9 +17,9 @@ namespace ArtificialBeings
                 {
                     foreach (HediffReplacementRecord record in replacementRecords)
                     {
-                        if (record.toBeReplaced == def)
+                        if (record.toReplace == def)
                         {
-                            def = record.toReplace;
+                            def = record.toBeReplaced;
                             break;
                         }
                     }

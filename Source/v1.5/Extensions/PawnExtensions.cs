@@ -92,13 +92,13 @@ namespace ArtificialBeings
 
     public class HediffReplacementRecord
     {
-        public HediffDef toBeReplaced;
-
         public HediffDef toReplace;
+
+        public HediffDef toBeReplaced;
 
         public void LoadDataFromXmlCustom(XmlNode xmlRoot)
         {
-            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toBeReplaced", xmlRoot);
+            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toReplace", xmlRoot);
             DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toBeReplaced", xmlRoot.FirstChild.Value);
         }
     }
