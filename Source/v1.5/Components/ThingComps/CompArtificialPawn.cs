@@ -386,6 +386,7 @@ namespace ArtificialBeings
                 if (State == ABF_ArtificialState.Reprogrammable)
                 {
                     RecalculateComplexity();
+                    Pawn.Notify_DisabledWorkTypesChanged();
                     // Directives should have their pawn reference set and any tickers restored.
                     directiveDefs = new List<DirectiveDef>();
                     foreach (Directive directive in directives)

@@ -605,7 +605,11 @@ namespace ArtificialBeings
             {
                 if (workTypeDef.workTags == WorkTags.None && workTypeDef.relevantSkills.NullOrEmpty())
                 {
-                    programComp.enabledWorkTypes.Add(workTypeDef);
+                    // Should always exist for the pawn, but only add it to the list if it's not already there.
+                    if (!programComp.enabledWorkTypes.Contains(workTypeDef))
+                    {
+                        programComp.enabledWorkTypes.Add(workTypeDef);
+                    }
                 }
                 else
                 {
