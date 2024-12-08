@@ -23,6 +23,10 @@ namespace ArtificialBeings
                     CompArtificialPawn compReprogrammableDrone = ___pawn.GetComp<CompArtificialPawn>();
                     WorkTags enabledTags = WorkTags.None;
                     List<WorkTypeDef> enabledWorkTypes = compReprogrammableDrone.enabledWorkTypes;
+                    if (enabledWorkTypes == null)
+                    {
+                        return true;
+                    }
                     for (int i = enabledWorkTypes.Count - 1; i >= 0; i--)
                     {
                         enabledTags |= enabledWorkTypes[i].workTags;
