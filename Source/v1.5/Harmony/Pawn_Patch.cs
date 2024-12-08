@@ -62,6 +62,10 @@ namespace ArtificialBeings
                     }
                     WorkTags enabledTags = WorkTags.None;
                     List<WorkTypeDef> enabledWorkTypes = __instance.GetComp<CompArtificialPawn>().enabledWorkTypes;
+                    if (enabledWorkTypes == null)
+                    {
+                        return true;
+                    }
                     for (int i = enabledWorkTypes.Count - 1; i >= 0; i--)
                     {
                         enabledTags |= enabledWorkTypes[i].workTags;
