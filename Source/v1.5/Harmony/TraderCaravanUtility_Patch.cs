@@ -14,7 +14,7 @@ namespace ArtificialBeings
             [HarmonyPostfix]
             public static void Listener(Pawn p, ref TraderCaravanRole __result)
             {
-                if (__result == TraderCaravanRole.Guard && p.kindDef.GetModExtension<ABF_ArtificialPawnKindExtension>() is ABF_ArtificialPawnKindExtension ext)
+                if (__result == TraderCaravanRole.Guard && p.kindDef.GetModExtension<ABF_ArtificialPawnKindExtension>() is ABF_ArtificialPawnKindExtension ext && ext.caravanRole != TraderCaravanRole.None)
                 {
                     __result = ext.caravanRole;
                 }
