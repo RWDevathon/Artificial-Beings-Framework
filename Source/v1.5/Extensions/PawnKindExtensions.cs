@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace ArtificialBeings
@@ -8,6 +9,10 @@ namespace ArtificialBeings
     {
         // State that the pawn should have when generated.
         public ABF_ArtificialState pawnState = ABF_ArtificialState.Sapient;
+
+        // Manual control for what role this pawn should play in caravans. Unknown behavior will occur if set to None or Trader.
+        // MUST be set to "Chattel" if this pawn is to be sold as a slave/drone in caravans.
+        public TraderCaravanRole caravanRole;
 
         /* Features for Reprogrammable Drones */
 

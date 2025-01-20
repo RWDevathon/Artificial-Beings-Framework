@@ -19,7 +19,7 @@ namespace ArtificialBeings
 
             for (int i = countRange.RandomInRange; i-- >= 0;)
             {
-                PawnGenerationRequest request = new PawnGenerationRequest(pawnKindDefs.RandomElement(), null, PawnGenerationContext.NonPlayer, forTile, forceGenerateNewPawn: true, forceBaselinerChance: 1);
+                PawnGenerationRequest request = new PawnGenerationRequest(pawnKindDefs.RandomElement(), null, PawnGenerationContext.NonPlayer, forTile, forceGenerateNewPawn: true, forceBaselinerChance: 1, forceRecruitable: true);
                 Pawn result = PawnGenerator.GeneratePawn(request);
                 result.guest.joinStatus = JoinStatus.JoinAsColonist;
                 yield return result;
