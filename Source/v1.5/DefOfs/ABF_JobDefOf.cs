@@ -32,5 +32,8 @@ namespace ArtificialBeings
 
         [MayRequireMechcloudChemwalkers]
         public static JobDef ABF_Job_Chemwalker_PackUpArmor;
+
+        [MayRequireMechcloudChemwalkers]
+        public static JobDef ABF_Job_Chemwalker_JumpstartChemwalker;
     }
 }
