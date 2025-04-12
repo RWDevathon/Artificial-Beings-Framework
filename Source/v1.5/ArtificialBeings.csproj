@@ -184,6 +184,7 @@
     <Compile Include="Components\SurgeryOutcomeComp_ArtificerSuccessChance.cs" />
     <Compile Include="Components\ABF_WorldComponent.cs" />
     <Compile Include="Components\ThingComps\CompArtificialPawn.cs" />
+    <Compile Include="DefOfs\ABF_AbilityDefOf.cs" />
     <Compile Include="DefOfs\ABF_DirectiveDefOf.cs" />
     <Compile Include="DefOfs\ABF_HediffDefOf.cs" />
     <Compile Include="DefOfs\ABF_LetterDefOf.cs" />

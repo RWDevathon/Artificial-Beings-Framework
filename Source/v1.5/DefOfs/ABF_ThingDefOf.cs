@@ -25,5 +25,14 @@ namespace ArtificialBeings
 
         [MayRequireMechcloudChemwalkers]
         public static ThingDef ABF_Thing_Chemwalker_Shell_LumberingInscribed;
+
+        [MayRequireMechcloudChemwalkers]
+        public static ThingDef ABF_Thing_Chemwalker_Shell_FlakkerInscribed;
+
+        [MayRequireMechcloudChemwalkers]
+        public static ThingDef ABF_Thing_Chemwalker_Shell_MarineInscribed;
+
+        [MayRequireMechcloudChemwalkers]
+        public static ThingDef ABF_Thing_Chemwalker_Shell_CataphractInscribed;
     }
 }
