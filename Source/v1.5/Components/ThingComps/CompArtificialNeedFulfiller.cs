@@ -11,8 +11,23 @@ namespace ArtificialBeings
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
             base.CompFloatMenuOptions(selPawn);
-            // No reason to force organics to consume an item in this way.
-            if (!ABF_Utils.IsArtificial(selPawn))
+            // No reason to show an option for a race which has no artificial need that is fulfilled by this.
+            ABF_NeedFulfillerExtension fulfillerExtension = parent.def.GetModExtension<ABF_NeedFulfillerExtension>();
+            if (fulfillerExtension == null || fulfillerExtension.needOffsetRelations == null)
+            {
+                yield break;
+            }
+
+            bool fulfillsAnyNeed = false;
+            foreach (NeedDef needDef in fulfillerExtension.needOffsetRelations.Keys)
+            {
+                if (selPawn.needs.TryGetNeed(needDef) is Need)
+                {
+                    fulfillsAnyNeed = true;
+                    break;
+                }
+            }
+            if (!fulfillsAnyNeed)
             {
                 yield break;
             }
