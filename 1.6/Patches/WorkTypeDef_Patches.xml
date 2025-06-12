@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Basic work types like firefighting, flicking switches, etc have baseline values. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Firefighter" or defName="BasicWorker" or defName="Hauling" or defName="Cleaning"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension"/>
+        </value>
+    </Operation>
+
+    <!-- Basic work types with skills. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Handling" or defName="Cooking" or defName="Hunting" or defName="Construction" or defName="Growing" or defName="Mining" or defName="PlantCutting" or defName="Crafting"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension">
+                <baseComplexity>2</baseComplexity>
+                <minimumRequiredComplexity>4</minimumRequiredComplexity>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Complex work types with skills. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Smithing" or defName="Tailoring"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension">
+                <baseComplexity>4</baseComplexity>
+                <minimumRequiredComplexity>15</minimumRequiredComplexity>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Highly complex work types with skills. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Doctor" or defName="ABF_WorkType_Artificial_Artificer"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension">
+                <baseComplexity>6</baseComplexity>
+                <minimumRequiredComplexity>20</minimumRequiredComplexity>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Social work types have medium complexity but high required minimums. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Warden" or defName="Childcare"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension">
+                <baseComplexity>4</baseComplexity>
+                <minimumRequiredComplexity>25</minimumRequiredComplexity>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Creative work types have high complexity and high minimum requirements -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/WorkTypeDef[defName="Art" or defName="Research"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.ABF_WorkTypeExtension">
+                <baseComplexity>6</baseComplexity>
+                <minimumRequiredComplexity>35</minimumRequiredComplexity>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

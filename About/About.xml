@@ -4,6 +4,7 @@
     <author>Killathon</author>
     <supportedVersions>
 		<li>1.5</li>
+        <li>1.6</li>
     </supportedVersions>
     <modDependencies>
         <li>
@@ -27,8 +28,5 @@
         <li>Dubwise.DubsBadHygiene.Lite</li><!-- DBH has a destructive PostFix on pawn needs so we need to load after it. -->
     </loadAfter>
     <description><![CDATA[ABF is an extension to Humanoid Alien Races (HAR) and Harmony to allow for pawns that do not obey normal organic rules.
-This mod itself does very little except pave the way for sub mods to have properly inorganic pawns.
-
-Version <color=#FFD800>1.0.0</color> with more to come.
-    ]]></description>
+This mod itself does very little except pave the way for sub mods to have properly inorganic pawns.]]></description>
 </ModMetaData>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <SurgeryOutcomeEffectDef Name="ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase">
+        <defName>ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase</defName>
+        <outcomes>
+            <li Class="SurgeryOutcomeSuccess" />
+            <li Class="SurgeryOutcome_Death">
+                <failure>true</failure>
+                <applyEffectsToPart>true</applyEffectsToPart>
+                <letterLabel>Operation failed on {PATIENT_labelShort}</letterLabel>
+                <letterText>{SURGEON_labelShort} has committed a fatal error while operating on {PATIENT_labelShort} because of the special challenges of: {RECIPE_label}.</letterText>
+            </li>
+            <li Class="ArtificialBeings.SurgeryOutcome_FailureRefund"> <!-- This will not consume the non-medicinal parts! -->
+                <chance>0.2</chance>
+                <failure>true</failure>
+                <totalDamage>50</totalDamage>
+                <applyEffectsToPart>true</applyEffectsToPart>
+                <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+                <letterText>{SURGEON_labelShort} has failed catastrophically while operating on {PATIENT_labelShort} ({RECIPE_label}), but managed to recover key parts.</letterText>
+            </li>
+            <li Class="SurgeryOutcome_Failure">
+                <chance>0.2</chance>
+                <failure>true</failure>
+                <totalDamage>50</totalDamage>
+                <applyEffectsToPart>true</applyEffectsToPart>
+                <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+                <letterText>{SURGEON_labelShort} has failed catastrophically while operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
+            </li>
+            <li Class="ArtificialBeings.SurgeryOutcome_FailureRefund"> <!-- This will not consume the non-medicinal parts! -->
+                <failure>true</failure>
+                <chance>0.5</chance>
+                <totalDamage>15</totalDamage>
+                <applyEffectsToPart>true</applyEffectsToPart>
+                <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+                <letterText>{SURGEON_labelShort} has failed in a minor way while operating on {PATIENT_labelShort} ({RECIPE_label}), but managed to recover key parts.</letterText>
+            </li>
+            <li Class="SurgeryOutcome_Failure">
+                <failure>true</failure>
+                <chance>1</chance>
+                <totalDamage>15</totalDamage>
+                <applyEffectsToPart>true</applyEffectsToPart>
+                <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+                <letterText>{SURGEON_labelShort} has failed in a minor way while operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
+            </li>
+        </outcomes>
+        <comps>
+            <li Class="ArtificialBeings.SurgeryOutcomeComp_OperatorSuccessChance">
+                <statDef>ABF_Stat_Artificial_SurgerySuccessChance</statDef>
+            </li>
+            <li Class="ArtificialBeings.SurgeryOutcomeComp_LocationAndRoomQuality">
+                <statDef>ABF_Stat_Artificial_SurgerySuccessChanceFactor</statDef>
+            </li>
+            <li Class="SurgeryOutcomeComp_MedicineQuality">
+                <curve>
+                <points>
+                    <li>(0, 0.7)</li>
+                    <li>(1, 1)</li>
+                    <li>(2, 1.3)</li>
+                </points>
+                </curve>
+            </li>
+            <li Class="SurgeryOutcomeComp_RecipeSuccessChance"/>
+            <li Class="SurgeryOutcomeComp_Inspired">
+                <inspirationDef>ABF_Inspiration_Artificial_Artificer</inspirationDef>
+                <factor>2</factor>
+            </li>
+        </comps>
+    </SurgeryOutcomeEffectDef>
+
+    <SurgeryOutcomeEffectDef ParentName="ABF_SurgeryOutcomeEffect_Artificial_SurgeryBase">
+        <defName>ABF_SurgeryOutcomeEffect_Artificial_SurgeryMinorRefund</defName>
+        <outcomes Inherit="False">
+        <li Class="SurgeryOutcomeSuccess" />
+        <li Class="ArtificialBeings.SurgeryOutcome_FailureRefund"> <!-- This will not consume the non-medicinal parts! -->
+            <failure>true</failure>
+            <chance>1</chance>
+            <totalDamage>15</totalDamage>
+            <applyEffectsToPart>true</applyEffectsToPart>
+            <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+            <letterText>{SURGEON_labelShort} has failed in a minor way while operating on {PATIENT_labelShort} ({RECIPE_label}), but managed to recover key parts.</letterText>
+        </li>
+        </outcomes>
+    </SurgeryOutcomeEffectDef>
+
+</Defs>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Artificial_Terminated</defName>
+        <label>terminated</label>
+        <description>Operability terminated.</description>
+        <initialSeverity>0</initialSeverity>
+        <lethalSeverity>0</lethalSeverity>
+        <defaultLabelColor>(0.4, 0.4, 0.4)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Artificial_Incapacitated</defName>
+        <label>incapacitated</label>
+        <description>Unit is temporarily incapacitated.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <initialSeverity>1</initialSeverity>
+        <defaultLabelColor>(0.3, 0.7, 0.3)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-1</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <hungerRateFactor>0.4</hungerRateFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Artificial_Disabled</defName>
+        <label>disabled</label>
+        <description>Unit is currently entirely disabled, and is inert.</description>
+        <hediffClass>Hediff</hediffClass>
+        <initialSeverity>1</initialSeverity>
+        <defaultLabelColor>(0.3, 0.7, 0.3)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <hungerRateFactor>0.1</hungerRateFactor>
+                <statFactors>
+                    <ABF_CoherenceRetention MayRequire="Killathon.ArtificialBeings.SynstructsCore">10</ABF_CoherenceRetention>
+                </statFactors>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+                <disablesNeeds>
+                    <li MayRequire="Killathon.ArtificialBeings.SynstructsCore">ABF_Coolant</li>
+                    <li MayRequire="Killathon.ArtificialBeings.SynstructsCore">ABF_Lubricant</li>
+                </disablesNeeds>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Artificial_ComplexityRelation</defName>
+        <label>complexity strain</label>
+        <description>This unit is experiencing side-effects of their current level of programming relative to their maximum complexity handling capacity. If the drone is under their baseline capacity, they will receive minor boosts.</description>
+        <hediffClass>ArtificialBeings.Hediff_Complexity</hediffClass>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>-1</minSeverity>
+        <maxSeverity>10</maxSeverity>
+        <defaultLabelColor>(0.6, 0.6, 0.6)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <!-- The functionality of this Hediff is controlled by the Hediff_Complexity class alone -->
+    </HediffDef>
+
+</Defs>

@@ -18,6 +18,6 @@
     <ABF_DirectiveDefStatFactorHeader>Stat factors:</ABF_DirectiveDefStatFactorHeader>
     <ABF_DirectiveDefStatIndent>- {0}: {1}</ABF_DirectiveDefStatIndent>
     <ABF_DirectiveDefEnergyConsumptionFactor>Energy Consumption: {0}</ABF_DirectiveDefEnergyConsumptionFactor>
-    <ABF_StatsReport_Directives>Directives</ABF_StatsReport_Directives>
+    <ABF_StatsReport_Directives>Directives: {0}</ABF_StatsReport_Directives>
 
 </LanguageData>

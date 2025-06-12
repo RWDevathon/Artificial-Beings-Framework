@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- If the global learning factor stat does not have stat parts yet, add the list. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="GlobalLearningFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="GlobalLearningFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+	</Operation>
+
+    <!-- Drones of all kinds are forbidden from learning. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="GlobalLearningFactor"]/parts</xpath>
+        <value>
+            <li Class="ArtificialBeings.StatPart_DroneNullified" />
+        </value>
+    </Operation>
+
+</Patch>

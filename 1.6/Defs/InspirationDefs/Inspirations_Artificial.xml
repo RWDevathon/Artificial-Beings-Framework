@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Artificial_Artificer</defName>
+        <label>inspired artificer</label>
+        <baseDurationDays>8</baseDurationDays>
+        <beginLetter>The next time [PAWN_pronoun] performs an artificial operation, [PAWN_possessive] chance of success will be doubled.\n\nThe inspiration will end after 8 days, or when the operation is performed.</beginLetter>
+        <beginLetterDef>PositiveEvent</beginLetterDef>
+        <endMessage>{0} is no longer inspired (inspired artificer).</endMessage>
+        <baseInspectLine>Inspired: Inspired artificer</baseInspectLine>
+        <minAge>0</minAge>
+        <requiredNonDisabledStats>
+            <li>ABF_Stat_Artificial_SurgerySuccessChance</li>
+        </requiredNonDisabledStats>
+        <requiredNonDisabledWorkTypes>
+            <li>ABF_WorkType_Artificial_Artificer</li>
+        </requiredNonDisabledWorkTypes>
+        <requiredSkills>
+            <Crafting>3</Crafting>
+        </requiredSkills>
+        <associatedSkills>
+            <li>Crafting</li>
+        </associatedSkills>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </InspirationDef>
+
+</Defs>
