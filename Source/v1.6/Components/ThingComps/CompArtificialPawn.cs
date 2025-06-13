@@ -438,6 +438,7 @@ namespace ArtificialBeings
             if (State != ABF_ArtificialState.Reprogrammable)
             {
                 base.GetStatsExplanation(stat, sb, whitespace);
+                return;
             }
 
             float offsetAmount = 0f;
