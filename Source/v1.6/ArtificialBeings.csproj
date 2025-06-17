@@ -187,6 +187,7 @@
     <Compile Include="DefOfs\ABF_AbilityDefOf.cs" />
     <Compile Include="DefOfs\ABF_DirectiveDefOf.cs" />
     <Compile Include="DefOfs\ABF_HediffDefOf.cs" />
+    <Compile Include="DefOfs\ABF_FleshTypeDefOf.cs" />
     <Compile Include="DefOfs\ABF_LetterDefOf.cs" />
     <Compile Include="DefOfs\ABF_BackstoryDefOf.cs" />
     <Compile Include="DefOfs\ABF_ThoughtDefOf.cs" />
