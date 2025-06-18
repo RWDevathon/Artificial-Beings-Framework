@@ -27,14 +27,17 @@ namespace ArtificialBeings
                 TaleRecorder.RecordTale(TaleDefOf.DidSurgery, billDoer, pawn);
             }
 
+            ABF_RestorePartExtension restorePartExtension = recipe.GetModExtension<ABF_RestorePartExtension>();
+
             // Restore 100 points of severity for this part and child parts to normal functionality.
-            float HPForRepair = 100;
-            RestoreParts(pawn, part, ref HPForRepair);
+            float HPForRepair = restorePartExtension?.severityToRestore ?? 100f;
+            bool fullRestore = restorePartExtension?.fullRestore ?? false;
+            RestoreParts(pawn, part, ref HPForRepair, fullRestore);
 
             // If not all hp was used in a non-core part, then apply remaining hp to the Core part and its children.
-            if (HPForRepair > 0 && part != pawn.def.race.body.corePart)
+            if ((HPForRepair > 0 || fullRestore) && (restorePartExtension?.propagateUpwards ?? false) && part != pawn.def.race.body.corePart)
             {
-                RestoreParts(pawn, pawn.def.race.body.corePart, ref HPForRepair);
+                RestoreParts(pawn, pawn.def.race.body.corePart, ref HPForRepair, fullRestore);
             }
         }
 
@@ -52,9 +55,9 @@ namespace ArtificialBeings
         }
 
         // Recursively restore children parts of the originally restored part. IE. hands and fingers when an arm was restored.
-        private void RestoreParts(Pawn pawn, BodyPartRecord part, ref float HPLeftToRestoreChildren)
+        private void RestoreParts(Pawn pawn, BodyPartRecord part, ref float HPLeftToRestoreChildren, bool fullRestore)
         {
-            if (part == null || HPLeftToRestoreChildren <= 0)
+            if (part == null || (HPLeftToRestoreChildren <= 0 && !fullRestore))
                 return;
 
             // Acquire a list of all hediffs on this specific part, and prepare a bool to check if this part has hediffs that can't be handled with the available points.
@@ -63,6 +66,13 @@ namespace ArtificialBeings
             // Destroy hediffs that does not put the HPLeft below 0. If there is any hediff with a severity too high, then recursion stops at this node.
             foreach (Hediff hediff in targetHediffs)
             {
+                // Full restore ignores severity and removes all negative hediffs.
+                if (fullRestore)
+                {
+                    pawn.health.RemoveHediff(hediff);
+                    continue;
+                }
+
                 // If the Hediff has injuryProps, it's an injury whose severity matches the amount of lost HP.
                 // If it does not have injuryProps, it's a disease or other condition whose severity is likely between 0 - 1 and should be adjusted to not be insignificant compared to injuries.
                 float severity = hediff.Severity * (hediff.def.injuryProps == null ? 10 : 1);
@@ -91,7 +101,7 @@ namespace ArtificialBeings
 
             foreach (BodyPartRecord childPart in part.GetDirectChildParts())
             {
-                RestoreParts(pawn, childPart, ref HPLeftToRestoreChildren);
+                RestoreParts(pawn, childPart, ref HPLeftToRestoreChildren, fullRestore);
             }
         }
     }

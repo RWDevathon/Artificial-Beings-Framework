@@ -215,6 +215,7 @@
     <Compile Include="Directives\Directive_SustainHediff.cs" />
     <Compile Include="Directives\Directive_Ticker.cs" />
     <Compile Include="Extensions\ListingExtensions.cs" />
+    <Compile Include="Extensions\RecipeExtensions.cs" />
     <Compile Include="Extensions\NeedExtensions.cs" />
     <Compile Include="Extensions\PawnKindExtensions.cs" />
     <Compile Include="Extensions\ThingExtensions.cs" />
