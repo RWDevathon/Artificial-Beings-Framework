@@ -15,6 +15,9 @@
         </li>
         <li>
             <packageId>erdelf.HumanoidAlienRaces</packageId>
+            <alternativePackageIds IgnoreIfNoMatchingField="True">
+                <li>erdelf.HumanoidAlienRaces.dev</li>
+            </alternativePackageIds>
             <displayName>Humanoid Alien Races 2.0</displayName>
             <steamWorkshopUrl>steam://url/CommunityFilePage/839005762</steamWorkshopUrl>
             <downloadUrl>https://github.com/RimWorld-CCL-Reborn/AlienRaces</downloadUrl>
