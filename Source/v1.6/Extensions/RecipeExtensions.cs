@@ -13,5 +13,8 @@ namespace ArtificialBeings
 
         // Should leftover HP for restoration propagate back to the core part to potentially fix other problems?
         public bool propagateUpwards = false;
+
+        // Should only missing parts be valid targets, or are damaged parts acceptable as well?
+        public bool missingPartsOnly = false;
     }
 }
