@@ -223,6 +223,7 @@
     <Compile Include="Harmony\CharacterCardUtillity_Patch.cs" />
     <Compile Include="Harmony\Caravan_NeedsTracker_Patch.cs" />
     <Compile Include="Harmony\HediffSet_Patch.cs" />
+    <Compile Include="Harmony\DamageWorker_Nerve_Patch.cs" />
     <Compile Include="Harmony\MetalHorrorUtility_Patch.cs" />
     <Compile Include="Harmony\TraderCaravanUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
