@@ -1,5 +1,7 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -18,16 +20,16 @@ namespace ArtificialBeings
                 yield break;
             }
 
-            bool fulfillsAnyNeed = false;
+            Dictionary<Need, float> fulfillsNeeds = new Dictionary<Need, float>();
             foreach (NeedDef needDef in fulfillerExtension.needOffsetRelations.Keys)
             {
-                if (selPawn.needs.TryGetNeed(needDef) is Need)
+                if (selPawn.needs.TryGetNeed(needDef) is Need need)
                 {
-                    fulfillsAnyNeed = true;
+                    fulfillsNeeds[need] = fulfillerExtension.needOffsetRelations[needDef];
                     break;
                 }
             }
-            if (!fulfillsAnyNeed)
+            if (fulfillsNeeds.Count <= 0)
             {
                 yield break;
             }
@@ -40,9 +42,19 @@ namespace ArtificialBeings
             });
 
             // Force consuming multiple of this item - a dialog slider will appear to select how much to consume.
+            // The maximum amount should be the amount of which is necessary to fully fill the need with the lowest requirement.
             yield return new FloatMenuOption("ABF_ForceConsumptionMultiple".Translate(parent.LabelNoCount), delegate ()
             {
-                Dialog_Slider selectorWindow = new Dialog_Slider("ABF_ConsumeCount".Translate(parent.LabelNoCount, parent), 1, parent.stackCount, delegate (int count)
+                int maxToConsume = parent.stackCount;
+                foreach (Need need in fulfillsNeeds.Keys)
+                {
+                    int amountNeededToFulfill = Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / fulfillsNeeds[need]);
+                    if (amountNeededToFulfill < maxToConsume)
+                    {
+                        maxToConsume = amountNeededToFulfill;
+                    }
+                }
+                Dialog_Slider selectorWindow = new Dialog_Slider("ABF_ConsumeCount".Translate(parent.LabelNoCount, parent), 1, Math.Max(1, maxToConsume), delegate (int count)
                 {
                     Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, parent);
                     job.count = count;

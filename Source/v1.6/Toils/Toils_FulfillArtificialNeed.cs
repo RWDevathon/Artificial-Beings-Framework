@@ -89,9 +89,10 @@ namespace ArtificialBeings
                 Job curJob = actor.jobs.curJob;
                 Thing thing = curJob.GetTarget(consumableInd).Thing;
 
-                // Consume item.
+                // Consume item. Make sure the consumed count is correct (in the event that the job's count desynced from the thing's count).
                 if (curJob.count >= thing.stackCount)
                 {
+                    curJob.count = thing.stackCount;
                     thing.Destroy();
                 }
                 else

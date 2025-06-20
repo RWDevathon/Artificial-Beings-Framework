@@ -230,7 +230,6 @@
     <Compile Include="Harmony\Need_Food_Patch.cs" />
     <Compile Include="Harmony\PawnGroupMakerUtility_Patch.cs" />
     <Compile Include="Harmony\PawnCapacityDef_Patch.cs" />
-    <Compile Include="Harmony\StatWorker_Patch.cs" />
     <Compile Include="Harmony\HediffMaker_Patch.cs" />
     <Compile Include="Harmony\StorytellerUtilityPopulation_Patch.cs" />
     <Compile Include="Harmony\Building_CryptosleepCasket_Patch.cs" />
