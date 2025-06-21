@@ -6,7 +6,7 @@ namespace ArtificialBeings
 {
     public class StorytellerUtilityPopulation_Patch
     {
-        // Drones only count as 25% as much for population purposes.
+        // Drones may be counted differently for population purposes.
         [HarmonyPatch(typeof(StorytellerUtilityPopulation), "AdjustedPopulationValue")]
         public class StorytellerUtilityPopulation_AdjustedPopulationValue_Patch
         {
@@ -20,7 +20,7 @@ namespace ArtificialBeings
 
                 if (ABF_Utils.IsArtificialDrone(pawn))
                 {
-                    __result *= 0.25f;
+                    __result *= pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.dronePopulationFactor ?? 1f;
                 }
             }
         }

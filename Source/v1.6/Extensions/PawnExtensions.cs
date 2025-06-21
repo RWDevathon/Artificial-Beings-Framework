@@ -29,7 +29,7 @@ namespace ArtificialBeings
         // Since only NeedDefs that are added to this list are added to the pawn, this is a whitelist. Note that the NeedDef should have its own extension to fully work.
         public Dictionary<NeedDef, float> artificialNeeds = new Dictionary<NeedDef, float>();
 
-        // Dictionary of artificial-specific hediff replacements for this race. The Keys are HediffDefs that should be replaced, with the Value being the Hediff to replace with.
+        // List of artificial-specific hediff replacements for this race.
         public List<HediffReplacementRecord> hediffReplacements = new List<HediffReplacementRecord>();
 
         // Controls for what medicines the individuals of this race will be able to use for tending injuries.
@@ -37,6 +37,9 @@ namespace ArtificialBeings
         public List<ThingDef> whiteMedicineList = new List<ThingDef>();
         public List<ThingDef> blackMedicineList = new List<ThingDef>();
         public bool onlyUseRaceRestrictedMedicine = false;
+
+        // Float factor for drones and reprogrammable drones of this race establishing how much storyteller population to take up.
+        public float dronePopulationFactor = 0.25f;
 
         /* Drone specific */
 
