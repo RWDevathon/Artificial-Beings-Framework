@@ -62,6 +62,13 @@ namespace ArtificialBeings
         // Setting this above 0 will mean pawns will not take it if the corresponding skill is absent, and vice versa.
         public Dictionary<SkillDef, float> skillChoiceWeights = new Dictionary<SkillDef, float>();
 
+        // Optional int for offsetting the quality of all items manufactured by pawns with this directive (positive or negative).
+        public int producedItemQualityOffset = 0;
+
+        // Optional QualityCategory for specifying a mandatory quality of all items manufactured by pawns with this directive (overrides above field).
+        // If there are two directives with conflicting forced item qualities, the lowest quality one will be chosen.
+        public QualityCategory? forcedItemQuality = null;
+
         public Texture2D Icon
         {
             get
@@ -120,6 +127,18 @@ namespace ArtificialBeings
                         {
                             customDescription.AppendLine("ABF_DirectiveDefStatIndent".Translate(statFactor.stat.LabelForFullStatListCap, statFactor.ToStringAsFactor));
                         }
+                    }
+                    if (forcedItemQuality != null)
+                    {
+                        customDescription.AppendLine();
+                        customDescription.AppendLine("ABF_DirectiveDefForcedItemQualityHeader".Translate().Colorize(ColoredText.TipSectionTitleColor));
+                        customDescription.AppendLine("ABF_DirectiveDefForcedItemQuality".Translate(((QualityCategory)forcedItemQuality).GetLabel()));
+                    }
+                    if (producedItemQualityOffset != 0 && forcedItemQuality == null)
+                    {
+                        customDescription.AppendLine();
+                        customDescription.AppendLine("ABF_DirectiveDefProducedItemQualityOffsetHeader".Translate().Colorize(ColoredText.TipSectionTitleColor));
+                        customDescription.AppendLine("ABF_DirectiveDefProducedItemQualityOffset".Translate(producedItemQualityOffset));
                     }
                     if (hungerRateFactor != 1f)
                     {

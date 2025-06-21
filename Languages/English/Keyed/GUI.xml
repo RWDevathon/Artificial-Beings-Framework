@@ -17,6 +17,10 @@
     <ABF_DirectiveDefStatOffsetHeader>Stat offsets:</ABF_DirectiveDefStatOffsetHeader>
     <ABF_DirectiveDefStatFactorHeader>Stat factors:</ABF_DirectiveDefStatFactorHeader>
     <ABF_DirectiveDefStatIndent>- {0}: {1}</ABF_DirectiveDefStatIndent>
+    <ABF_DirectiveDefForcedItemQualityHeader>Forced quality effects:</ABF_DirectiveDefForcedItemQualityHeader>
+    <ABF_DirectiveDefForcedItemQuality>This directive forces all items and buildings to have {0} quality</ABF_DirectiveDefForcedItemQuality>
+    <ABF_DirectiveDefProducedItemQualityOffsetHeader>Quality offsets:</ABF_DirectiveDefProducedItemQualityOffsetHeader>
+    <ABF_DirectiveDefProducedItemQualityOffset>Quality of all items and buildings will be offset by {0}</ABF_DirectiveDefProducedItemQualityOffset>
     <ABF_DirectiveDefEnergyConsumptionFactor>Energy Consumption: {0}</ABF_DirectiveDefEnergyConsumptionFactor>
     <ABF_StatsReport_Directives>Directives: {0}</ABF_StatsReport_Directives>
 

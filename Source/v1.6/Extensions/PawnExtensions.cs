@@ -38,16 +38,20 @@ namespace ArtificialBeings
         public List<ThingDef> blackMedicineList = new List<ThingDef>();
         public bool onlyUseRaceRestrictedMedicine = false;
 
-        // Float factor for drones and reprogrammable drones of this race establishing how much storyteller population to take up.
+        /* Drone AND Reprogrammable Specific */
+
+        // Float factor for drones of this race establishing how much storyteller population to take up.
         public float dronePopulationFactor = 0.25f;
+
+        // Bool for whether drones can have traits.
+        public bool dronesCanHaveTraits = false;
+
+        public QualityRange droneQualityRange = QualityRange.All;
 
         /* Drone specific */
 
         // Int for the stat levels of this race when set as a non-reprogrammable drone. This does nothing if the race is not considered drones.
         public int droneSkillLevel = 4;
-
-        // Bool for whether drones can have traits.
-        public bool dronesCanHaveTraits = false;
 
         /* Reprogrammable specific */
 

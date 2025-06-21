@@ -225,6 +225,7 @@
     <Compile Include="Harmony\HediffSet_Patch.cs" />
     <Compile Include="Harmony\DamageWorker_Nerve_Patch.cs" />
     <Compile Include="Harmony\MetalHorrorUtility_Patch.cs" />
+    <Compile Include="Harmony\QualityUtility_Patch.cs" />
     <Compile Include="Harmony\TraderCaravanUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
     <Compile Include="Harmony\Pawn_StoryTracker_Patch.cs" />

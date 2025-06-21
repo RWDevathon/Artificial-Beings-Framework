@@ -11,9 +11,6 @@ namespace ArtificialBeings
         }
 
         [MayRequireSynstructsCore]
-        public static DirectiveDef ABF_Directive_Synstruct_Artisan;
-
-        [MayRequireSynstructsCore]
         public static DirectiveDef ABF_Directive_Synstruct_Martyr;
 
         [MayRequireSynstructsCore]

@@ -21,6 +21,8 @@ namespace ArtificialBeings
             labelKey = "ABF_TabProgramming";
         }
 
+        public override bool IsVisible => Find.Selector.SingleSelectedThing is Pawn pawn && ABF_Utils.IsProgrammableDrone(pawn);
+
         protected override void FillTab()
         {
             Rect tabWindow = new Rect(margin, margin, size.x - (2 * margin), size.y - margin);
