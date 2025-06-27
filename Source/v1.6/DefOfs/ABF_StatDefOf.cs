@@ -28,9 +28,9 @@ namespace ArtificialBeings
         public static StatDef ABF_Stat_Synstruct_CoherenceRetention;
 
         [MayRequireSynstructsCore]
-        public static StatDef ABF_Stat_Synstruct_ChargingSpeed;
+        public static StatDef ABF_Stat_Synstruct_MaxEnergy;
 
         [MayRequireSynstructsCore]
-        public static StatDef ABF_Stat_Synstruct_NutritionalIntakeEfficiency;
+        public static StatDef ABF_Stat_Synstruct_EnergyConsumption;
     }
 }

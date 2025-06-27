@@ -1,5 +1,7 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace ArtificialBeings
 {
@@ -7,7 +9,7 @@ namespace ArtificialBeings
     {
         private float maxLevel = 1f;
 
-        private ABF_ArtificialNeedExtension needExtension;
+        protected ABF_ArtificialNeedExtension needExtension;
 
         public float AmountDesired => MaxLevel - CurLevel;
 
@@ -23,11 +25,11 @@ namespace ArtificialBeings
             }
         }
 
-        public float PercentageFallRatePerTick
+        private float PercentageFallRatePerTick
         {
             get
             {
-                return def.fallPerDay / 60000;
+                return def.fallPerDay / GenDate.TicksPerDay;
             }
         }
 
@@ -56,8 +58,9 @@ namespace ArtificialBeings
                 return;
             }
 
-            CurLevelPercentage -= 150 * PercentageFallRatePerTick;
+            HandleTicks(NeedTunings.NeedUpdateInterval);
 
+            // If the need is depleted, and a hediff on empty is expected, then it should be updated. It won't update itself.
             Hediff needHediff = pawn.health.hediffSet.GetFirstHediffOfDef(NeedExtension.hediffToApplyOnEmpty);
             if (CurLevel <= 0.001)
             {
@@ -67,11 +70,11 @@ namespace ArtificialBeings
                     needHediff.Severity = 0f;
                     pawn.health.AddHediff(needHediff);
                 }
-                needHediff.Severity += 150 * (NeedExtension.hediffRisePerDay / 60000);
+                needHediff.Severity += NeedTunings.NeedUpdateInterval * (NeedExtension.hediffRisePerDay / GenDate.TicksPerDay);
             }
             else if (needHediff != null)
             {
-                needHediff.Severity -= 150 * (NeedExtension.hediffFallPerDay / 60000);
+                needHediff.Severity -= NeedTunings.NeedUpdateInterval * (NeedExtension.hediffFallPerDay / GenDate.TicksPerDay);
             }
         }
 
@@ -99,6 +102,33 @@ namespace ArtificialBeings
         public override string GetTipString()
         {
             return (LabelCap + ": " + CurLevelPercentage.ToStringPercent()).Colorize(ColoredText.TipSectionTitleColor) + " (" + CurLevel.ToString("0.##") + " / " + MaxLevel.ToString("0.##") + ")\n" + def.description;
+        }
+
+        // This method should be where all handling of the level changing should be done.
+        public virtual void HandleTicks(int delta)
+        {
+            CurLevelPercentage -= delta * PercentageFallRatePerTick;
+        }
+
+        // This method should be called to check if a pawn should automatically replenish this need.
+        public virtual bool ShouldReplenishNow()
+        {
+            return CurLevelPercentage < NeedExtension.criticalThreshold;
+        }
+
+        // This method is responsible for returning a job to replenish this need. Subclasses may desire to have specific ways of satisfying it.
+        public virtual Job GetReplenishJob()
+        {
+            Thing item = ABF_Utils.GetNeedSatisfyingItem(pawn, def);
+            if (item != null)
+            {
+                ABF_NeedFulfillerExtension needFulfiller = item.def.GetModExtension<ABF_NeedFulfillerExtension>();
+                int desiredCount = Mathf.Max(1, Mathf.FloorToInt((AmountDesired) / needFulfiller.needOffsetRelations[def]));
+                Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, item);
+                job.count = Mathf.Min(item.stackCount, desiredCount);
+                return job;
+            }
+            return null;
         }
     }
 }

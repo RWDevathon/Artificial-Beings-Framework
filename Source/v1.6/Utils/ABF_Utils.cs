@@ -4,6 +4,7 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using UnityEngine;
+using Verse.AI;
 
 namespace ArtificialBeings
 {
@@ -734,6 +735,36 @@ namespace ArtificialBeings
             return result;
         }
 
+        public static Thing GetNeedSatisfyingItem(Pawn pawn, NeedDef need)
+        {
+            Thing carriedThing = pawn.carryTracker.CarriedThing;
+            if (!(cachedArtificialNeedFulfillments[need] is List<ThingDef> fulfillingThingDefs))
+            {
+                return null;
+            }
+
+            if (carriedThing != null && fulfillingThingDefs.Contains(carriedThing.def) == true)
+            {
+                return carriedThing;
+            }
+            for (int i = 0; i < pawn.inventory.innerContainer.Count; i++)
+            {
+                if (fulfillingThingDefs.Contains(pawn.inventory.innerContainer[i].def) == true)
+                {
+                    return pawn.inventory.innerContainer[i];
+                }
+            }
+            if (pawn.Map == null)
+            {
+                return null;
+            }
+            List<Thing> searchList = new List<Thing>();
+            foreach (ThingDef thingDef in fulfillingThingDefs)
+            {
+                searchList.AddRange(pawn.Map.listerThings.ThingsOfDef(thingDef));
+            }
+            return GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, searchList, PathEndMode.OnCell, TraverseParms.For(pawn), 9999f, (Thing t) => pawn.CanReserve(t) && !t.IsForbidden(pawn));
+        }
 
 
         // Vanilla keeps a private cache of icons for medical care categories that we want to be able to use. Easier to cache it ourselves as needed.

@@ -27,6 +27,9 @@ namespace ArtificialBeings
         [MayRequireSynstructsCore]
         public static JobDef ABF_Job_Synstruct_ResurrectArtificial;
 
+        [MayRequireSynstructsCore]
+        public static JobDef ABF_Job_Synstruct_TakeStimulator;
+
         [MayRequireMechcloudChemwalkers]
         public static JobDef ABF_Job_Chemwalker_AttuneToArmor;
 
