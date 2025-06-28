@@ -45,15 +45,13 @@ namespace ArtificialBeings
         {
             if (Active && fullness < 1f)
             {
+                float gainRateFactor = GainRateModifiedByNeeds();
                 // We want to run our pause check separately from Active, so that pawns can still harvest products if it is full even if paused.
-                foreach (NeedDef needDef in Props.pauseOnAnyEmpty)
+                if (gainRateFactor <= 0)
                 {
-                    if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurLevelPercentage <= 0))
-                    {
-                        return;
-                    }
+                    return;
                 }
-                fullness = Mathf.Clamp01(fullness + delta / (Props.resourceIntervalDays * GenDate.TicksPerDay));
+                fullness = Mathf.Clamp01(fullness + (delta * gainRateFactor / (Props.resourceIntervalDays * GenDate.TicksPerDay)));
             }
         }
 
@@ -64,14 +62,30 @@ namespace ArtificialBeings
             {
                 return output;
             }
-            foreach (NeedDef needDef in Props.pauseOnAnyEmpty)
+            float gainRateFactor = GainRateModifiedByNeeds();
+            if (gainRateFactor <= 0)
+            {
+                return "ABF_PausedNeedEmpty".Translate();
+            }
+            if (gainRateFactor == 1f)
+            {
+                return "ABF_ResourceReadout".Translate(ResourceDef.LabelCap, Fullness.ToStringPercent());
+            }
+            return "ABF_ResourceReadout_Nonstandard".Translate(ResourceDef.LabelCap, Fullness.ToStringPercent(), gainRateFactor.ToStringPercent());
+        }
+
+        // Needs, whether by being empty or some other metric, should be allowed to affect resource production.
+        public virtual float GainRateModifiedByNeeds()
+        {
+            float factor = 1f;
+            foreach (NeedDef needDef in Props.affectOutputFactorOnEmpty.Keys)
             {
                 if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurLevelPercentage <= 0))
                 {
-                    return "ABF_PausedNeedEmpty".Translate();
+                    factor *= Props.affectOutputFactorOnEmpty[needDef];
                 }
             }
-            return "ABF_ResourceReadout".Translate(ResourceDef.LabelCap, Fullness.ToStringPercent());
+            return factor;
         }
     }
 }

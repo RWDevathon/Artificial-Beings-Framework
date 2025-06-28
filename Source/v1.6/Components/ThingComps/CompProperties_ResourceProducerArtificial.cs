@@ -17,6 +17,6 @@ namespace ArtificialBeings
 
         public ThingDef resourceDef;
 
-        public List<NeedDef> pauseOnAnyEmpty = new List<NeedDef>();
+        public Dictionary<NeedDef, float> affectOutputFactorOnEmpty = new Dictionary<NeedDef, float>();
     }
 }

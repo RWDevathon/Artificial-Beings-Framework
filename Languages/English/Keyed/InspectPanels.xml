@@ -10,6 +10,8 @@
 
     <!-- Displaying what will be produced, and a percentage progress toward readiness -->
     <ABF_ResourceReadout>{0}: {1}</ABF_ResourceReadout>
+    <!-- Displaying what will be produced, percentage progress toward readiness, and showing gain rate factor -->
+    <ABF_ResourceReadout_Nonstandard>{0}: {1} - accruing at {2} efficiency due to needs.</ABF_ResourceReadout_Nonstandard>
     <!-- For animal products paused due to an empty need -->
     <ABF_PausedNeedEmpty>Paused: Input need unfulfilled</ABF_PausedNeedEmpty>
 
