@@ -3,4 +3,18 @@
 
     <ABF_DroneNullifiedStat>Multiplier for drones: 0%</ABF_DroneNullifiedStat>
 
+    <!-- Resource readouts on the information panel for artificial animal products-->
+    <ABF_Stat_Animal_ResourceType>Resource type</ABF_Stat_Animal_ResourceType>
+    <ABF_Stat_Animal_ResourceTypeDesc>The resource produced by this creature.</ABF_Stat_Animal_ResourceTypeDesc>
+    <ABF_Stat_Animal_ResourceAmount>Resource amount</ABF_Stat_Animal_ResourceAmount>
+    <ABF_Stat_Animal_ResourceAmountDesc>The amount of resources collected from this creature every production interval.</ABF_Stat_Animal_ResourceAmountDesc>
+    <ABF_Stat_Animal_ResourceInterval>Production interval</ABF_Stat_Animal_ResourceInterval>
+    <ABF_Stat_Animal_ResourceIntervalDesc>How many days must pass before this creature completes a production cycle.</ABF_Stat_Animal_ResourceIntervalDesc>
+    <ABF_Stat_Animal_ResourcePerYear>Resources per year</ABF_Stat_Animal_ResourcePerYear>
+    <ABF_Stat_Animal_ResourcePerYearDesc>How many resources can be collected from this creature in a year, given optimal collections and full productivity.</ABF_Stat_Animal_ResourcePerYearDesc>
+    <ABF_Stat_Animal_ResourceValue>Resource value</ABF_Stat_Animal_ResourceValue>
+    <ABF_Stat_Animal_ResourceValueDesc>How much the product of this creature is worth.</ABF_Stat_Animal_ResourceValueDesc>
+    <ABF_Stat_Animal_ResourceValuePerYear>Resource value per year</ABF_Stat_Animal_ResourceValuePerYear>
+    <ABF_Stat_Animal_ResourceValuePerYearDesc>How much value this creature produces per year, given optimal collections and full productivity.</ABF_Stat_Animal_ResourceValuePerYearDesc>
+
 </LanguageData>

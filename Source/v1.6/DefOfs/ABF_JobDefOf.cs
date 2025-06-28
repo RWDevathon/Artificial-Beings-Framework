@@ -15,6 +15,8 @@ namespace ArtificialBeings
 
         public static JobDef ABF_Job_Artificial_Tend;
 
+        public static JobDef ABF_Job_Artificial_GatherArtificialAnimalBodyResources;
+
         [MayRequireSynstructsCore]
         public static JobDef ABF_Job_Synstruct_ChargeSelf;
 

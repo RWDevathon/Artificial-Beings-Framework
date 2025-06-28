@@ -105,4 +105,18 @@
         </requiredCapacities>
     </WorkGiverDef>
 
+    <!-- Collecting resources from artificial animals -->
+    <WorkGiverDef>
+        <defName>Shear</defName>
+        <label>collect resources from artificial animals</label>
+        <giverClass>ArtificialBeings.WorkGiver_GatherAnimalBodyResources_Artificial</giverClass>
+        <workType>Handling</workType>
+        <verb>collect</verb>
+        <gerund>collecting from</gerund>
+        <priorityInType>82</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
 </Defs>

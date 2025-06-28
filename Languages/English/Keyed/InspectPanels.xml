@@ -8,4 +8,9 @@
     <ABF_ReprogrammablePawnState>Reprogrammable</ABF_ReprogrammablePawnState>
     <ABF_SapientPawnState>Sapient</ABF_SapientPawnState>
 
+    <!-- Displaying what will be produced, and a percentage progress toward readiness -->
+    <ABF_ResourceReadout>{0}: {1}</ABF_ResourceReadout>
+    <!-- For animal products paused due to an empty need -->
+    <ABF_PausedNeedEmpty>Paused: Input need unfulfilled</ABF_PausedNeedEmpty>
+
 </LanguageData>

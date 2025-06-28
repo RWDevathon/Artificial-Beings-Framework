@@ -15,4 +15,11 @@
         <casualInterruptible>false</casualInterruptible>
     </JobDef>
 
+    <JobDef>
+        <defName>ABF_Job_Artificial_GatherArtificialAnimalBodyResources</defName>
+        <driverClass>ArtificialBeings.JobDriver_GatherArtificialAnimalBodyResources</driverClass>
+        <reportString>gathering from TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
 </Defs>

@@ -184,6 +184,8 @@
     <Compile Include="Components\SurgeryOutcomeComp_ArtificerSuccessChance.cs" />
     <Compile Include="Components\ABF_WorldComponent.cs" />
     <Compile Include="Components\ThingComps\CompArtificialPawn.cs" />
+    <Compile Include="Components\ThingComps\CompHasGatherableBodyResource_Artificial.cs" />
+    <Compile Include="Components\ThingComps\CompProperties_ResourceProducerArtificial.cs" />
     <Compile Include="DefOfs\ABF_AbilityDefOf.cs" />
     <Compile Include="DefOfs\ABF_DirectiveDefOf.cs" />
     <Compile Include="DefOfs\ABF_HediffDefOf.cs" />
@@ -225,6 +227,7 @@
     <Compile Include="Harmony\Caravan_NeedsTracker_Patch.cs" />
     <Compile Include="Harmony\HediffSet_Patch.cs" />
     <Compile Include="Harmony\DamageWorker_Nerve_Patch.cs" />
+    <Compile Include="Harmony\AnimalProductionUtility_Patch.cs" />
     <Compile Include="Harmony\MetalHorrorUtility_Patch.cs" />
     <Compile Include="Harmony\QualityUtility_Patch.cs" />
     <Compile Include="Harmony\TraderCaravanUtility_Patch.cs" />
@@ -285,6 +288,7 @@
     <Compile Include="IngestionOutcomeDoers\IngestionOutcomeDoer_OffsetArtificialNeed.cs" />
     <Compile Include="ITabs\ITab_Programming.cs" />
     <Compile Include="JobDrivers\JobDriver_FulfillArtificialNeed.cs" />
+    <Compile Include="JobDrivers\JobDriver_GatherArtificialAnimalBodyResources.cs" />
     <Compile Include="JobDrivers\JobDriver_TendArtificial.cs" />
     <Compile Include="JobGivers\JobGiver_FillArtificialNeed.cs" />
     <Compile Include="ArtificialBeings.cs" />
@@ -339,6 +343,7 @@
     <Compile Include="Utils\MayRequireMartialSynstructsAttribute.cs" />
     <Compile Include="Utils\MayRequireMechcloudChemwalkersAttribute.cs" />
     <Compile Include="Utils\MayRequireSynstructsCoreAttribute.cs" />
+    <Compile Include="WorkGivers\WorkGiver_GatherAnimalBodyResources_Artificial.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
