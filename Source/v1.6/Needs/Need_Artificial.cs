@@ -61,20 +61,23 @@ namespace ArtificialBeings
             HandleTicks(NeedTunings.NeedUpdateInterval);
 
             // If the need is depleted, and a hediff on empty is expected, then it should be updated. It won't update itself.
-            Hediff needHediff = pawn.health.hediffSet.GetFirstHediffOfDef(NeedExtension.hediffToApplyOnEmpty);
-            if (CurLevel <= 0.001)
+            if (NeedExtension.hediffToApplyOnEmpty != null)
             {
-                if (needHediff == null)
+                Hediff needHediff = pawn.health.hediffSet.GetFirstHediffOfDef(NeedExtension.hediffToApplyOnEmpty);
+                if (CurLevel <= 0.001)
                 {
-                    needHediff = HediffMaker.MakeHediff(NeedExtension.hediffToApplyOnEmpty, pawn);
-                    needHediff.Severity = 0f;
-                    pawn.health.AddHediff(needHediff);
+                    if (needHediff == null)
+                    {
+                        needHediff = HediffMaker.MakeHediff(NeedExtension.hediffToApplyOnEmpty, pawn);
+                        needHediff.Severity = 0f;
+                        pawn.health.AddHediff(needHediff);
+                    }
+                    needHediff.Severity += NeedTunings.NeedUpdateInterval * (NeedExtension.hediffRisePerDay / GenDate.TicksPerDay);
                 }
-                needHediff.Severity += NeedTunings.NeedUpdateInterval * (NeedExtension.hediffRisePerDay / GenDate.TicksPerDay);
-            }
-            else if (needHediff != null)
-            {
-                needHediff.Severity -= NeedTunings.NeedUpdateInterval * (NeedExtension.hediffFallPerDay / GenDate.TicksPerDay);
+                else if (needHediff != null)
+                {
+                    needHediff.Severity -= NeedTunings.NeedUpdateInterval * (NeedExtension.hediffFallPerDay / GenDate.TicksPerDay);
+                }
             }
         }
 

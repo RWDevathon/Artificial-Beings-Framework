@@ -48,7 +48,7 @@ namespace ArtificialBeings
                 // We want to run our pause check separately from Active, so that pawns can still harvest products if it is full even if paused.
                 foreach (NeedDef needDef in Props.pauseOnAnyEmpty)
                 {
-                    if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurInstantLevelPercentage <= 0))
+                    if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurLevelPercentage <= 0))
                     {
                         return;
                     }
@@ -66,7 +66,7 @@ namespace ArtificialBeings
             }
             foreach (NeedDef needDef in Props.pauseOnAnyEmpty)
             {
-                if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurInstantLevelPercentage <= 0))
+                if (parent is Pawn pawn && pawn.needs.AllNeeds.Any(need => need.def == needDef && need.CurLevelPercentage <= 0))
                 {
                     return "ABF_PausedNeedEmpty".Translate();
                 }

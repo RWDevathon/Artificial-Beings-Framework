@@ -25,7 +25,7 @@ namespace ArtificialBeings
         // List of needs that specifically artificial sapients do not have. Same note as above.
         public List<NeedDef> blacklistedSapientNeeds;
 
-        // Dictionary of artificial-specific needs of this race. The Keys are NeedDefs they have, with the Values being an int representation of their maximum capacity of the need.
+        // Dictionary of artificial-specific needs of this race. The Keys are NeedDefs, with the Values being an float representation of their maximum capacity of the need.
         // Since only NeedDefs that are added to this list are added to the pawn, this is a whitelist. Note that the NeedDef should have its own extension to fully work.
         public Dictionary<NeedDef, float> artificialNeeds = new Dictionary<NeedDef, float>();
 
