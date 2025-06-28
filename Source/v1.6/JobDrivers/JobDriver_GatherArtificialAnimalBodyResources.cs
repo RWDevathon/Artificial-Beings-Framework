@@ -6,7 +6,7 @@ namespace ArtificialBeings
 {
     public class JobDriver_GatherArtificialAnimalBodyResources : JobDriver_GatherAnimalBodyResources
     {
-        protected override float WorkTotal => 1700f;
+        protected override float WorkTotal => 800f;
 
         protected override CompHasGatherableBodyResource GetComp(Pawn animal)
         {
