@@ -738,7 +738,7 @@ namespace ArtificialBeings
         public static Thing GetNeedSatisfyingItem(Pawn pawn, NeedDef need)
         {
             Thing carriedThing = pawn.carryTracker.CarriedThing;
-            if (!(cachedArtificialNeedFulfillments[need] is List<ThingDef> fulfillingThingDefs))
+            if (!cachedArtificialNeedFulfillments.ContainsKey(need) || !(cachedArtificialNeedFulfillments[need] is List<ThingDef> fulfillingThingDefs))
             {
                 return null;
             }
