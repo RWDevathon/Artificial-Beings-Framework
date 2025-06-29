@@ -30,7 +30,12 @@ namespace ArtificialBeings
                     continue;
                 }
 
-                return artificalNeed.GetReplenishJob();
+                // Try to get a job to replenish this need. If it's successful, return it. If we didn't find one for this need, keep looking through the others.
+                Job job = artificalNeed.GetReplenishJob();
+                if (job != null)
+                {
+                    return job;
+                }
             }
             return null;
         }
