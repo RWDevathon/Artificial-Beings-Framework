@@ -11,6 +11,8 @@ namespace ArtificialBeings
 
         protected ABF_ArtificialNeedExtension needExtension;
 
+        protected ArtificialNeedDetails needDetails;
+
         public float AmountDesired => MaxLevel - CurLevel;
 
         protected ABF_ArtificialNeedExtension NeedExtension
@@ -25,11 +27,31 @@ namespace ArtificialBeings
             }
         }
 
-        private float PercentageFallRatePerTick
+        protected ArtificialNeedDetails NeedDetails
         {
             get
             {
-                return def.fallPerDay / GenDate.TicksPerDay;
+                if (needDetails == null)
+                {
+                    needDetails = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>().artificialNeeds.TryGetValue(def);
+                }
+                return needDetails;
+            }
+        }
+
+        public virtual float FallRatePerDay
+        {
+            get
+            {
+                return NeedDetails?.fallRatePerDay ?? def.fallPerDay;
+            }
+        }
+
+        protected float FallRatePerTick
+        {
+            get
+            {
+                return FallRatePerDay / GenDate.TicksPerDay;
             }
         }
 
@@ -39,7 +61,7 @@ namespace ArtificialBeings
 
         public override void SetInitialLevel()
         {
-            maxLevel = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.artificialNeeds.TryGetValue(def, 1f) ?? 1f;
+            maxLevel = NeedDetails?.maximumCapacity ?? 1f;
             CurLevelPercentage = 1.0f;
         }
 
@@ -98,19 +120,26 @@ namespace ArtificialBeings
             base.ExposeData();
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                maxLevel = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>()?.artificialNeeds.TryGetValue(def, 1f) ?? 1f;
+                maxLevel = NeedDetails?.maximumCapacity ?? 1f;
             }
         }
 
         public override string GetTipString()
         {
-            return (LabelCap + ": " + CurLevelPercentage.ToStringPercent()).Colorize(ColoredText.TipSectionTitleColor) + " (" + CurLevel.ToString("0.##") + " / " + MaxLevel.ToString("0.##") + ")\n" + def.description;
+            return (LabelCap + ": " + CurLevelPercentage.ToStringPercent()).Colorize(ColoredText.TipSectionTitleColor) + " (" + CurLevel.ToString("0.##") + " / " + MaxLevel.ToString("0.##") + ")\n" + def.description + "\n\n" + "ABF_ArtificialNeedFallRate".Translate(FallRatePerDay.ToString("0.##")).Resolve();
         }
 
         // This method should be where all handling of the level changing should be done.
         public virtual void HandleTicks(int delta)
         {
-            CurLevelPercentage -= delta * PercentageFallRatePerTick;
+            if (NeedDetails?.fallRateIsPercentage == true)
+            {
+                CurLevelPercentage -= delta * FallRatePerTick;
+            }
+            else
+            {
+                CurLevel -= delta * FallRatePerTick;
+            }
         }
 
         // This method should be called to check if a pawn should automatically replenish this need.

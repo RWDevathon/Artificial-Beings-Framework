@@ -25,9 +25,9 @@ namespace ArtificialBeings
         // List of needs that specifically artificial sapients do not have. Same note as above.
         public List<NeedDef> blacklistedSapientNeeds;
 
-        // Dictionary of artificial-specific needs of this race. The Keys are NeedDefs, with the Values being an float representation of their maximum capacity of the need.
-        // Since only NeedDefs that are added to this list are added to the pawn, this is a whitelist. Note that the NeedDef should have its own extension to fully work.
-        public Dictionary<NeedDef, float> artificialNeeds = new Dictionary<NeedDef, float>();
+        // Dictionary of artificial-specific needs of this race. The Keys are NeedDefs, with the Values being a class holding details about that need.
+        // Since only NeedDefs that are added to this dict are added to the pawn, this is a whitelist. Note that the NeedDef should have its own extension to fully work.
+        public Dictionary<NeedDef, ArtificialNeedDetails> artificialNeeds = new Dictionary<NeedDef, ArtificialNeedDetails>();
 
         // List of artificial-specific hediff replacements for this race.
         public List<HediffReplacementRecord> hediffReplacements = new List<HediffReplacementRecord>();
@@ -97,10 +97,13 @@ namespace ArtificialBeings
         }
     }
 
+    // A simple class to indicate hediffs that should be replaced by other hediffs whenever the former would be added.
     public class HediffReplacementRecord
     {
+        // The hediff to add in place of the one removed
         public HediffDef toReplace;
 
+        // The target hediff to be removed/prevented from being added
         public HediffDef toBeReplaced;
 
         public void LoadDataFromXmlCustom(XmlNode xmlRoot)
@@ -108,5 +111,15 @@ namespace ArtificialBeings
             DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toReplace", xmlRoot);
             DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "toBeReplaced", xmlRoot.FirstChild.Value);
         }
+    }
+
+    // A simple class detailing a desired need for an artificial race with options.
+    public class ArtificialNeedDetails
+    {
+        public float maximumCapacity = 1f;
+
+        public float fallRatePerDay = 1f;
+
+        public bool fallRateIsPercentage = false;
     }
 }

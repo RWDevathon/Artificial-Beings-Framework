@@ -2,8 +2,11 @@
 <LanguageData>
 
 	<!-- Needs -->
+    <!-- These two are used only in 1.5 for a harmony patch -->
 	<ABF_EnergyNeed>Energy</ABF_EnergyNeed>
 	<ABF_EnergyNeedDesc>Energy is the amount of retained charge in the unit. If it is hits zero, the unit will enter an inefficient low-power mode. If charge is not restored, hardware will eventually critically malfunction, and the unit will cease functioning.</ABF_EnergyNeedDesc>
+
+    <ABF_ArtificialNeedFallRate>This creature currently consumes {0} per day.</ABF_ArtificialNeedFallRate>
 
     <!-- Health Tab -->
     <ABF_HoursToFailure>critical in {0}</ABF_HoursToFailure>
