@@ -120,6 +120,7 @@ namespace ArtificialBeings
 
         public float fallRatePerDay = 1f;
 
+        // If true, the fallRatePerDay is percentage lost per day. If false, it's a numerical amount lost per day.
         public bool fallRateIsPercentage = false;
     }
 }
