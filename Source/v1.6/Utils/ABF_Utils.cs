@@ -179,9 +179,16 @@ namespace ArtificialBeings
                 }
             }
             // Animal-intelligence drones need to handle their training and a few other details.
-            else if (pawn.RaceProps.intelligence == Intelligence.Animal)
+            else if (pawn.RaceProps.intelligence == Intelligence.Animal && pawn.training != null)
             {
-
+                foreach (TrainableDef trainableDef in TrainableUtility.TrainableDefsInListOrder)
+                {
+                    if (pawn.training.CanBeTrained(trainableDef))
+                    {
+                        pawn.training.Train(trainableDef, null, true);
+                        pawn.training.SetWantedRecursive(trainableDef, true);
+                    }
+                }
             }
         }
 
