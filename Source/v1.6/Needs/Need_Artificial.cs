@@ -1,4 +1,6 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -155,12 +157,39 @@ namespace ArtificialBeings
             if (item != null)
             {
                 ABF_NeedFulfillerExtension needFulfiller = item.def.GetModExtension<ABF_NeedFulfillerExtension>();
-                int desiredCount = Mathf.Max(1, Mathf.FloorToInt((AmountDesired) / needFulfiller.needOffsetRelations[def]));
+                int desiredCount = Mathf.Max(1, Mathf.FloorToInt(AmountDesired / needFulfiller.needOffsetRelations[def]));
                 Job job = JobMaker.MakeJob(ABF_JobDefOf.ABF_Job_Artificial_FulfillNeed, item);
                 job.count = Mathf.Min(item.stackCount, desiredCount);
                 return job;
             }
             return null;
+        }
+
+        // This method is responsible for handling the pawn replenishing this need while in a caravan (if it should at all). Subclasses may desire to override this.
+        public virtual void TryReplenishNeedInCaravan(Caravan caravan)
+        {
+            List<ThingDef> fulfillingThingDefs = ABF_Utils.cachedArtificialNeedFulfillments[def];
+            if (fulfillingThingDefs != null && fulfillingThingDefs.Count > 0)
+            {
+                foreach (Thing thing in CaravanInventoryUtility.AllInventoryItems(caravan))
+                {
+                    if (fulfillingThingDefs.Contains(thing.def))
+                    {
+                        ABF_NeedFulfillerExtension needFulfiller = thing.def.GetModExtension<ABF_NeedFulfillerExtension>();
+                        float fulfillmentAmount = needFulfiller.needOffsetRelations[def];
+                        int consumptionCount = Mathf.Min(thing.stackCount, Mathf.Max(1, Mathf.FloorToInt(AmountDesired / fulfillmentAmount)));
+                        CurLevel += fulfillmentAmount * consumptionCount;
+                        if (thing.stackCount == consumptionCount)
+                        {
+                            thing.Destroy();
+                        }
+                        else
+                        {
+                            thing.stackCount -= consumptionCount;
+                        }
+                    }
+                }
+            }
         }
     }
 }
