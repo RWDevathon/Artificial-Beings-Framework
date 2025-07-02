@@ -107,7 +107,7 @@
 
     <!-- Collecting resources from artificial animals -->
     <WorkGiverDef>
-        <defName>Shear</defName>
+        <defName>ABF_WorkGiver_Artificial_CollectArtificialResources</defName>
         <label>collect resources from artificial animals</label>
         <giverClass>ArtificialBeings.WorkGiver_GatherAnimalBodyResources_Artificial</giverClass>
         <workType>Handling</workType>
