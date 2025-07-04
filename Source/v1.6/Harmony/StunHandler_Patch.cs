@@ -40,5 +40,21 @@ namespace ArtificialBeings
                 return organic && !ABF_Utils.cachedVulnerableToEMP.Contains(pawn.def);
             }
         }
+
+        // Artificial units that are vulnerable to EMP should be able to adapt to it to avoid being permanently stun-locked.
+        [HarmonyPatch(typeof(StunHandler), "CanAdaptToDamage")]
+        public class StunHandler_CanAdaptToDamage_Patch
+        {
+            [HarmonyPrefix]
+            public static bool Prefix(DamageDef def, ref bool __result, Thing ___parent)
+            {
+                if (def == DamageDefOf.EMP && ___parent is Pawn pawn && ABF_Utils.IsArtificial(pawn))
+                {
+                    __result = true;
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
