@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- If Biotech is active, allow Fabricor mechanoids to do artificer work. -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Biotech</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Mech_Fabricor"]/race/mechEnabledWorkTypes</xpath>
+            <order>Append</order>
+            <value>
+                <li>ABF_WorkType_Artificial_Artificer</li>
+            </value>
+        </match>
+    </Operation>
+
+</Patch>
