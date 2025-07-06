@@ -275,6 +275,18 @@ namespace ArtificialBeings
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            // Reprogrammable drone directives may desire to have their own Gizmo's to show.
+            if (State == ABF_ArtificialState.Reprogrammable)
+            {
+                foreach (Directive directive in directives)
+                {
+                    foreach (Gizmo gizmo in directive.GetGizmos())
+                    {
+                        yield return gizmo;
+                    }
+                }
+            }
+            // Dev mode commands. These may be removed in the future.
             if (DebugSettings.ShowDevGizmos && Pawn.RaceProps.intelligence == Intelligence.Humanlike)
             {
                 if (State != ABF_ArtificialState.Blank)
@@ -357,19 +369,6 @@ namespace ArtificialBeings
                 };
                 yield return forceReprogramming;
             }
-            if (DebugSettings.ShowDevGizmos)
-            {
-                Command_Action logState = new Command_Action
-                {
-                    defaultLabel = "DEV: Log Pawn States",
-                    action = delegate
-                    {
-                        ABF_Utils.LogStates();
-                    }
-                };
-                yield return logState;
-            }
-            yield break;
         }
 
         public override void PostExposeData()

@@ -1,4 +1,6 @@
-﻿using Verse;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Verse;
 
 namespace ArtificialBeings
 {
@@ -14,12 +16,12 @@ namespace ArtificialBeings
         {
         }
 
-        // Method for reacting to the Directive being added to a particular pawn.
+        // Method for reacting to the Directive being added to a pawn (such as being reprogrammed).
         public virtual void PostAdd()
         {
         }
 
-        // Method for reacting to the Directive being removed from a pawn (reprogrammed).
+        // Method for reacting to the Directive being removed from a pawn (such as being reprogrammed).
         public virtual void PostRemove()
         {
         }
@@ -50,6 +52,12 @@ namespace ArtificialBeings
         // Method for reacting to the host pawn despawning off a map. Must be able to handle null cases.
         public virtual void PostDespawn(Map map)
         {
+        }
+
+        // Method for showing Gizmo's when the host pawn is selected.
+        public virtual IEnumerable<Gizmo> GetGizmos()
+        {
+            return Enumerable.Empty<Gizmo>();
         }
 
         // This method saves fields for save files so that the information isn't lost when saving/loading.
