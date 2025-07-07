@@ -41,7 +41,7 @@ namespace ArtificialBeings
 
         private Vector2 scrollPosition;
 
-        private static readonly CachedTexture backgroundTexture = new CachedTexture("UI/Icons/Settings/DrawPocket");
+        private static readonly CachedTexture backgroundTexture = new CachedTexture("UI/Icons/Dialogs/DrawPocket");
 
         private static readonly Vector2 ButSize = new Vector2(150f, 38f);
 

@@ -41,7 +41,7 @@ namespace ArtificialBeings
 
         private Dictionary<string, string> summaryCachedText = new Dictionary<string, string>();
 
-        private static readonly CachedTexture backgroundTexture = new CachedTexture("UI/Icons/Settings/DrawPocket");
+        private static readonly CachedTexture backgroundTexture = new CachedTexture("UI/Icons/Dialogs/DrawPocket");
 
         private const float directiveBlockHeight = 80f;
 
