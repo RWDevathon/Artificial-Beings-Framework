@@ -118,7 +118,7 @@ namespace ArtificialBeings
             Rect summaryRect = new Rect(Margin, inRect.height - Text.LineHeight * 4.5f - Margin, inRect.width - CloseButSize.x - (5 * Margin), Text.LineHeight * 4.5f);
             DrawSummary(summaryRect);
             Rect closeButton = new Rect(inRect.width - CloseButSize.x - (3 * Margin), inRect.height - CloseButSize.y - Margin, CloseButSize.x, CloseButSize.y);
-            if (Widgets.ButtonText(closeButton, "OK".Translate()))
+            if (Widgets.ButtonText(closeButton, "OK".Translate()) && CanAccept())
             {
                 Accept();
             }
@@ -428,23 +428,12 @@ namespace ArtificialBeings
                 summaryCachedWidth = summaryRowText.width;
                 summaryCachedText.Clear();
             }
-            string effectDescription = ComplexityEffectDescAt(proposedComplexity, programComp.MaxComplexity);
-            Widgets.Label(summaryRowText, effectDescription.Truncate(summaryRowText.width, summaryCachedText));
+            if (proposedComplexity > programComp.MaxComplexity)
+            {
+                Widgets.Label(summaryRowText, "ABF_ComplexityEffectIllegal".TranslateSimple().Truncate(summaryRowText.width, summaryCachedText));
+            }
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.EndGroup();
-        }
-
-        private string ComplexityEffectDescAt(int complexity, int maxComplexity)
-        {
-            if (complexity <= programComp.BaselineComplexity && complexity < maxComplexity)
-            {
-                return "ABF_ComplexityEffectPositive".Translate();
-            }
-            else if (complexity <= maxComplexity)
-            {
-                return "ABF_ComplexityEffectNeutral".Translate();
-            }
-            return "ABF_ComplexityEffectNegative".Translate();
         }
 
         private string WorkTypeComplexityTooltip(WorkTypeDef workTypeDef, bool adding)
@@ -617,6 +606,16 @@ namespace ArtificialBeings
                 }
             }
             pawn.Notify_DisabledWorkTypesChanged();
+        }
+
+        private bool CanAccept()
+        {
+            if (programComp.MaxComplexity < ProposedComplexity)
+            {
+                Messages.Message("ABF_ComplexityLimitReached".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            return true;
         }
 
         protected void Accept()

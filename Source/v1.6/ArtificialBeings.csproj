@@ -286,7 +286,6 @@
     <Compile Include="Harmony\WorkGiver_PatientGoToBedTreatment_Patch.cs" />
     <Compile Include="Harmony\WorkGiver_Tend_Patch.cs" />
     <Compile Include="Hediffs\HediffGivers\HediffGiver_Leaking.cs" />
-    <Compile Include="Hediffs\Hediff_Complexity.cs" />
     <Compile Include="IngestionOutcomeDoers\IngestionOutcomeDoer_OffsetArtificialNeed.cs" />
     <Compile Include="ITabs\ITab_Programming.cs" />
     <Compile Include="JobDrivers\JobDriver_FulfillArtificialNeed.cs" />

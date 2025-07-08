@@ -14,8 +14,6 @@ namespace ArtificialBeings
 
         public static HediffDef ABF_Hediff_Artificial_Disabled;
 
-        public static HediffDef ABF_Hediff_Artificial_ComplexityRelation;
-
         [MayRequireSynstructsCore]
         public static HediffDef ABF_Hediff_Synstruct_RemainingCharge;
 

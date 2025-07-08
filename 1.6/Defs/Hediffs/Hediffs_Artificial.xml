@@ -68,18 +68,4 @@
         </stages>
     </HediffDef>
 
-    <HediffDef>
-        <defName>ABF_Hediff_Artificial_ComplexityRelation</defName>
-        <label>complexity strain</label>
-        <description>This unit is experiencing side-effects of their current level of programming relative to their maximum complexity handling capacity. If the drone is under their baseline capacity, they will receive minor boosts.</description>
-        <hediffClass>ArtificialBeings.Hediff_Complexity</hediffClass>
-        <initialSeverity>0</initialSeverity>
-        <minSeverity>-1</minSeverity>
-        <maxSeverity>10</maxSeverity>
-        <defaultLabelColor>(0.6, 0.6, 0.6)</defaultLabelColor>
-        <scenarioCanAdd>false</scenarioCanAdd>
-        <isBad>false</isBad>
-        <!-- The functionality of this Hediff is controlled by the Hediff_Complexity class alone -->
-    </HediffDef>
-
 </Defs>

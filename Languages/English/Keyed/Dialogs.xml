@@ -14,10 +14,12 @@
     <ABF_ComplexityDirectiveDesc>How much complexity this directive adds to the overall total.</ABF_ComplexityDirectiveDesc>
     <ABF_ComplexityEffects>Complexity effects</ABF_ComplexityEffects>
     <ABF_ComplexityEffectsDesc>The current effect the complexity will have on the pawn.</ABF_ComplexityEffectsDesc>
-    <ABF_ComplexityEffectPositive>Efficiency bonus</ABF_ComplexityEffectPositive>
-    <ABF_ComplexityEffectNeutral>Minimal effects</ABF_ComplexityEffectNeutral>
-    <ABF_ComplexityEffectNegative>Efficiency loss</ABF_ComplexityEffectNegative>
-    <ABF_ComplexityLimitExceeded>The {0} complexity limit has been exceeded with {1} total complexity. This will have severe adverse effects!</ABF_ComplexityLimitExceeded>
+    <ABF_ComplexityEffectPositive>Efficiency bonus</ABF_ComplexityEffectPositive> <!-- 1.5 Only -->
+    <ABF_ComplexityEffectNeutral>Minimal effects</ABF_ComplexityEffectNeutral> <!-- 1.5 Only -->
+    <ABF_ComplexityEffectNegative>Efficiency loss</ABF_ComplexityEffectNegative> <!-- 1.5 Only -->
+    <ABF_ComplexityEffectIllegal>Limit exceeded</ABF_ComplexityEffectIllegal> <!-- 1.6 -->
+    <ABF_ComplexityLimitExceeded>The {0} complexity limit has been exceeded with {1} total complexity. This will have severe adverse effects!</ABF_ComplexityLimitExceeded> <!-- 1.5 Only -->
+    <ABF_ComplexityLimitReached>Cannot exceed complexity limit</ABF_ComplexityLimitReached> <!-- 1.6 -->
     <ABF_BaselineComplexity>Baseline complexity</ABF_BaselineComplexity>
     <ABF_BaselineComplexityDesc>How much complexity this unit is able to handle without exceeding standard operating limits or without complexity offsetting.</ABF_BaselineComplexityDesc>
     <ABF_DirectiveSlots>Directive slots</ABF_DirectiveSlots>

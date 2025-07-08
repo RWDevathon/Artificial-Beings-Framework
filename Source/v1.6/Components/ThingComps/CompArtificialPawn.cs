@@ -63,11 +63,6 @@ namespace ArtificialBeings
                 if (state == ABF_ArtificialState.Reprogrammable)
                 {
                     ABF_Utils.Deprogram(Pawn);
-                    if (complexityHediff != null)
-                    {
-                        Pawn.health.RemoveHediff(complexityHediff);
-                        complexityHediff = null;
-                    }
                     enabledWorkTypes = null;
                     complexitySources = null;
                     // Remove all directives that should no longer exist, calling PostRemove on them as it goes.
@@ -108,13 +103,6 @@ namespace ArtificialBeings
                     directiveDefs = new List<DirectiveDef>();
                     ABF_Utils.Deprogram(Pawn);
                     RecalculateComplexity();
-
-                    if (complexityHediff == null)
-                    {
-                        complexityHediff = (Hediff_Complexity)HediffMaker.MakeHediff(ABF_HediffDefOf.ABF_Hediff_Artificial_ComplexityRelation, Pawn);
-                        Pawn.health.AddHediff(complexityHediff);
-                    }
-                    complexityHediff.UpdateHediffStage();
                 }
                 else if (value == ABF_ArtificialState.Blank)
                 {
@@ -166,8 +154,6 @@ namespace ArtificialBeings
         public List<WorkTypeDef> enabledWorkTypes;
 
         private List<DirectiveDef> directiveDefs;
-
-        private Hediff_Complexity complexityHediff;
 
         private int cachedComplexity = 0;
 
@@ -378,7 +364,6 @@ namespace ArtificialBeings
             Scribe_Collections.Look(ref enabledWorkTypes, "ABF_enabledWorkTypes", LookMode.Def);
             Scribe_Collections.Look(ref complexitySources, "ABF_complexitySources", LookMode.Value, LookMode.Value, ref sourceKey, ref sourceValue);
             Scribe_Collections.Look(ref directives, "ABF_activeDirectives", LookMode.Deep);
-            Scribe_References.Look(ref complexityHediff, "ABF_complexityHediff");
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 ABF_Utils.UpdateStateFor(Pawn, State);
@@ -581,7 +566,6 @@ namespace ArtificialBeings
             }
             cachedComplexity = Math.Max(0, sum);
             cachedMaxComplexity = (int)Pawn.GetStatValue(ABF_StatDefOf.ABF_Stat_Artificial_ComplexityLimit);
-            complexityHediff?.UpdateHediffStage();
         }
     }
 }
