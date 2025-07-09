@@ -60,6 +60,12 @@ namespace ArtificialBeings
             return Enumerable.Empty<Gizmo>();
         }
 
+        // Method for adding a string to the inspect panel when the host pawn is selected.
+        public virtual IEnumerable<string> GetCompInspectStrings()
+        {
+            return Enumerable.Empty<string>();
+        }
+
         // This method saves fields for save files so that the information isn't lost when saving/loading.
         // The pawn field gets filled in by the CompArtificialPawn on loading.
         public virtual void ExposeData()

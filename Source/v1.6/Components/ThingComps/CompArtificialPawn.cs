@@ -256,7 +256,20 @@ namespace ArtificialBeings
 
         public override string CompInspectStringExtra()
         {
-            return "ABF_CurrentPawnState".Translate(cachedStateTranslations[state]);
+            string result = "ABF_CurrentPawnState".Translate(cachedStateTranslations[state]);
+            if (State == ABF_ArtificialState.Reprogrammable)
+            {
+                List<string> directiveStrings = new List<string>();
+                foreach (Directive directive in directives)
+                {
+                    directiveStrings.AddRange(directive.GetCompInspectStrings());
+                }
+                if (directiveStrings.Count > 0)
+                {
+                    result = result + "\n" + string.Join("\n", directiveStrings);
+                }
+            }
+            return result;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()

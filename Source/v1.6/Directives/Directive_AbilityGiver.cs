@@ -7,7 +7,6 @@ namespace ArtificialBeings
     {
         public override void PostAdd()
         {
-            base.PostAdd();
             if (def.abilities.NullOrEmpty())
             {
                 return;
@@ -21,7 +20,6 @@ namespace ArtificialBeings
 
         public override void PostRemove()
         {
-            base.PostRemove();
             if (def.abilities.NullOrEmpty())
             {
                 return;
