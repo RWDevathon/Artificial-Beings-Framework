@@ -77,12 +77,10 @@ namespace ArtificialBeings
 
         public override void NeedInterval()
         {
-            if (IsFrozen)
+            if (!IsFrozen)
             {
-                return;
+                HandleTicks(NeedTunings.NeedUpdateInterval);
             }
-
-            HandleTicks(NeedTunings.NeedUpdateInterval);
 
             // If the need is depleted, and a hediff on empty is expected, then it should be updated. It won't update itself.
             if (NeedExtension.hediffToApplyOnEmpty != null)
