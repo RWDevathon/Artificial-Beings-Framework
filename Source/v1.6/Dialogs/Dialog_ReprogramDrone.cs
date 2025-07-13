@@ -25,6 +25,8 @@ namespace ArtificialBeings
 
         private List<SkillDef> skillDefs;
 
+        private List<WorkTypeDef> allWorkTypes;
+
         private int proposedWorkTypeComplexity;
 
         private float proposedSkillComplexity;
@@ -38,6 +40,9 @@ namespace ArtificialBeings
         private const float ButtonHeight = 30f;
 
         private float summaryCachedWidth = -1;
+
+        // Keep a cache of the work type extensions for each work type so we don't have to keep finding them. Null is an acceptable value.
+        private Dictionary<WorkTypeDef, ABF_WorkTypeExtension> cachedComplexityCostToChange;
 
         private Dictionary<string, string> summaryCachedText = new Dictionary<string, string>();
 
@@ -65,6 +70,7 @@ namespace ArtificialBeings
             forcePause = true;
             absorbInputAroundWindow = true;
             this.pawn = pawn;
+            allWorkTypes = DefDatabase<WorkTypeDef>.AllDefsListForReading;
             programComp = pawn.GetComp<CompArtificialPawn>();
             proposedDirectives = new List<DirectiveDef>();
             proposedDirectives.AddRange(programComp.ActiveDirectives);
@@ -174,33 +180,13 @@ namespace ArtificialBeings
                     if (!active)
                     {
                         programComp.enabledWorkTypes.Remove(workTypeDef);
-                        proposedWorkTypeComplexity -= ABF_Utils.ComplexityCostFor(workTypeDef, pawn, false);
-                        // If the disabled work type def would result in a skill becoming totally disabled, remove all assigned skill points for it to avoid a complexity "leak".
-                        if (workTypeDef.relevantSkills != null)
-                        {
-                            foreach (SkillDef oldEnabledSkillDef in workTypeDef.relevantSkills)
-                            {
-                                if (oldEnabledSkillDef.neverDisabledBasedOnWorkTypes || programComp.enabledWorkTypes.Any(workType => workType.relevantSkills.NotNullAndContains(oldEnabledSkillDef)))
-                                {
-                                    continue;
-                                }
-
-                                SkillRecord skillRecord = pawn.skills.GetSkill(oldEnabledSkillDef);
-                                DroneSkillContext skillContext = skillContexts[skillRecord];
-                                while (skillRecord.Level > skillContext.skillFloor)
-                                {
-                                    proposedSkillComplexity -= skillContext.skillComplexityCost;
-                                    skillContext.skillComplexityCost -= 0.5f;
-                                    skillRecord.Level--;
-                                }
-                            }
-                        }
+                        proposedWorkTypeComplexity -= cachedComplexityCostToChange[workTypeDef]?.baseComplexity ?? 2;
                         CheckLegalDirectives();
                     }
                     else
                     {
                         programComp.enabledWorkTypes.Add(workTypeDef);
-                        proposedWorkTypeComplexity += ABF_Utils.ComplexityCostFor(workTypeDef, pawn, true);
+                        proposedWorkTypeComplexity += cachedComplexityCostToChange[workTypeDef]?.baseComplexity ?? 2;
                         CheckLegalDirectives();
                     }
                     pawn.Notify_DisabledWorkTypesChanged();
@@ -447,60 +433,14 @@ namespace ArtificialBeings
             StringBuilder stringBuilder = new StringBuilder();
             if (adding)
             {
-                stringBuilder.AppendLine("ABF_WorkTypeComplexityHeaderTooltip".Translate("ABF_Adding".Translate().CapitalizeFirst(), "ABF_Cost".Translate(), ABF_Utils.ComplexityCostFor(workTypeDef, pawn, adding).ToString()));
+                stringBuilder.AppendLine("ABF_WorkTypeComplexityHeaderTooltip".Translate("ABF_Adding".Translate().CapitalizeFirst(), "ABF_Cost".Translate(), (cachedComplexityCostToChange[workTypeDef]?.baseComplexity ?? 2).ToString()));
             }
             else
             {
-                stringBuilder.AppendLine("ABF_WorkTypeComplexityHeaderTooltip".Translate("ABF_Removing".Translate().CapitalizeFirst(), "ABF_Refund".Translate(), ABF_Utils.ComplexityCostFor(workTypeDef, pawn, adding).ToString()));
+                stringBuilder.AppendLine("ABF_WorkTypeComplexityHeaderTooltip".Translate("ABF_Removing".Translate().CapitalizeFirst(), "ABF_Refund".Translate(), (cachedComplexityCostToChange[workTypeDef]?.baseComplexity ?? 2).ToString()));
             }
             stringBuilder.AppendLine();
-            stringBuilder.AppendLine("ABF_WorkTypeComplexityBaseTooltip".Translate(workTypeDef.labelShort.CapitalizeFirst(), workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity.ToStringWithSign() ?? "+1"));
-
-            int skillTypeComplexity = 0;
-            if (adding)
-            {
-                // The additional cost is only applied to skills that are currently disabled.
-                // It does not apply if another work type enabled it already.
-                foreach (SkillDef skillDef in workTypeDef.relevantSkills)
-                {
-                    if (pawn.skills.GetSkill(skillDef).TotallyDisabled)
-                    {
-                        skillTypeComplexity += 1;
-                    }
-                }
-            }
-            else
-            {
-                // In order to properly calculate the complexity cost reduction, the worker must take into account other enabled work types.
-                // It will only refund the additional complexity for skills that have 0 other work types enabling them.
-                List<WorkTypeDef> otherEnabledWorkTypes = new List<WorkTypeDef>();
-                foreach (WorkTypeDef enabledWorkTypeDef in programComp.enabledWorkTypes)
-                {
-                    if (enabledWorkTypeDef != workTypeDef)
-                    {
-                        otherEnabledWorkTypes.Add(enabledWorkTypeDef);
-                    }
-                }
-
-                // Refund all skills that would be disabled if the parent work type were removed. Account for skills that are never disabled and other work types.
-                foreach (SkillDef skillDef in workTypeDef.relevantSkills)
-                {
-                    if (!otherEnabledWorkTypes.Any(workType => workType.relevantSkills.NotNullAndContains(skillDef)))
-                    {
-                        skillTypeComplexity += 1;
-                    }
-                }
-            }
-
-            if (skillTypeComplexity != 0)
-            {
-                stringBuilder.AppendLine("ABF_WorkTypeComplexitySkillsTooltip".Translate(workTypeDef.labelShort.CapitalizeFirst(), skillTypeComplexity));
-                if (!adding)
-                {
-                    stringBuilder.AppendLine("ABF_WorkTypeComplexitySkillsUnusedTooltip".Translate());
-                }
-            }
-
+            stringBuilder.AppendLine("ABF_WorkTypeComplexityBaseTooltip".Translate(workTypeDef.labelShort.CapitalizeFirst(), workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity.ToStringWithSign() ?? "+2"));
             return stringBuilder.ToString();
         }
 
@@ -590,7 +530,8 @@ namespace ArtificialBeings
         private void CacheLocalAndAssignGlobalWorkTypes()
         {
             localWorkTypes = new List<WorkTypeDef>();
-            foreach (WorkTypeDef workTypeDef in DefDatabase<WorkTypeDef>.AllDefs.OrderByDescending(workTypeDef => workTypeDef.naturalPriority))
+            cachedComplexityCostToChange = new Dictionary<WorkTypeDef, ABF_WorkTypeExtension>();
+            foreach (WorkTypeDef workTypeDef in allWorkTypes.OrderByDescending(workTypeDef => workTypeDef.naturalPriority))
             {
                 if (workTypeDef.workTags == WorkTags.None && workTypeDef.relevantSkills.NullOrEmpty())
                 {
@@ -604,6 +545,7 @@ namespace ArtificialBeings
                 {
                     localWorkTypes.Add(workTypeDef);
                 }
+                cachedComplexityCostToChange[workTypeDef] = workTypeDef.GetModExtension<ABF_WorkTypeExtension>(); // Can be null.
             }
             pawn.Notify_DisabledWorkTypesChanged();
         }

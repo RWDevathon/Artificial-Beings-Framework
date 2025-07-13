@@ -38,7 +38,7 @@
     <ABF_Cost>cost</ABF_Cost> <!-- Cost/Refund used in {1} slot -->
     <ABF_Refund>refund</ABF_Refund>
     <ABF_WorkTypeComplexityBaseTooltip>{0} has a base complexity of {1}</ABF_WorkTypeComplexityBaseTooltip>
-    <ABF_WorkTypeComplexitySkillsTooltip>{0} enables skills for a complexity of {1}</ABF_WorkTypeComplexitySkillsTooltip>
-    <ABF_WorkTypeComplexitySkillsUnusedTooltip>- Removing a work type refunds all points in skills that would be disabled.</ABF_WorkTypeComplexitySkillsUnusedTooltip>
+    <ABF_WorkTypeComplexitySkillsTooltip>{0} enables skills for a complexity of {1}</ABF_WorkTypeComplexitySkillsTooltip> <!-- 1.5 only -->
+    <ABF_WorkTypeComplexitySkillsUnusedTooltip>- Removing a work type refunds all points in skills that would be disabled.</ABF_WorkTypeComplexitySkillsUnusedTooltip> <!-- 1.5 only -->
 
 </LanguageData>

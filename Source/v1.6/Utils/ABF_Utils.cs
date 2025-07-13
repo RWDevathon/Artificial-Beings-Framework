@@ -362,7 +362,7 @@ namespace ArtificialBeings
                     {
                         pawnComp.enabledWorkTypes.Add(workTypeDef);
 
-                        requiredWorkTypeComplexity += ComplexityCostFor(workTypeDef, pawn, true);
+                        requiredWorkTypeComplexity += workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2;
                     }
                 }
             }
@@ -589,7 +589,7 @@ namespace ArtificialBeings
                     if ((workTypeDef.workTags != WorkTags.None || !workTypeDef.relevantSkills.NullOrEmpty())
                         && !pawnExtension.forbiddenWorkTypes.NotNullAndContains(workTypeDef)
                         && (workExtension?.ValidFor(pawn).Accepted ?? true) && !pawnComp.enabledWorkTypes.Contains(workTypeDef)
-                        && discretionaryComplexity >= ComplexityCostFor(workTypeDef, pawn, true))
+                        && discretionaryComplexity >= (workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2))
                     {
                         legalWorkTypes.Add(workTypeDef);
                     }
@@ -599,7 +599,7 @@ namespace ArtificialBeings
                 while (legalWorkTypes.Count > 0 && discretionaryComplexity > 0 && discretionaryWorkTypes > 0)
                 {
                     legalWorkTypes.TryRandomElement(out WorkTypeDef result);
-                    int workTypeCost = ComplexityCostFor(result, pawn, true);
+                    int workTypeCost = result.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2;
                     if (workTypeCost > discretionaryComplexity)
                     {
                         legalWorkTypes.Remove(result);
@@ -659,87 +659,22 @@ namespace ArtificialBeings
             }
         }
 
-        // Some SkillDefs are disabled by WorkTags rather than by WorkTypes alone. We need to keep track of them here.
-        private static List<SkillDef> cachedSkillsDisabledByWorkTags = new List<SkillDef>();
-
         // For the given work type def, pawn, and whether it is adding or removing, determine the complexity that would be spent or refunded.
-        public static int ComplexityCostFor(WorkTypeDef workTypeDef, Pawn pawn, bool adding)
+        public static int ComplexityCostFor(WorkTypeDef workTypeDef)
         {
-            if (cachedSkillsDisabledByWorkTags == null)
+            return workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2;
+        }
+
+        // Complexity costs can be calculated very frequently. We do not always want to recalculate the cost each time its needed.
+        // Must be fully recached every time something changes, as work type costs can be changed by anything.
+        public static Dictionary<WorkTypeDef, int> GenerateWorkTypeComplexityCostCache(IEnumerable<WorkTypeDef> workTypeDefs, Pawn pawn)
+        {
+            Dictionary<WorkTypeDef, int> cachedComplexityCosts = new Dictionary<WorkTypeDef, int>();
+            foreach (WorkTypeDef workTypeDef in workTypeDefs)
             {
-                foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefs)
-                {
-                    if (skillDef.disablingWorkTags != WorkTags.None)
-                    {
-                        cachedSkillsDisabledByWorkTags.Add(skillDef);
-                    }
-                }
+                cachedComplexityCosts[workTypeDef] = workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2;
             }
-
-            int result = workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 1;
-            if (adding)
-            {
-                List<SkillDef> addedSkills = new List<SkillDef>();
-                // The additional cost is only applied to skills that are currently disabled.
-                // It does not apply if another work type enabled it already.
-                foreach (SkillDef skillDef in workTypeDef.relevantSkills)
-                {
-                    if (pawn.skills.GetSkill(skillDef).TotallyDisabled)
-                    {
-                        result += 1;
-                        addedSkills.Add(skillDef);
-                    }
-                }
-
-                // Some skills are disabled by WorkTags rather than by WorkTypes. Account for them.
-                // Only count skills that are disabled by a WorkTag this type has, but that no other work type directly has.
-                WorkTags workTags = workTypeDef.workTags;
-                foreach (SkillDef skillDef in cachedSkillsDisabledByWorkTags)
-                {
-                    if (pawn.skills.GetSkill(skillDef).TotallyDisabled && (skillDef.disablingWorkTags & workTags) != WorkTags.None && !addedSkills.Contains(skillDef)
-                        && !DefDatabase<WorkTypeDef>.AllDefsListForReading.Any(workType => workType.relevantSkills.NotNullAndContains(skillDef) && !skillDef.neverDisabledBasedOnWorkTypes))
-                    {
-                        result += 1;
-                    }
-                }
-            }
-            else
-            {
-                List<SkillDef> addedSkills = new List<SkillDef>();
-                // In order to properly calculate the complexity cost reduction, the worker must take into account other enabled work types.
-                // It will only refund the additional complexity for skills that have 0 other work types enabling them.
-                List<WorkTypeDef> otherEnabledWorkTypes = new List<WorkTypeDef>();
-                foreach (WorkTypeDef enabledWorkTypeDef in pawn.GetComp<CompArtificialPawn>().enabledWorkTypes)
-                {
-                    if (enabledWorkTypeDef != workTypeDef)
-                    {
-                        otherEnabledWorkTypes.Add(enabledWorkTypeDef);
-                    }
-                }
-
-                // Refund all skills that would be disabled if the parent work type were removed. Account for other work types.
-                foreach (SkillDef skillDef in workTypeDef.relevantSkills)
-                {
-                    if (!otherEnabledWorkTypes.Any(workType => workType.relevantSkills.NotNullAndContains(skillDef)) && !skillDef.neverDisabledBasedOnWorkTypes)
-                    {
-                        result += 1;
-                        addedSkills.Add(skillDef);
-                    }
-                }
-
-                // Some skills are disabled by WorkTags rather than by WorkTypes. Account for them.
-                // Only count skills that are disabled by a WorkTag this type has, but that no other work type directly has.
-                foreach (SkillDef skillDef in cachedSkillsDisabledByWorkTags)
-                {
-                    WorkTags workTags = skillDef.disablingWorkTags;
-                    if (!otherEnabledWorkTypes.Any(workType => (workType.workTags & workTags) != WorkTags.None) && !addedSkills.Contains(skillDef) && !pawn.skills.GetSkill(skillDef).TotallyDisabled
-                        && !otherEnabledWorkTypes.Any(workType => workType.relevantSkills.NotNullAndContains(skillDef)))
-                    {
-                        result += 1;
-                    }
-                }
-            }
-            return result;
+            return cachedComplexityCosts;
         }
 
         public static Thing GetNeedSatisfyingItem(Pawn pawn, NeedDef need)
