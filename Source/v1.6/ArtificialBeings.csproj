@@ -223,6 +223,7 @@
     <Compile Include="Extensions\PawnKindExtensions.cs" />
     <Compile Include="Extensions\ThingExtensions.cs" />
     <Compile Include="Extensions\WorkTypeExtensions.cs" />
+    <Compile Include="Harmony\CompPorcupine_Patch.cs" />
     <Compile Include="Harmony\PawnUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_TrainingTracker_Patch.cs" />
     <Compile Include="Harmony\CharacterCardUtillity_Patch.cs" />
