@@ -175,7 +175,6 @@
   <ItemGroup>
     <Compile Include="Alerts\Alert_NeedArtificer.cs" />
     <Compile Include="ChoiceLetters\ChoiceLetter_ReprogramDrone.cs" />
-    <Compile Include="Compatibility\ZombielandSupport.cs" />
     <Compile Include="Components\ABF_MapComponent.cs" />
     <Compile Include="Components\AbilityComps\CompProperties_AbilityGiveHediffsUserTarget.cs" />
     <Compile Include="Components\AbilityComps\CompAbilityEffect_GiveHediffsUserTarget.cs" />
@@ -302,7 +301,6 @@
     <Compile Include="Harmony\IncidentWorker_DiseaseAnimal_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_DiseaseHuman_Patch.cs" />
     <Compile Include="Harmony\MedicalCareUtility_Patch.cs" />
-    <Compile Include="Harmony\Need_Patch.cs" />
     <Compile Include="Harmony\PawnDiedOrDownedThoughtsUtility_Patch.cs" />
     <Compile Include="Harmony\PawnGenerator_Patch.cs" />
     <Compile Include="Harmony\Pawn_HealthTracker_Patch.cs" />

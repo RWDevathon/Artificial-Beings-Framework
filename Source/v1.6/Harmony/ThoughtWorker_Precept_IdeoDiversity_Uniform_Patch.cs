@@ -1,7 +1,10 @@
-﻿using Verse;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Reflection.Emit;
+using Verse;
+using static ArtificialBeings.ThoughtWorker_Precept_IdeoDiversity_Patch;
 
 namespace ArtificialBeings
 {
@@ -11,31 +14,30 @@ namespace ArtificialBeings
         [HarmonyPatch(typeof(ThoughtWorker_Precept_IdeoDiversity_Uniform), "ShouldHaveThought")]
         public class TW_Precept_IdeoUniform_ShouldHaveThought
         {
-            [HarmonyPrefix]
-            public static bool Listener(Pawn p, ref ThoughtState __result)
+            [HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
-                if (p.Faction == null || !p.IsColonist || ABF_Utils.IsArtificialDrone(p))
+                List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
+                MethodInfo targetProperty = AccessTools.PropertyGetter(typeof(RaceProperties), nameof(RaceProperties.Humanlike));
+
+                for (int i = 0; i < instructions.Count; i++)
                 {
-                    __result = false;
-                    return false;
-                }
-                List<Pawn> list = p.Map.mapPawns.SpawnedPawnsInFaction(p.Faction);
-                int num = 0;
-                foreach (Pawn pawn in p.Map.mapPawns.SpawnedPawnsInFaction(p.Faction))
-                {
-                    if (!pawn.IsQuestLodger() && pawn.RaceProps.Humanlike && !pawn.IsSlave && !pawn.IsPrisoner && !ABF_Utils.IsArtificialDrone(pawn))
+                    yield return instructions[i];
+                    if (instructions[i].Calls(targetProperty))
                     {
-                        if (pawn.Ideo != p.Ideo)
+                        // Duplicate the instructions to pull the target pawn (list[i] is a local variable, and i is also a local variable). We don't want the RaceProperties.
+                        for (int subI = i - 4; subI < i - 1; subI++)
                         {
-                            __result = false;
-                            return false;
+                            yield return instructions[subI];
                         }
-                        num++;
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ThoughtWorker_Precept_IdeoDiversity_ShouldHaveThought), nameof(SapientHumanlike))); // Our function call
                     }
                 }
+            }
 
-                __result = num > 0;
-                return false;
+            private static bool SapientHumanlike(bool humanlike, Pawn pawn)
+            {
+                return humanlike && !ABF_Utils.IsConsideredNonHumanlike(pawn);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace ArtificialBeings
 {
     public static class Need_Food_Patch
     {
-        // Reprogrammable drone directives may affect food need (energy) fall rate, which is handled separately from stats.
+        // Reprogrammable drone directives may affect food need fall rate, which is handled separately from stats.
         [HarmonyPatch(typeof(Need_Food), "FoodFallPerTickAssumingCategory")]
         public class FoodFallPerTickAssumingCategory_Patch
         {
