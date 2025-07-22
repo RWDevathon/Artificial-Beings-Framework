@@ -223,6 +223,7 @@
     <Compile Include="Extensions\ThingExtensions.cs" />
     <Compile Include="Extensions\WorkTypeExtensions.cs" />
     <Compile Include="Harmony\CompPorcupine_Patch.cs" />
+    <Compile Include="Harmony\RevenantUtility_Patch.cs" />
     <Compile Include="Harmony\PawnUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_TrainingTracker_Patch.cs" />
     <Compile Include="Harmony\CharacterCardUtillity_Patch.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Harmony\AnimalProductionUtility_Patch.cs" />
     <Compile Include="Harmony\MetalHorrorUtility_Patch.cs" />
     <Compile Include="Harmony\QualityUtility_Patch.cs" />
+    <Compile Include="Harmony\ThoughtWorker_Precept_IdeoDiversity_Social_Patch.cs" />
     <Compile Include="Harmony\TraderCaravanUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
     <Compile Include="Harmony\Pawn_StoryTracker_Patch.cs" />
