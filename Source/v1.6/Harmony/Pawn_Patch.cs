@@ -18,6 +18,7 @@ namespace ArtificialBeings
                 {
                     if (___cachedDisabledWorkTypes == null)
                     {
+                        // Do not cache work types while the pawn is being generated - the artificial comp is not initialized yet.
                         if (PawnGenerator.IsBeingGenerated(__instance))
                         {
                             return true;
