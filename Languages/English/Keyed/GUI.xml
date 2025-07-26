@@ -6,8 +6,10 @@
 	<ABF_EnergyNeed>Energy</ABF_EnergyNeed>
 	<ABF_EnergyNeedDesc>Energy is the amount of retained charge in the unit. If it is hits zero, the unit will enter an inefficient low-power mode. If charge is not restored, hardware will eventually critically malfunction, and the unit will cease functioning.</ABF_EnergyNeedDesc>
 
-    <!-- Tooltip displaying over a need. Inputs are the numerical amount consumed and the unit label for that need as determined by the need's def mod extension if one exists. -->
-    <ABF_ArtificialNeedFallRate>This creature currently consumes {0} {1} per day.</ABF_ArtificialNeedFallRate>
+    <!-- Tooltip displaying over a need. Inputs are the numerical amount consumed, the unit label for that need as determined by the need's def mod extension if one exists, and "per day" or "per year". -->
+    <ABF_ArtificialNeedFallRate>This creature currently consumes {0} {1} {2}.</ABF_ArtificialNeedFallRate>
+    <ABF_PerDay>per day</ABF_PerDay>
+    <ABF_PerYear>per year</ABF_PerYear>
 
     <!-- Health Tab -->
     <ABF_HoursToFailure>critical in {0}</ABF_HoursToFailure>

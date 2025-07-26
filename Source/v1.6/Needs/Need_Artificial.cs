@@ -126,7 +126,7 @@ namespace ArtificialBeings
 
         public override string GetTipString()
         {
-            return (LabelCap + ": " + CurLevelPercentage.ToStringPercent()).Colorize(ColoredText.TipSectionTitleColor) + " (" + CurLevel.ToString("0.##") + " / " + MaxLevel.ToString("0.##") + ")\n" + def.description + "\n\n" + "ABF_ArtificialNeedFallRate".Translate(FallRatePerDay.ToString("0.##"), NeedExtension?.unitsLabel).Resolve();
+            return (LabelCap + ": " + CurLevelPercentage.ToStringPercent()).Colorize(ColoredText.TipSectionTitleColor) + " (" + CurLevel.ToString("0.##") + " / " + MaxLevel.ToString("0.##") + ")\n" + def.description + "\n\n" + "ABF_ArtificialNeedFallRate".Translate((FallRatePerDay * (NeedDetails?.displayFallRateAsPerYear == true ? 60f : 1f)).ToString("0.##"), NeedExtension?.unitsLabel, NeedDetails?.displayFallRateAsPerYear == true ? "ABF_PerYear".Translate() : "ABF_PerDay".Translate()).Resolve();
         }
 
         // This method should be where all handling of the level changing should be done.
