@@ -377,6 +377,12 @@ namespace ArtificialBeings
             Scribe_Collections.Look(ref enabledWorkTypes, "ABF_enabledWorkTypes", LookMode.Def);
             Scribe_Collections.Look(ref complexitySources, "ABF_complexitySources", LookMode.Value, LookMode.Value, ref sourceKey, ref sourceValue);
             Scribe_Collections.Look(ref directives, "ABF_activeDirectives", LookMode.Deep);
+            // Needs to explicitly set state as soon as possible in loading phase so that work settings check disabled types AFTER state is set for reprogrammable drones.
+            // Not doing this results in loss of configured work settings for reprogrammable drones.
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                ABF_Utils.UpdateStateFor(Pawn, State);
+            }
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 ABF_Utils.UpdateStateFor(Pawn, State);
