@@ -234,6 +234,8 @@
     <Compile Include="Harmony\AnimalProductionUtility_Patch.cs" />
     <Compile Include="Harmony\MetalHorrorUtility_Patch.cs" />
     <Compile Include="Harmony\QualityUtility_Patch.cs" />
+    <Compile Include="Harmony\ThoughtWorker_Precept_Scarification_Social_Patch.cs" />
+    <Compile Include="Harmony\ThoughtWorker_Precept_Scarification_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_IdeoDiversity_Social_Patch.cs" />
     <Compile Include="Harmony\TraderCaravanUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
