@@ -224,6 +224,7 @@
     <Compile Include="Extensions\WorkTypeExtensions.cs" />
     <Compile Include="Harmony\CompPorcupine_Patch.cs" />
     <Compile Include="Harmony\GatheringsUtility_Patch.cs" />
+    <Compile Include="Harmony\ImmunityHandler_Patch.cs" />
     <Compile Include="Harmony\RevenantUtility_Patch.cs" />
     <Compile Include="Harmony\PawnUtility_Patch.cs" />
     <Compile Include="Harmony\Pawn_TrainingTracker_Patch.cs" />
@@ -303,8 +304,6 @@
     <Compile Include="Harmony\Alert_ColonistLeftUnburied_Patch.cs" />
     <Compile Include="Harmony\Corpse_Patch.cs" />
     <Compile Include="Harmony\HealthAIUtility_Patch.cs" />
-    <Compile Include="Harmony\IncidentWorker_DiseaseAnimal_Patch.cs" />
-    <Compile Include="Harmony\IncidentWorker_DiseaseHuman_Patch.cs" />
     <Compile Include="Harmony\MedicalCareUtility_Patch.cs" />
     <Compile Include="Harmony\PawnDiedOrDownedThoughtsUtility_Patch.cs" />
     <Compile Include="Harmony\PawnGenerator_Patch.cs" />
