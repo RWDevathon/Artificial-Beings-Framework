@@ -46,7 +46,12 @@ namespace ArtificialBeings
         // Bool for whether drones can have traits.
         public bool dronesCanHaveTraits = false;
 
+        // Bool for the range of qualities that drones can produce when constructing, crafting, or making anything else that involves quality.
         public QualityRange droneQualityRange = QualityRange.All;
+
+        // List of PreceptDefs that drones can participate in for the purposes of rituals. This does nothing for non-ritual precepts.
+        // This must be used carefully, as many rituals will have mood effects or other outcomes that may throw errors for drones!
+        public List<PreceptDef> allowedDroneRitualParticipation;
 
         /* Drone specific */
 
