@@ -53,6 +53,10 @@ namespace ArtificialBeings
         // This must be used carefully, as many rituals will have mood effects or other outcomes that may throw errors for drones!
         public List<PreceptDef> allowedDroneRitualParticipation;
 
+        // List of PsychicRitualRoleDefs that drones can take as part of psychic rituals. This does nothing for non-psychic rituals.
+        // This must be used carefully, as many rituals will have mood effects or other outcomes that may throw errors for drones!
+        public List<PsychicRitualRoleDef> allowedDronePsychicRitualParticipation;
+
         /* Drone specific */
 
         // Int for the stat levels of this race when set as a non-reprogrammable drone. This does nothing if the race is not considered drones.
