@@ -77,7 +77,7 @@ namespace ArtificialBeings
                     {
                         yield return new Widgets.DropdownMenuElement<MedicalCareCategory>
                         {
-                            option = new FloatMenuOption(category.GetLabel(), delegate
+                            option = new FloatMenuOption(category.GetLabel().CapitalizeFirst(), delegate
                             {
                                 p.playerSettings.medCare = category;
                             }, icon, Color.white),
