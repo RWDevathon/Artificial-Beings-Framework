@@ -222,7 +222,7 @@
     <Compile Include="Extensions\PawnKindExtensions.cs" />
     <Compile Include="Extensions\ThingExtensions.cs" />
     <Compile Include="Extensions\WorkTypeExtensions.cs" />
-    <Compile Include="Harmony\CompPorcupine_Patch.cs" />
+    <Compile Include="Harmony\Hediff_PorcupineQuill_Patch.cs" />
     <Compile Include="Harmony\GatheringsUtility_Patch.cs" />
     <Compile Include="Harmony\ImmunityHandler_Patch.cs" />
     <Compile Include="Harmony\RevenantUtility_Patch.cs" />
