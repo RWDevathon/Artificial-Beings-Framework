@@ -8,14 +8,14 @@ namespace ArtificialBeings
     public class Recipe_RestorePart : Recipe_Surgery
     {
         // This surgery may be done on any missing part, and on damaged or defective part if the restore extension doesn't forbid it. Get the list of them and return it.
-        // No reason to apply this to a part that has its parent missing or damaged. Restoring the parent would restore this part. IE. Why restore a finger when you can restore the hand?
+        // No reason to apply this to a part that has its parent missing, damaged, or is an added part. Restoring the parent would restore this part. IE. Why restore a finger when you can restore the hand?
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
         {
             if (recipe.GetModExtension<ABF_RestorePartExtension>()?.missingPartsOnly == true)
             {
                 foreach (BodyPartRecord part in pawn.def.race.body.AllParts)
                 {
-                    if (pawn.health.hediffSet.PartIsMissing(part) && !pawn.health.hediffSet.PartIsMissing(part.parent))
+                    if (pawn.health.hediffSet.PartIsMissing(part) && !pawn.health.hediffSet.PartIsMissing(part.parent) && !pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part))
                     {
                         yield return part;
                     }
@@ -25,7 +25,7 @@ namespace ArtificialBeings
             {
                 foreach (BodyPartRecord part in GetMissingOrDamagedParts(pawn))
                 {
-                    if (!pawn.health.hediffSet.PartIsMissing(part.parent))
+                    if (!pawn.health.hediffSet.PartIsMissing(part.parent) && !pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part))
                     {
                         yield return part;
                     }
