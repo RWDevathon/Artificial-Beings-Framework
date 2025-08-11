@@ -185,8 +185,13 @@ namespace ArtificialBeings
                 {
                     if (pawn.training.CanBeTrained(trainableDef))
                     {
-                        pawn.training.Train(trainableDef, null, true);
-                        pawn.training.SetWantedRecursive(trainableDef, true);
+                        // These are checked in the wrong method in vanilla, so we have to manually check them ourselves here.
+                        if ((trainableDef.tags == null || !trainableDef.tags.Any(tag => pawn.RaceProps.untrainableTags.NotNullAndContains(tag)))
+                            && (!trainableDef.specialTrainable || pawn.RaceProps.specialTrainables.NotNullAndContains(trainableDef)))
+                        {
+                            pawn.training.Train(trainableDef, null, true);
+                            pawn.training.SetWantedRecursive(trainableDef, true);
+                        }
                     }
                 }
             }
