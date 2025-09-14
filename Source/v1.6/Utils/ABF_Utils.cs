@@ -337,6 +337,7 @@ namespace ArtificialBeings
         public static void SetRequiredDroneWorkTypes(Pawn pawn, PawnGroupMakerParms context = null)
         {
             ABF_ArtificialPawnExtension pawnExtension = pawn.def.GetModExtension<ABF_ArtificialPawnExtension>();
+            ABF_ArtificialPawnKindExtension pawnKindExtension = pawn.kindDef.GetModExtension<ABF_ArtificialPawnKindExtension>();
             CompArtificialPawn pawnComp = pawn.GetComp<CompArtificialPawn>();
             PawnKindDef pawnKindDef = pawn.kindDef;
 
@@ -372,8 +373,18 @@ namespace ArtificialBeings
                 }
             }
 
+            if (pawnKindExtension?.requiredWorkTypes.NullOrEmpty() == false)
+            {
+                foreach (WorkTypeDef workTypeDef in pawnKindExtension.requiredWorkTypes)
+                {
+                    pawnComp.enabledWorkTypes.Add(workTypeDef);
+
+                    requiredWorkTypeComplexity += workTypeDef.GetModExtension<ABF_WorkTypeExtension>()?.baseComplexity ?? 2;
+                }
+            }
+
             // Ensure the pawn has all combat work types enabled if it must be a fighter. They get these work types for free.
-            if (context != null && context.raidStrategy != null)
+            if (context != null && context.raidStrategy != null && pawnKindDef.isFighter)
             {
                 foreach (WorkTypeDef combatWorkTypeDef in combatWorkTypes)
                 {
