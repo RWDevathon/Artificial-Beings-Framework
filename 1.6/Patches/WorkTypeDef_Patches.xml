@@ -11,7 +11,7 @@
 
     <!-- Basic work types with skills. -->
     <Operation Class="PatchOperationAddModExtension">
-        <xpath>Defs/WorkTypeDef[defName="Handling" or defName="Cooking" or defName="Hunting" or defName="Construction" or defName="Growing" or defName="Mining" or defName="PlantCutting" or defName="Crafting"]</xpath>
+        <xpath>Defs/WorkTypeDef[defName="Handling" or defName="Cooking" or defName="Hunting" or defName="Fishing" or defName="Construction" or defName="Growing" or defName="Mining" or defName="PlantCutting" or defName="Crafting"]</xpath>
         <value>
             <li Class="ArtificialBeings.ABF_WorkTypeExtension">
                 <baseComplexity>2</baseComplexity>
@@ -55,7 +55,7 @@
 
     <!-- Creative work types have high complexity and high minimum requirements -->
     <Operation Class="PatchOperationAddModExtension">
-        <xpath>Defs/WorkTypeDef[defName="Art" or defName="Research"]</xpath>
+        <xpath>Defs/WorkTypeDef[defName="Art" or defName="Research" or defName="DarkStudy"]</xpath>
         <value>
             <li Class="ArtificialBeings.ABF_WorkTypeExtension">
                 <baseComplexity>6</baseComplexity>
