@@ -16,10 +16,6 @@ namespace ArtificialBeings
         // Reprogram the drone.
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            if (recipe.addsHediff != null)
-            {
-                pawn.health.AddHediff(recipe.addsHediff, part);
-            }
             // Non-player pawns have foreign programming that may result in failure.
             if (pawn.Faction != Faction.OfPlayer)
             {
@@ -31,6 +27,7 @@ namespace ArtificialBeings
                         pawn
                     });
                     pawn.SetFaction(Faction.OfPlayer, null);
+                    pawn.health.AddHediff(ABF_HediffDefOf.ABF_Hediff_Artificial_Incapacitated);
                     Find.LetterStack.ReceiveLetter("ABF_ReprogramSuccess".Translate(), "ABF_ReprogramSuccessDesc".Translate(pawn.Name.ToStringShort), LetterDefOf.PositiveEvent, pawn, null);
                 }
                 else
