@@ -16,14 +16,13 @@ namespace ArtificialBeings
             [HarmonyPostfix]
             public static void Listener(PawnGroupMakerParms parms, bool warnOnZeroResults, ref IEnumerable<Pawn> __result)
             {
-                List<Pawn> modifiedResults = new List<Pawn>();
-                foreach (Pawn member in __result)
+                List<Pawn> modifiedResults = __result.ToList();
+                foreach (Pawn member in modifiedResults)
                 {
                     if (ABF_Utils.IsProgrammableDrone(member))
                     {
                         ABF_Utils.RandomizeProgrammableDrone(member, parms);
                     }
-                    modifiedResults.Append(member);
                 }
                 __result = modifiedResults;
             }
